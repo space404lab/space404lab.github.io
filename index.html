@@ -96,7 +96,7 @@
   /* Контент поверх */
   .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
   /* Параллакс свет */
@@ -131,6 +131,7 @@
     rgba(2, 6, 23, 1)     /* цвет должен совпасть с тоном bg-secondary */
   );
   z-index: 2;             /* поверх фото, но под контентом */
+    pointer-events: none; /* ← добавить */
 }
 
 .bg-secondary {
