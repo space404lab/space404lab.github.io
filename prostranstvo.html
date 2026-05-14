@@ -24,7 +24,6 @@
     .glow-text { text-shadow: 0 0 5px #22d3ee, 0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 40px #06b6d4; }
     .glow-btn  { box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee; }
 
-    /* ── Header ── */
     header {
       position: sticky; top: 0; z-index: 50;
       background: rgba(2,6,23,0.88);
@@ -32,7 +31,6 @@
       border-bottom: 0.5px solid var(--border);
     }
 
-    /* ── Hero ── */
     .hero {
       height: 100vh;
       display: flex; flex-direction: column; justify-content: flex-end;
@@ -41,18 +39,11 @@
       overflow: hidden;
       background: url('phero.jpg') center/cover no-repeat;
     }
-    /* Затемнение снизу для читаемости текста */
     .hero::before {
       content: "";
       position: absolute; inset: 0; z-index: 0;
-      background:
-        linear-gradient(to bottom,
-          rgba(2,6,23,0.15) 0%,
-          rgba(2,6,23,0.1) 40%,
-          rgba(2,6,23,0.6) 70%,
-          rgba(2,6,23,0.92) 100%);
+      background: linear-gradient(to bottom, rgba(2,6,23,0.15) 0%, rgba(2,6,23,0.1) 40%, rgba(2,6,23,0.6) 70%, rgba(2,6,23,0.92) 100%);
     }
-    /* Fade в следующую секцию */
     .hero::after {
       content: "";
       position: absolute; bottom: 0; left: 0; right: 0;
@@ -60,21 +51,16 @@
       background: linear-gradient(to bottom, transparent, #020617);
       pointer-events: none;
     }
-    /* Сетка-фон поверх фото */
     .hero-grid {
       position: absolute; inset: 0; z-index: 1;
-      background-image:
-        linear-gradient(rgba(34,211,238,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,211,238,0.018) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(34,211,238,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.018) 1px, transparent 1px);
       background-size: 72px 72px;
     }
-
     .hero-content { position: relative; z-index: 2; max-width: 780px; }
-
 
     .hero-eyebrow {
       font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--cyan); opacity: 0.6; margin-bottom: 28px;
+      color: var(--cyan); margin-bottom: 28px;
       display: flex; align-items: center; gap: 12px;
       opacity: 0; animation: fadeUp 0.9s ease forwards 0.1s;
     }
@@ -94,8 +80,8 @@
       display: inline-block;
       margin-top: 36px;
       font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--cyan); opacity: 0.45;
-      opacity: 0; animation: fadeUp 0.9s ease forwards 0.55s;
+      color: var(--cyan); opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.55s;
     }
 
     @keyframes fadeUp {
@@ -103,7 +89,6 @@
       to   { opacity:1; transform:translateY(0); }
     }
 
-    /* ── Секционный разделитель ── */
     .section-num {
       font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--cyan); opacity: 0.4; margin-bottom: 20px;
@@ -111,14 +96,15 @@
     }
     .section-num::after { content:""; flex:1; height:0.5px; background:rgba(34,211,238,0.5); }
 
-    /* ── Reveal ── */
     .reveal { opacity:0; transform:translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
 
-    /* ── Атмосфера (горизонтальный скролл карточек) ── */
-    .feel-section {      padding: 100px 48px;
-      border-top: 0.5px solid var(--border)}
-    .feel-header {max-width: 960px; margin: 0 auto; }
+    /* ── 01 Зоны ── */
+    .feel-section {
+      padding: 100px 48px;
+      border-top: 0.5px solid var(--border);
+    }
+    .feel-header { max-width: 960px; margin: 0 auto; }
     .feel-track {
       display: flex; gap: 16px;
       padding: 0 48px 24px;
@@ -171,19 +157,15 @@
       padding: 0 48px; text-transform: uppercase; margin-top: 8px;
       user-select: none;
     }
-    .feel-scroll-hint::after {
-      content:""; flex:1; height:0.5px; background: rgba(255,255,255,0.04);
-    }
+    .feel-scroll-hint::after { content:""; flex:1; height:0.5px; background: rgba(255,255,255,0.04); }
 
-    /* ── Пейзаж — ощущение места ── */
+    /* ── 02 Пейзаж ── */
     .landscape-section {
       padding: 100px 48px;
       border-top: 0.5px solid var(--border);
     }
     .landscape-inner { max-width: 960px; margin: 0 auto; }
-    .landscape-layout {
-      display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center;
-    }
+    .landscape-layout { display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center; }
     .section-title {
       font-size: clamp(28px, 3.5vw, 46px); font-weight: 300;
       line-height: 1.2; color: var(--text); margin-bottom: 36px;
@@ -193,7 +175,7 @@
     .body-text p { margin-bottom: 16px; }
     .body-text p:last-child { margin-bottom: 0; }
 
-    /* ── Ритм дня ── */
+    /* ── 03 Ритм ── */
     .rhythm-section {
       padding: 100px 48px;
       border-top: 0.5px solid var(--border);
@@ -208,7 +190,6 @@
     }
     .rhythm-item {
       display: grid; grid-template-columns: 90px 1fr;
-      gap: 0;
       border-bottom: 0.5px solid rgba(255,255,255,0.04);
       transition: background 0.2s;
     }
@@ -221,252 +202,103 @@
       border-right: 0.5px solid rgba(255,255,255,0.04);
       display: flex; align-items: center;
     }
-    .rhythm-text {
-      padding: 22px 28px;
-      font-size: 14px; color: #94a3b8; line-height: 1.6;
-    }
+    .rhythm-text { padding: 22px 28px; font-size: 14px; color: #94a3b8; line-height: 1.6; }
     .rhythm-text strong { color: var(--text); font-weight: 400; }
-    .rhythm-note {
-      margin-top: 24px; font-size: 13px; color: #334155;
-      text-align: center; line-height: 1.6;
-    }
+    .rhythm-note { margin-top: 24px; font-size: 13px; color: #334155; text-align: center; line-height: 1.6; }
 
-       /* ─── CTA ─── */
+    /* ── CTA ── */
     .cta-section {
       padding: 80px 40px 100px;
       text-align: center;
       border-top: 0.5px solid rgba(255,255,255,0.05);
     }
     .cta-section p {
-      font-size: clamp(18px, 2.5vw, 28px);
-      font-weight: 300;
-      color: #e8e4dc;
-      opacity: 0.6;
-      line-height: 1.6;
-      margin-bottom: 12px;
+      font-size: clamp(18px, 2.5vw, 28px); font-weight: 300;
+      color: #e8e4dc; opacity: 0.6; line-height: 1.6; margin-bottom: 12px;
     }
     .cta-section p:last-of-type { margin-bottom: 48px; opacity: 0.3; }
-    .btn-cta {
-      border: 0.5px solid #22d3ee;
-      color: #22d3ee;
-      padding: 16px 40px;
-      border-radius: 99px;
-      font-size: 14px;
-      background: none;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s, color 0.2s;
-      box-shadow: 0 0 16px rgba(34,211,238,0.2);
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-cta:hover {
-      background: #22d3ee;
-      color: #020617;
-      box-shadow: 0 0 28px rgba(34,211,238,0.45);
-    }
 
-    /* ── Природа SVG-сцена ── */
+    /* ── Модальная форма ── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(2,6,23,0.82);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: #0f172a;
+      border: 0.5px solid rgba(34,211,238,0.22);
+      border-radius: 20px;
+      width: 100%; max-width: 460px; max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(16px); transition: transform 0.25s;
+      scrollbar-width: none;
+    }
+    .modal-box::-webkit-scrollbar { display: none; }
+    .modal-overlay.active .modal-box { transform: translateY(0); }
+    .form-modal-head {
+      background: #000; padding: 28px 28px 22px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+      position: sticky; top: 0; z-index: 2;
+    }
+    .form-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #475569; margin-bottom: 10px; }
+    .form-heading { font-size: 22px; font-weight: 300; color: #f1f5f9; line-height: 1.3; }
+    .form-body { padding: 24px 28px 28px; }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 0.5px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04); color: #64748b; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+    }
+    .field-gap { margin-bottom: 14px; }
+    .f-label { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #475569; margin-bottom: 7px; }
+    .f-input, .f-textarea {
+      width: 100%; background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(34,211,238,0.15); border-radius: 8px;
+      padding: 13px 15px; font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 300; color: #f1f5f9; outline: none;
+    }
+    .f-input::placeholder, .f-textarea::placeholder { color: #334155; }
+    .f-textarea { resize: none; height: 80px; line-height: 1.6; }
+    .f-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+    .f-submit {
+      width: 100%; background: #22d3ee; color: #020617;
+      border: none; border-radius: 99px; padding: 15px 24px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      cursor: pointer; box-shadow: 0 0 16px rgba(34,211,238,0.35);
+    }
+    .f-status { margin-top: 12px; font-size: 13px; text-align: center; min-height: 18px; }
+    .f-status.success { color: #4ade80; }
+    .f-status.error { color: #f87171; }
+    .f-note { margin-top: 14px; font-size: 11px; color: #334155; text-align: center; line-height: 1.5; }
+
+    /* ── Адаптив ── */
     @media (max-width: 900px) {
       .landscape-layout { grid-template-columns: 1fr; gap: 40px; }
       .hero { padding: 0 24px 64px; }
       .hero-svg-wrap { display: none; }
-      .feel-card { flex: 0 0 270px; }
-      .landscape-section, .rhythm-section, .feel-header { padding-left: 24px; padding-right: 24px; }
-      .feel-track, .feel-scroll-hint { padding-left: 24px; padding-right: 24px; }
+      .landscape-section, .rhythm-section { padding-left: 24px; padding-right: 24px; }
+
+      /* Секция 01: вертикальная раскладка карточек вместо горизонтального скролла */
+      .feel-section { padding-left: 24px; padding-right: 24px; }
+      .feel-header { padding: 0; }
+      .feel-track {
+        flex-direction: column;
+        overflow-x: visible;
+        padding: 24px 0 0;
+        cursor: default;
+        gap: 12px;
+      }
+      .feel-track.grabbing { cursor: default; }
+      .feel-card { flex: 0 0 auto; width: 100%; }
+      .feel-scroll-hint { display: none; }
     }
-/* ── Форма-попап ── */
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(2,6,23,0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 100;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 16px;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal-box {
-  background: #0f172a;
-  border: 0.5px solid rgba(34,211,238,0.22);
-  border-radius: 20px;
-
-  width: 100%;
-  max-width: 460px;
-
-  max-height: 90vh;
-  overflow-y: auto;
-
-  transform: translateY(16px);
-  transition: transform 0.25s;
-
-  scrollbar-width: none;
-}
-
-.modal-box::-webkit-scrollbar {
-  display: none;
-}
-
-.modal-overlay.active .modal-box {
-  transform: translateY(0);
-}
-
-.form-modal-head {
-  background: #000;
-  padding: 28px 28px 22px;
-  border-bottom: 0.5px solid rgba(255,255,255,0.06);
-
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.form-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #475569;
-  margin-bottom: 10px;
-}
-
-.form-heading {
-  font-size: 22px;
-  font-weight: 300;
-  color: #f1f5f9;
-  line-height: 1.3;
-}
-
-.form-body {
-  padding: 24px 28px 28px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
-  width: 30px;
-  height: 30px;
-
-  border-radius: 50%;
-  border: 0.5px solid rgba(255,255,255,0.14);
-
-  background: rgba(255,255,255,0.04);
-
-  color: #64748b;
-  font-size: 14px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-}
-
-.field-gap {
-  margin-bottom: 14px;
-}
-
-.f-label {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #475569;
-  margin-bottom: 7px;
-}
-
-.f-input,
-.f-textarea {
-  width: 100%;
-  background: rgba(255,255,255,0.04);
-
-  border: 0.5px solid rgba(34,211,238,0.15);
-  border-radius: 8px;
-
-  padding: 13px 15px;
-
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-
-  color: #f1f5f9;
-  outline: none;
-}
-
-.f-input::placeholder,
-.f-textarea::placeholder {
-  color: #334155;
-}
-
-.f-textarea {
-  resize: none;
-  height: 80px;
-  line-height: 1.6;
-}
-
-.f-divider {
-  height: 0.5px;
-  background: rgba(255,255,255,0.06);
-  margin: 20px 0;
-}
-
-.f-submit {
-  width: 100%;
-  background: #22d3ee;
-  color: #020617;
-
-  border: none;
-  border-radius: 99px;
-
-  padding: 15px 24px;
-
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  box-shadow: 0 0 16px rgba(34,211,238,0.35);
-}
-
-.f-status {
-  margin-top: 12px;
-  font-size: 13px;
-  text-align: center;
-  min-height: 18px;
-}
-
-.f-status.success {
-  color: #4ade80;
-}
-
-.f-status.error {
-  color: #f87171;
-}
-
-.f-note {
-  margin-top: 14px;
-  font-size: 11px;
-  color: #334155;
-  text-align: center;
-  line-height: 1.5;
-}
   </style>
 </head>
 <body>
@@ -516,26 +348,18 @@
     menu.querySelectorAll('a').forEach(el => el.addEventListener('click', () => menu.style.display = 'none'));
   </script>
 
-  <!-- ══════════ HERO ══════════ -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-grid"></div>
-
     <div class="hero-content">
       <div class="hero-eyebrow">Пространство</div>
-      <h1 class="hero-h1">
-        Место, где<br>
-        время течёт<br>
-        <em>иначе</em>
-      </h1>
-      <p class="hero-desc">
-        Сосны. Гранитные скалы. Озеро. <br>Тишина, которую можно услышать.<br>
-        Место, куда не нужно ничего везти, кроме себя.
-      </p>
-     <span class="hero-tag">Ленинградская область · Приозерский район</span>
-     </div>
+      <h1 class="hero-h1">Место, где<br>время течёт<br><em>иначе</em></h1>
+      <p class="hero-desc">Сосны. Гранитные скалы. Озеро. <br>Тишина, которую можно услышать.<br>Место, куда не нужно ничего везти, кроме себя.</p>
+      <span class="hero-tag">Ленинградская область · Приозерский район</span>
+    </div>
   </section>
 
-  <!-- ══════════ 01 — ЗОНЫ / АТМОСФЕРА ══════════ -->
+  <!-- 01 — ЗОНЫ -->
   <section class="feel-section reveal">
     <div class="feel-header">
       <div class="section-num">01 &nbsp;/&nbsp; Зоны пространства</div>
@@ -543,8 +367,6 @@
     </div>
 
     <div class="feel-track" id="feelTrack">
-
-      <!-- Своя комната -->
       <div class="feel-card">
         <span class="feel-icon">🛏</span>
         <div class="feel-title">Своя комната</div>
@@ -558,7 +380,6 @@
         </ul>
       </div>
 
-      <!-- Общая гостиная -->
       <div class="feel-card">
         <span class="feel-icon">🪵</span>
         <div class="feel-title">Общий дом</div>
@@ -572,7 +393,6 @@
         </ul>
       </div>
 
-      <!-- Природа -->
       <div class="feel-card">
         <span class="feel-icon">🌲</span>
         <div class="feel-title">Снаружи</div>
@@ -586,8 +406,6 @@
         </ul>
       </div>
 
-
-      <!-- Тишина -->
       <div class="feel-card">
         <span class="feel-icon">🌑</span>
         <div class="feel-title">Тишина</div>
@@ -600,14 +418,12 @@
           <li>Темнота ночью — настоящая</li>
         </ul>
       </div>
-
- </div>
-        <div class="feel-scroll-hint">
-      <span>←&nbsp;&nbsp;листайте</span>
     </div>
+
+
   </section>
 
-  <!-- ══════════ 02 — ПЕЙЗАЖ ══════════ -->
+  <!-- 02 — ПЕЙЗАЖ -->
   <section class="landscape-section reveal">
     <div class="landscape-inner">
       <div class="section-num">02 &nbsp;/&nbsp; Место</div>
@@ -620,101 +436,65 @@
             <p>Пространство живёт на камерной базе — несколько домиков, своя территория, природа у порога. Не глэмпинг для Instagram, не курорт для галочки. Место, в котором можно по-настоящему остановиться.</p>
           </div>
         </div>
-    <!-- SVG-сцена: сосновый лес с озером, Ленобласть -->
-    <div class="hero-svg-wrap">
-      <svg width="460" height="520" viewBox="0 0 460 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Луна -->
-        <circle cx="370" cy="80" r="34" stroke="rgba(34,211,238,0.5)" stroke-width="1" fill="none"/>
-        <circle cx="382" cy="73" r="30" fill="#020617"/>
-
-        <!-- Звёзды -->
-        <circle cx="60"  cy="55"  r="1.2" fill="rgba(34,211,238,0.7)"/>
-        <circle cx="130" cy="30"  r="0.8" fill="rgba(34,211,238,0.6)"/>
-        <circle cx="200" cy="60"  r="1.0" fill="rgba(34,211,238,0.5)"/>
-        <circle cx="280" cy="20"  r="0.7" fill="rgba(34,211,238,0.4)"/>
-        <circle cx="420" cy="45"  r="0.9" fill="rgba(34,211,238,0.4)"/>
-        <circle cx="50"  cy="100" r="0.6" fill="rgba(34,211,238,0.6)"/>
-        <circle cx="310" cy="55"  r="0.7" fill="rgba(34,211,238,0.7)"/>
-
-        <!-- Гранитные скалы (слева) -->
-        <path d="M0 380 Q20 340 50 345 Q70 330 90 350 Q110 335 130 355 L130 420 L0 420Z"
-              stroke="rgba(34,211,238,0.12)" stroke-width="0.5" fill="rgba(34,211,238,0.018)"/>
-        <path d="M0 390 Q25 365 55 370 Q80 358 100 375"
-              stroke="rgba(34,211,238,0.07)" stroke-width="0.4" fill="none"/>
-
-        <!-- Гранитные скалы (правые, крупнее) -->
-        <path d="M320 420 Q345 360 380 355 Q410 340 440 365 Q460 348 460 390 L460 420Z"
-              stroke="rgba(34,211,238,0.12)" stroke-width="0.5" fill="rgba(34,211,238,0.018)"/>
-        <path d="M330 420 Q355 375 385 368 Q415 355 445 375"
-              stroke="rgba(34,211,238,0.07)" stroke-width="0.4" fill="none"/>
-
-        <!-- Озеро -->
-        <ellipse cx="230" cy="430" rx="190" ry="36" fill="rgba(34,211,238,0.03)" stroke="rgba(34,211,238,0.1)" stroke-width="0.5"/>
-        <!-- Отражение на воде — горизонтальные блики -->
-        <line x1="100" y1="425" x2="165" y2="425" stroke="rgba(34,211,238,0.07)" stroke-width="0.5"/>
-        <line x1="110" y1="432" x2="155" y2="432" stroke="rgba(34,211,238,0.05)" stroke-width="0.5"/>
-        <line x1="270" y1="428" x2="340" y2="428" stroke="rgba(34,211,238,0.07)" stroke-width="0.5"/>
-        <line x1="280" y1="435" x2="330" y2="435" stroke="rgba(34,211,238,0.05)" stroke-width="0.5"/>
-        <!-- Отражение луны в воде -->
-        <ellipse cx="230" cy="445" rx="10" ry="4" fill="rgba(34,211,238,0.1)"/>
-
-        <!-- Земля -->
-        <line x1="0" y1="420" x2="460" y2="420" stroke="rgba(34,211,238,0.08)" stroke-width="0.5"/>
-
-        <!-- Деревья (сосны) — группа левая -->
-        <!-- Ствол 1 -->
-        <line x1="80" y1="420" x2="80" y2="240" stroke="rgba(34,211,238,0.8)" stroke-width="1.2"/>
-        <path d="M52 295 L80 240 L108 295" stroke="rgba(34,211,238,0.4)" stroke-width="0.7" fill="rgba(34,211,238,0.1)"/>
-        <path d="M56 330 L80 270 L104 330" stroke="rgba(34,211,238,0.3)" stroke-width="0.6" fill="rgba(34,211,238,0.05)"/>
-        <path d="M60 365 L80 300 L100 365" stroke="rgba(34,211,238,0.2)" stroke-width="0.5" fill="rgba(34,211,238,0.02)"/>
-
-        <!-- Ствол 2 (чуть ближе) -->
-        <line x1="140" y1="420" x2="140" y2="200" stroke="rgba(34,211,238,0.8)" stroke-width="1.4"/>
-        <path d="M108 260 L140 200 L172 260" stroke="rgba(34,211,238,0.4)" stroke-width="0.7" fill="rgba(34,211,238,0.1)"/>
-        <path d="M112 300 L140 235 L168 300" stroke="rgba(34,211,238,0.3)"  stroke-width="0.65" fill="rgba(34,211,238,0.05)"/>
-        <path d="M118 345 L140 275 L162 345" stroke="rgba(34,211,238,0.2)" stroke-width="0.55" fill="rgba(34,211,238,0.02)"/>
-        <path d="M122 385 L140 315 L158 385" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" fill="none"/>
-
-        <!-- Домик -->
-        <rect x="175" y="340" width="110" height="80" stroke="rgba(34,211,238,0.45)" stroke-width="0.8" fill="rgba(34,211,238,0.02)"/>
-        <!-- Крыша -->
-        <path d="M168 340 L230 285 L292 340" stroke="rgba(34,211,238,0.45)" stroke-width="0.8" fill="none"/>
-        <!-- Окно левое -->
-        <rect x="190" y="358" width="24" height="28" stroke="rgba(34,211,238,0.5)" stroke-width="0.6" fill="rgba(34,211,238,0.06)"/>
-        <line x1="202" y1="358" x2="202" y2="386" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
-        <line x1="190" y1="372" x2="214" y2="372" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
-        <!-- Окно правое -->
-        <rect x="246" y="358" width="24" height="28" stroke="rgba(34,211,238,0.5)" stroke-width="0.6" fill="rgba(34,211,238,0.06)"/>
-        <line x1="258" y1="358" x2="258" y2="386" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
-        <line x1="246" y1="372" x2="270" y2="372" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
-        <!-- Дверь -->
-        <rect x="218" y="378" width="24" height="42" stroke="rgba(34,211,238,0.3)" stroke-width="0.6" fill="none"/>
-        <!-- Дымок -->
-        <line x1="252" y1="293" x2="252" y2="275" stroke="rgba(34,211,238,1)" stroke-width="0.5"/>
-        <path d="M252 275 Q249 263 253 254 Q257 244 254 235" stroke="rgba(34,211,238,1)" stroke-width="0.5" fill="none"/>
-
-        <!-- Деревья правая группа -->
-        <line x1="320" y1="420" x2="320" y2="195" stroke="rgba(34,211,238,0.8)" stroke-width="1.3"/>
-        <path d="M288 255 L320 195 L352 255" stroke="rgba(34,211,238,0.4)" stroke-width="0.7" fill="rgba(34,211,238,0.1)"/>
-        <path d="M292 298 L320 232 L348 298" stroke="rgba(34,211,238,0.3)" stroke-width="0.6" fill="rgba(34,211,238,0.05)"/>
-        <path d="M298 342 L320 274 L342 342" stroke="rgba(34,211,238,0.2)" stroke-width="0.55" fill="rgba(34,211,238,0.02)"/>
-        <path d="M302 380 L320 312 L338 380" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" fill="none"/>
-
-        <line x1="388" y1="420" x2="388" y2="252" stroke="rgba(34,211,238,0.8)" stroke-width="1.0"/>
-        <path d="M362 308 L388 252 L414 308" stroke="rgba(34,211,238,0.4)" stroke-width="0.6" fill="rgba(34,211,238,0.1)"/>
-        <path d="M366 350 L388 288 L410 350" stroke="rgba(34,211,238,0.3)" stroke-width="0.5" fill="rgba(34,211,238,0.05)"/>
-        <path d="M370 390 L388 326 L406 390" stroke="rgba(34,211,238,0.2)" stroke-width="0.4" fill="none"/>
-
-        <!-- Призрачный 404 -->
-        <text x="230" y="170" text-anchor="middle"
-              font-family="Inter,monospace" font-size="13" fill="rgba(34,211,238,0.25)" letter-spacing="10">4 0 4</text>
-      </svg>
+        <div class="hero-svg-wrap">
+          <svg width="460" height="520" viewBox="0 0 460 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="370" cy="80" r="34" stroke="rgba(34,211,238,0.5)" stroke-width="1" fill="none"/>
+            <circle cx="382" cy="73" r="30" fill="#020617"/>
+            <circle cx="60"  cy="55"  r="1.2" fill="rgba(34,211,238,0.7)"/>
+            <circle cx="130" cy="30"  r="0.8" fill="rgba(34,211,238,0.6)"/>
+            <circle cx="200" cy="60"  r="1.0" fill="rgba(34,211,238,0.5)"/>
+            <circle cx="280" cy="20"  r="0.7" fill="rgba(34,211,238,0.4)"/>
+            <circle cx="420" cy="45"  r="0.9" fill="rgba(34,211,238,0.4)"/>
+            <circle cx="50"  cy="100" r="0.6" fill="rgba(34,211,238,0.6)"/>
+            <circle cx="310" cy="55"  r="0.7" fill="rgba(34,211,238,0.7)"/>
+            <path d="M0 380 Q20 340 50 345 Q70 330 90 350 Q110 335 130 355 L130 420 L0 420Z" stroke="rgba(34,211,238,0.12)" stroke-width="0.5" fill="rgba(34,211,238,0.018)"/>
+            <path d="M0 390 Q25 365 55 370 Q80 358 100 375" stroke="rgba(34,211,238,0.07)" stroke-width="0.4" fill="none"/>
+            <path d="M320 420 Q345 360 380 355 Q410 340 440 365 Q460 348 460 390 L460 420Z" stroke="rgba(34,211,238,0.12)" stroke-width="0.5" fill="rgba(34,211,238,0.018)"/>
+            <path d="M330 420 Q355 375 385 368 Q415 355 445 375" stroke="rgba(34,211,238,0.07)" stroke-width="0.4" fill="none"/>
+            <ellipse cx="230" cy="430" rx="190" ry="36" fill="rgba(34,211,238,0.03)" stroke="rgba(34,211,238,0.1)" stroke-width="0.5"/>
+            <line x1="100" y1="425" x2="165" y2="425" stroke="rgba(34,211,238,0.07)" stroke-width="0.5"/>
+            <line x1="110" y1="432" x2="155" y2="432" stroke="rgba(34,211,238,0.05)" stroke-width="0.5"/>
+            <line x1="270" y1="428" x2="340" y2="428" stroke="rgba(34,211,238,0.07)" stroke-width="0.5"/>
+            <line x1="280" y1="435" x2="330" y2="435" stroke="rgba(34,211,238,0.05)" stroke-width="0.5"/>
+            <ellipse cx="230" cy="445" rx="10" ry="4" fill="rgba(34,211,238,0.1)"/>
+            <line x1="0" y1="420" x2="460" y2="420" stroke="rgba(34,211,238,0.08)" stroke-width="0.5"/>
+            <line x1="80" y1="420" x2="80" y2="240" stroke="rgba(34,211,238,0.8)" stroke-width="1.2"/>
+            <path d="M52 295 L80 240 L108 295" stroke="rgba(34,211,238,0.4)" stroke-width="0.7" fill="rgba(34,211,238,0.1)"/>
+            <path d="M56 330 L80 270 L104 330" stroke="rgba(34,211,238,0.3)" stroke-width="0.6" fill="rgba(34,211,238,0.05)"/>
+            <path d="M60 365 L80 300 L100 365" stroke="rgba(34,211,238,0.2)" stroke-width="0.5" fill="rgba(34,211,238,0.02)"/>
+            <line x1="140" y1="420" x2="140" y2="200" stroke="rgba(34,211,238,0.8)" stroke-width="1.4"/>
+            <path d="M108 260 L140 200 L172 260" stroke="rgba(34,211,238,0.4)" stroke-width="0.7" fill="rgba(34,211,238,0.1)"/>
+            <path d="M112 300 L140 235 L168 300" stroke="rgba(34,211,238,0.3)" stroke-width="0.65" fill="rgba(34,211,238,0.05)"/>
+            <path d="M118 345 L140 275 L162 345" stroke="rgba(34,211,238,0.2)" stroke-width="0.55" fill="rgba(34,211,238,0.02)"/>
+            <path d="M122 385 L140 315 L158 385" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" fill="none"/>
+            <rect x="175" y="340" width="110" height="80" stroke="rgba(34,211,238,0.45)" stroke-width="0.8" fill="rgba(34,211,238,0.02)"/>
+            <path d="M168 340 L230 285 L292 340" stroke="rgba(34,211,238,0.45)" stroke-width="0.8" fill="none"/>
+            <rect x="190" y="358" width="24" height="28" stroke="rgba(34,211,238,0.5)" stroke-width="0.6" fill="rgba(34,211,238,0.06)"/>
+            <line x1="202" y1="358" x2="202" y2="386" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
+            <line x1="190" y1="372" x2="214" y2="372" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
+            <rect x="246" y="358" width="24" height="28" stroke="rgba(34,211,238,0.5)" stroke-width="0.6" fill="rgba(34,211,238,0.06)"/>
+            <line x1="258" y1="358" x2="258" y2="386" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
+            <line x1="246" y1="372" x2="270" y2="372" stroke="rgba(34,211,238,0.25)" stroke-width="0.4"/>
+            <rect x="218" y="378" width="24" height="42" stroke="rgba(34,211,238,0.3)" stroke-width="0.6" fill="none"/>
+            <line x1="252" y1="293" x2="252" y2="275" stroke="rgba(34,211,238,1)" stroke-width="0.5"/>
+            <path d="M252 275 Q249 263 253 254 Q257 244 254 235" stroke="rgba(34,211,238,1)" stroke-width="0.5" fill="none"/>
+            <line x1="320" y1="420" x2="320" y2="195" stroke="rgba(34,211,238,0.8)" stroke-width="1.3"/>
+            <path d="M288 255 L320 195 L352 255" stroke="rgba(34,211,238,0.4)" stroke-width="0.7" fill="rgba(34,211,238,0.1)"/>
+            <path d="M292 298 L320 232 L348 298" stroke="rgba(34,211,238,0.3)" stroke-width="0.6" fill="rgba(34,211,238,0.05)"/>
+            <path d="M298 342 L320 274 L342 342" stroke="rgba(34,211,238,0.2)" stroke-width="0.55" fill="rgba(34,211,238,0.02)"/>
+            <path d="M302 380 L320 312 L338 380" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" fill="none"/>
+            <line x1="388" y1="420" x2="388" y2="252" stroke="rgba(34,211,238,0.8)" stroke-width="1.0"/>
+            <path d="M362 308 L388 252 L414 308" stroke="rgba(34,211,238,0.4)" stroke-width="0.6" fill="rgba(34,211,238,0.1)"/>
+            <path d="M366 350 L388 288 L410 350" stroke="rgba(34,211,238,0.3)" stroke-width="0.5" fill="rgba(34,211,238,0.05)"/>
+            <path d="M370 390 L388 326 L406 390" stroke="rgba(34,211,238,0.2)" stroke-width="0.4" fill="none"/>
+            <text x="230" y="170" text-anchor="middle" font-family="Inter,monospace" font-size="13" fill="rgba(34,211,238,0.25)" letter-spacing="10">4 0 4</text>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ 03 — РИТМ ДНЯ ══════════ -->
+  <!-- 03 — РИТМ ДНЯ -->
   <section class="rhythm-section reveal">
     <div class="rhythm-inner">
       <div class="section-num">03 &nbsp;/&nbsp; Ритм дня</div>
@@ -722,7 +502,6 @@
       <p class="body-text" style="max-width:520px;">
         Здесь нет жёстких правил. Есть только мягкий ритм общей жизни. <br>Вы встраиваетесь в него настолько, насколько хотите.
       </p>
-
       <div class="rhythm-list">
         <div class="rhythm-item">
           <div class="rhythm-time">утро</div>
@@ -749,20 +528,21 @@
     </div>
   </section>
 
-  <!-- ══════════ CTA ══════════ -->
+  <!-- CTA -->
   <section class="cta-section reveal">
     <p>Возможно, вам не нужно менять жизнь.</p>
     <p>Возможно, вам нужна пауза.</p>
-<button onclick="openFormModal()" class="border border-cyan-400 px-10 py-4 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn">
-  Связаться с нами
-</button>
+    <button onclick="openFormModal()" class="border border-cyan-400 px-10 py-4 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn">
+      Связаться с нами
+    </button>
   </section>
 
-  <!-- ══════════ DRAG-TO-SCROLL ══════════ -->
+  <!-- DRAG-TO-SCROLL (только десктоп) -->
   <script>
     const track = document.getElementById('feelTrack');
     let isDown = false, startX, scrollLeft;
     track.addEventListener('mousedown', e => {
+      if (window.innerWidth <= 900) return;
       isDown = true; track.classList.add('grabbing');
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
@@ -770,13 +550,12 @@
     track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
     track.addEventListener('mouseup',    () => { isDown = false; track.classList.remove('grabbing'); });
     track.addEventListener('mousemove', e => {
-      if (!isDown) return;
+      if (!isDown || window.innerWidth <= 900) return;
       e.preventDefault();
       const x = e.pageX - track.offsetLeft;
       track.scrollLeft = scrollLeft - (x - startX) * 1.2;
     });
 
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -785,142 +564,101 @@
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
   </script>
-<!-- ===================== ПОПАП ФОРМЫ ===================== -->
-<div class="modal-overlay" id="modal-form" onclick="closeOnOverlay(event,'form')">
-  <div class="modal-box">
-    <div class="form-modal-head">
-      <button class="modal-close" onclick="closeModal('form')">✕</button>
-      <div class="form-eyebrow">Заявка</div>
-      <div class="form-heading">Напишите нам —<br>мы ответим</div>
-    </div>
 
-    <div class="form-body">
-      <p style="font-size:13px; color:#475569; line-height:1.6; margin-bottom:20px;">
-        Без обязательств. Просто расскажите немного о себе.
-      </p>
-
-      <form id="contact-form" action="https://formspree.io/f/xlgzebga" method="POST">
-
-        <div class="field-gap">
-          <label class="f-label" for="f-name">Имя</label>
-          <input class="f-input" type="text" id="f-name" name="Имя"
-            placeholder="Как вас зовут" required>
-        </div>
-
-        <div class="field-gap">
-          <label class="f-label" for="f-contact">Телефон или почта</label>
-          <input class="f-input" type="text" id="f-contact" name="Контакт"
-            placeholder="+7 900 000 00 00 или hello@mail.ru" required>
-        </div>
-
-        <div class="field-gap">
-          <label class="f-label" for="f-comment">
-            Комментарий
-            <span style="opacity:.4;font-size:10px;">(необязательно)</span>
-          </label>
-
-          <textarea class="f-textarea"
-            id="f-comment"
-            name="Комментарий"
-            placeholder="Можно ничего не писать. А можно — что угодно."></textarea>
-        </div>
-
-        <div class="f-divider"></div>
-
-        <button type="submit" class="f-submit" id="f-submit-btn">
-          <span id="f-btn-text">Отправить заявку</span>
-          <span class="f-arrow">→</span>
-        </button>
-      </form>
-
-      <p class="f-status" id="f-status"></p>
-
-      <p class="f-note">
-        Мы не передаём данные третьим лицам<br>
-        и не пишем без повода.
-      </p>
+  <!-- ПОПАП ФОРМЫ -->
+  <div class="modal-overlay" id="modal-form" onclick="closeOnOverlay(event,'form')">
+    <div class="modal-box">
+      <div class="form-modal-head">
+        <button class="modal-close" onclick="closeModal('form')">✕</button>
+        <div class="form-eyebrow">Заявка</div>
+        <div class="form-heading">Напишите нам —<br>мы ответим</div>
+      </div>
+      <div class="form-body">
+        <p style="font-size:13px; color:#475569; line-height:1.6; margin-bottom:20px;">
+          Без обязательств. Просто расскажите немного о себе.
+        </p>
+        <form id="contact-form" action="https://formspree.io/f/xlgzebga" method="POST">
+          <div class="field-gap">
+            <label class="f-label" for="f-name">Имя</label>
+            <input class="f-input" type="text" id="f-name" name="Имя" placeholder="Как вас зовут" required>
+          </div>
+          <div class="field-gap">
+            <label class="f-label" for="f-contact">Телефон или почта</label>
+            <input class="f-input" type="text" id="f-contact" name="Контакт" placeholder="+7 900 000 00 00 или hello@mail.ru" required>
+          </div>
+          <div class="field-gap">
+            <label class="f-label" for="f-comment">
+              Комментарий
+              <span style="opacity:.4;font-size:10px;">(необязательно)</span>
+            </label>
+            <textarea class="f-textarea" id="f-comment" name="Комментарий" placeholder="Можно ничего не писать. А можно — что угодно."></textarea>
+          </div>
+          <div class="f-divider"></div>
+          <button type="submit" class="f-submit" id="f-submit-btn">
+            <span id="f-btn-text">Отправить заявку</span>
+            <span class="f-arrow">→</span>
+          </button>
+        </form>
+        <p class="f-status" id="f-status"></p>
+        <p class="f-note">Мы не передаём данные третьим лицам<br>и не пишем без повода.</p>
+      </div>
     </div>
   </div>
-</div>
-<script>
-  function openModal(id) {
-    document.getElementById('modal-' + id).classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
 
-  function closeModal(id) {
-    document.getElementById('modal-' + id).classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  function closeOnOverlay(e, id) {
-    if (e.target === e.currentTarget) {
-      closeModal(id);
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
-  }
-
-  function openFormModal() {
-    document.getElementById('f-status').className = 'f-status';
-    document.getElementById('f-status').textContent = '';
-
-    openModal('form');
-  }
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.active')
-        .forEach(m => m.classList.remove('active'));
-
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('active');
       document.body.style.overflow = '';
     }
-  });
-
-  const contactForm = document.getElementById('contact-form');
-  const submitBtn   = document.getElementById('f-submit-btn');
-  const btnText     = document.getElementById('f-btn-text');
-  const statusEl    = document.getElementById('f-status');
-
-  contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    submitBtn.disabled = true;
-    btnText.textContent = 'Отправляем...';
-
-    statusEl.className = 'f-status';
-    statusEl.textContent = '';
-
-    try {
-      const res = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (res.ok) {
-        statusEl.textContent =
-          'Заявка отправлена. Мы напишем в ближайшее время.';
-
-        statusEl.className = 'f-status success';
-
-        contactForm.reset();
-
-        btnText.textContent = 'Отправлено ✓';
-      } else {
-        throw new Error();
-      }
-
-    } catch {
-      statusEl.textContent =
-        'Что-то пошло не так. Попробуйте ещё раз.';
-
-      statusEl.className = 'f-status error';
-
-      submitBtn.disabled = false;
-      btnText.textContent = 'Отправить заявку';
+    function closeOnOverlay(e, id) {
+      if (e.target === e.currentTarget) closeModal(id);
     }
-  });
-</script>
+    function openFormModal() {
+      document.getElementById('f-status').className = 'f-status';
+      document.getElementById('f-status').textContent = '';
+      openModal('form');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+        document.body.style.overflow = '';
+      }
+    });
+
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn   = document.getElementById('f-submit-btn');
+    const btnText     = document.getElementById('f-btn-text');
+    const statusEl    = document.getElementById('f-status');
+
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      btnText.textContent = 'Отправляем...';
+      statusEl.className = 'f-status';
+      statusEl.textContent = '';
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          statusEl.textContent = 'Заявка отправлена. Мы напишем в ближайшее время.';
+          statusEl.className = 'f-status success';
+          contactForm.reset();
+          btnText.textContent = 'Отправлено ✓';
+        } else { throw new Error(); }
+      } catch {
+        statusEl.textContent = 'Что-то пошло не так. Попробуйте ещё раз.';
+        statusEl.className = 'f-status error';
+        submitBtn.disabled = false;
+        btnText.textContent = 'Отправить заявку';
+      }
+    });
+  </script>
 </body>
 </html>
