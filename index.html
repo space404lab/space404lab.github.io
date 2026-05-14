@@ -284,31 +284,6 @@
   background: rgba(34,211,238,0.3);
 }
 
-    .hero-eyebrow-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 40px;
-  width: 100%;
-}
-
-.hero-eyebrow-text {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #22d3ee;
-  opacity: 0.7;
-  white-space: nowrap; /* ← ключевое: запрещаем перенос */
-  flex-shrink: 0;
-}
-
-.hero-eyebrow-line {
-  display: block;
-  flex: 1;
-  height: 1px;
-  background: rgba(34,211,238,0.5);
-  min-width: 16px;
-}
 
 @media (max-width: 768px) {
   .page-hero {
@@ -709,10 +684,7 @@ margin-bottom: 40px;
 
 <!-- Page Hero -->
 <div class="lab-inner page-hero">
-  <div class="hero-eyebrow-wrap">
-    <span class="hero-eyebrow-text">02 &nbsp;/&nbsp; У каждого состояния — свой режим</span>
-    <span class="hero-eyebrow-line"></span>
-  </div>
+  <div class="hero-eyebrow">02 &nbsp;/&nbsp;У каждого состояния — свой режим</div>
 
   <div class="text-center">
     <h1 class="text-4xl md:text-5xl font-light mb-5 glow-text">
