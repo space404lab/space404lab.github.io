@@ -11,28 +11,27 @@
 
   .bg-hero {
     position: relative;
-    background: url('/hero.jpg');
+    background: url('./hero.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
   }
-    @media (max-width: 768px) {
-  .bg-hero {
-    background-image: url('/hero_web.jpg'); /* сжатая версия */
-  }
-}
+
 @media (max-width: 768px) {
-  .bg-hero, .bg-secondary {
+  .bg-hero {
+    background-image: url('./hero_web.jpg');
+    animation: none;
+  }
+  .bg-secondary {
     animation: none;
   }
 }
+
 .bg-secondary {
   background: url('./second.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* важно */
   position: relative;
 }
 
@@ -259,6 +258,247 @@
 .f-note { margin-top: 18px; font-size: 12px; color: #334155; text-align: center; line-height: 1.5; }
 .field-gap { margin-bottom: 16px; }
 
+.page-hero {
+  padding: 60px 0 18px;
+}
+
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22d3ee;
+  opacity: 0.7;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* линия */
+.hero-eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 0.5px;
+  background: rgba(34,211,238,0.12);
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 40px 24px 36px;
+  }
+}
+.mode-card {
+      background: #000;
+      border: 1.5px solid rgba(34,211,238,0.35);
+      border-radius: 18px;
+      padding: 32px 24px 28px;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      cursor: pointer;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .mode-card:hover {
+      border-color: rgba(34,211,238,0.8);
+      box-shadow: 0 0 24px rgba(34,211,238,0.2), 0 0 48px rgba(34,211,238,0.08);
+      transform: translateY(-3px);
+    }
+    .mode-card::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(34,211,238,0.04), transparent 70%);
+      pointer-events: none;
+    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+  html {
+    lang: ru;
+  }
+
+  .lab-section {
+    padding: 50px 48px;
+    font-family: 'Inter', sans-serif;
+    color: #f1f5f9;
+  }
+
+  .lab-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-num {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #22d3ee;
+    opacity: 0.7;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+.section-num {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+  .section-num::after {
+    content: "";
+    flex: 1;
+    height: 0.5px;
+    background: rgba(34,211,238,0.12);
+  }
+
+  .layout-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 80px;
+    align-items: start;
+  }
+
+  .section-title {
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.15;
+    color: #f1f5f9;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: #22d3ee;
+  }
+
+  .items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .items-list li {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.65;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.04);
+  }
+
+  .items-list li:last-child {
+    border-bottom: none;
+  }
+
+  .items-list li .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #22d3ee;
+    margin-top: 6px;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .right-col {
+    padding-top: 80px;
+  }
+
+  .right-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #22d3ee;
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+
+  .principle-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .principle-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 8px;
+    align-items: start;
+    padding: 10px 0;
+    border-top: 0.5px solid rgba(255,255,255,0.05);
+  }
+
+  .principle-item:last-child {
+    border-bottom: 0.5px solid rgba(255,255,255,0.05);
+  }
+
+  .p-num {
+    font-size: 11px;
+    color: #22d3ee;
+    opacity: 0.4;
+    letter-spacing: 0.1em;
+    padding-top: 3px;
+  }
+
+  .p-title {
+    font-size: 15px;
+    font-weight: 400;
+    color: #e2e8f0;
+    margin-bottom: 6px;
+  }
+
+  .p-desc {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .mission-block {
+    margin-top: 24px;
+margin-bottom: 40px;
+    padding: 28px 32px;
+    border: 0.5px solid rgba(34,211,238,0.15);
+    border-radius: 14px;
+    background: rgba(34,211,238,0.02);
+    grid-column: 1 / -1;
+  }
+
+  .mission-block p {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.85;
+    font-weight: 300;
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+  }
+
+  .mission-block em {
+    font-style: normal;
+    color: #22d3ee;
+  }
+
+  @media (max-width: 680px) {
+    .lab-section {
+      padding: 60px 24px;
+    }
+
+    .layout-2col {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .right-col {
+      padding-top: 0;
+    }
+
+    .section-title {
+      font-size: 30px;
+    }
+
+    .mission-block {
+      grid-column: 1;
+    }
+  }
 </style>
 </head>
 <body class="bg-slate-950 text-white">
@@ -279,10 +519,9 @@
 
   <!-- Десктопное меню -->
   <nav class="hidden md:flex space-x-10 text-sm opacity-80">
-    <a href="rezhimy.html">Режимы</a>
-    <a href="#">Пространство</a>
-    <a href="#">Приехать</a>
+    <a href="prostranstvo.html">Пространство</a>
     <a href="o-proekte.html">О проекте</a>
+    <a href="#">Приехать</a>
     <a href="#">Партнерам</a>
   </nav>
 
@@ -294,10 +533,9 @@
 <div id="mobile-menu" 
      class="fixed inset-0 bg-slate-950 bg-opacity-95 flex-col items-center justify-center gap-8 text-xl z-40"
      style="display: none;">
-  <a href="rezhimy.html" class="opacity-80 hover:opacity-100">Режимы</a>
-  <a href="#" class="opacity-80 hover:opacity-100">Пространство</a>
-  <a href="#" class="opacity-80 hover:opacity-100">Приехать</a>
+  <a href="prostranstvo.html" class="opacity-80 hover:opacity-100">Пространство</a>
   <a href="o-proekte.html" class="opacity-80 hover:opacity-100">О проекте</a>
+  <a href="#" class="opacity-80 hover:opacity-100">Приехать</a>
   <a href="#" class="opacity-80 hover:opacity-100">Партнерам</a>
 <button onclick="scrollToForm()" class="border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mt-4">
     «Выйти из системы»
@@ -343,9 +581,10 @@
       Место, куда можно уехать «на пенсию от системы»
     </p>
 
-    <button class="bg-cyan-500 text-white  px-6 py-3 rounded-full glow-btn mt-20">
-      Просто посмотреть →
-    </button>
+<a href="prostranstvo.html"
+   class="inline-block bg-cyan-500 text-white px-6 py-3 rounded-full glow-btn mt-20">
+  Просто посмотреть →
+</a>
   </div>
 
 </section>
@@ -353,73 +592,152 @@
 <div class="bg-secondary">
 
   <!-- Features -->
-  <section class="px-10 py-20 max-w-6xl mx-auto flex flex-col items-center text-center gap-16">
-    <div>
-      <h2 class="text-2xl mb-6 glow-text">Возможно, это место для вас если...</h2>
-      <ul class="space-y-3 opacity-70">
-        <li>— Всё вроде нормально, но сил нет</li>
-        <li>— Не хочется ничего достигать</li>
-        <li>— Вы устали быть «функциональным»</li>
-        <li>— Хочется тишины и отсутствия ожиданий</li>
-        <li>— Формально всё хорошо, но внутри пусто</li>
-      </ul>
-    </div>
+ <div class="lab-section">
+  <div class="lab-inner">
+    <div class="layout-2col">
 
-    <div>
-      <h2 class="text-2xl mb-6 glow-text">Здесь по-другому:</h2>
-      <ul class="space-y-3 opacity-70 mb-6">
-        <li>— Не спрашивают про цели</li>
-        <li>— Можно просто быть</li>
-        <li>— Не нужно достигать</li>
-        <li>— Никакой продуктивности</li>
-      </ul>
-      <ul class="space-y-3 opacity-70">
- <li>Вы просто временно выходите из системы — и возвращаетесь к себе.</li>
-<li>Это не побег от жизни, а осознанная пауза для восстановления связи с собой.</li>
-<li>Лаборатория 404 — это пространство, где можно быть «не найденным» (как системная ошибка 404) для внешних запросов, но «обнаруженным» для самого себя.</li>
-      </ul>
+<div class="section-num">01 / Для кого это место</div>
+
+<div class="left-col">
+
+        <h2 class="section-title">
+          Возможно,<br>
+          это место для вас<br>
+          <em>если</em>
+        </h2>
+
+        <ul class="items-list">
+          <li><span class=""></span>Всё вроде нормально, но сил нет</li>
+          <li><span class=""></span>Не хочется ничего достигать</li>
+          <li><span class=""></span>Устали быть «функциональным»</li>
+          <li><span class=""></span>Хочется тишины и отсутствия ожиданий</li>
+          <li><span class=""></span>Формально всё хорошо, но внутри пусто</li>
+        </ul>
+      </div>
+
+      <div class="right-col">
+        <div class="right-label">Здесь по-другому</div>
+
+        <div class="principle-list">
+
+          <div class="principle-item">
+            <div class="p-num">01</div>
+            <div>
+              <div class="p-title">Без вопросов про цели</div>
+              <div class="p-desc">
+                Никто не спрашивает, зачем вы приехали и что планируете делать дальше.
+              </div>
+            </div>
+          </div>
+
+          <div class="principle-item">
+            <div class="p-num">02</div>
+            <div>
+              <div class="p-title">Можно просто быть</div>
+              <div class="p-desc">
+                Не нужно соответствовать, активничать, общаться или показывать результат.
+              </div>
+            </div>
+          </div>
+
+          <div class="principle-item">
+            <div class="p-num">03</div>
+            <div>
+              <div class="p-title">Никакой продуктивности</div>
+              <div class="p-desc">
+                Мы не трансформируем и не прокачиваем. Мы создаём условия — что с ними делать, решаете вы.
+              </div>
+            </div>
+          </div>
+
+          <div class="principle-item">
+            <div class="p-num">04</div>
+            <div>
+              <div class="p-title">Безусловное принятие</div>
+              <div class="p-desc">
+                Не оцениваем, правильно ли вы отдыхаете. Просто присутствуем рядом.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mission-block">
+        <p>
+          Лаборатория 404 — это пространство, где можно быть
+          <em>«не найденным» (как системная ошибка 404)</em>
+          для внешних запросов, но обнаруженным для самого себя.
+          Это не побег от жизни, а осознанная
+          <em>пауза для восстановления</em>
+          связи с собой. Вы просто временно выходите из системы —
+          и возвращаетесь к себе.
+        </p>
+      </div>
+
     </div>
-  </section>
+  </div>
+</div>
+
+<!-- Page Hero -->
+<div class="lab-inner page-hero">
+  <div class="hero-eyebrow">02 &nbsp;/&nbsp;У каждого состояния — свой режим</div>
+
+  <div class="text-center">
+    <h1 class="text-4xl md:text-5xl font-light mb-5 glow-text">
+      Выберите свой режим
+    </h1>
+
+    <p class="text-sm opacity-50 max-w-md mx-auto leading-relaxed mt-10">
+      Где вы сейчас, и что вам подходит?
+    </p>
+  </div>
+</div>
 
   <!-- Cards -->
-  <section class="px-10 py-16">
-    <h2 class="text-3xl font-light text-center mb-10 glow-text">Выберите свой режим</h2>
+  <section class="px-10 py-6">
+
     <div class="grid md:grid-cols-4 gap-6">
 
-<div class="bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('battery')">
+
+<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('battery')">
   <img src="b.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
   <h3 class="text-xl mb-1">Батарея разряжена</h3>
   <p class="opacity-60 text-sm">Режим по умолчанию</p>
+  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
 
-<div class="bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('charge')">
+<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('charge')">
   <img src="r.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
   <h3 class="text-xl mb-1">Подзарядка</h3>
   <p class="opacity-60 text-sm">Восстановление сил и восполнение энергии</p>
+  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
 
-<div class="bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('reload')">
+<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('reload')">
   <img src="c.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
   <h3 class="text-xl mb-1">Перезагрузка</h3>
   <p class="opacity-60 text-sm">Вкус жизни через приключения и активности</p>
+  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
    
-<div class="bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('update')">
+<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('update')">
   <img src="u.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
   <h3 class="text-xl mb-1">Обновить прошивку</h3>
   <p class="opacity-60 text-sm">Новые навыки без гонки</p>
+  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
-    
-
-</div>   
+ 
+</div>  
+      <p class="text-center text-sm opacity-50 mt-10">Не знаете какой режим подходит?<br>Напишите нам — поможем разобраться.</p> 
 </section>
 
   <!-- CTA -->
-  <section class="text-center py-24 px-6">
-    <p class="text-2xl md:text-2xl font-light opacity-70 leading-relaxed" style="color:#e8e4dc; letter-spacing:0.01em;">
+<section class="text-center pt-40 pb-24 px-5">
+    <p class="text-2xl md:text-2xl font-light opacity-70 glow-text leading-relaxed" >
       Возможно, вам не нужно менять жизнь.
     </p>
-    <p class="text-2xl md:text-2xl font-light mt-3 opacity-50 leading-relaxed" style="color:#e8e4dc; letter-spacing:0.01em;">
+    <p class="text-2xl md:text-2xl font-light mt-3 opacity-50 glow-text leading-relaxed" >
       Возможно, вам нужна пауза.
     </p>
   </section>
