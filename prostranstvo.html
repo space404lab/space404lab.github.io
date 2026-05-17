@@ -39,7 +39,7 @@
       overflow: hidden;
       background: url('phero.jpg') center/cover no-repeat;
     }
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   .hero {
     background: url('phero_m.jpg') center/cover no-repeat;
   }
@@ -47,18 +47,28 @@
     .hero::before {
       content: "";
       position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(to bottom, rgba(2,6,23,0.15) 0%, rgba(2,6,23,0.1) 40%, rgba(2,6,23,0.6) 70%, rgba(2,6,23,0.92) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(2,6,23,0.05) 0%,
+    rgba(2,6,23,0.08) 40%,
+    rgba(2,6,23,0.35) 70%,
+    rgba(2,6,23,0.72) 100%
+  );
     }
     .hero::after {
       content: "";
       position: absolute; bottom: 0; left: 0; right: 0;
       height: 160px; z-index: 1;
-      background: linear-gradient(to bottom, transparent, #020617);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(2,6,23,0.75)
+  );
       pointer-events: none;
     }
     .hero-grid {
       position: absolute; inset: 0; z-index: 1;
-      background-image: linear-gradient(rgba(34,211,238,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.018) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
       background-size: 72px 72px;
     }
     .hero-content { position: relative; z-index: 2; max-width: 780px; }
@@ -88,7 +98,7 @@
 
     .section-num {
       font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--cyan); opacity: 0.4; margin-bottom: 20px;
+      color: var(--cyan); opacity: 0.7; margin-bottom: 20px;
       display: flex; align-items: center; gap: 10px;
     }
     .section-num::after { content:""; flex:1; height:0.5px; background:rgba(34,211,238,0.5); }
@@ -134,7 +144,7 @@
     .feel-icon { font-size: 28px; margin-bottom: 20px; display: block; }
     .feel-title { font-size: 20px; font-weight: 300; color: var(--text); margin-bottom: 12px; }
     .feel-quote {
-      font-size: 14px; color: var(--muted); line-height: 1.75;
+      font-size: 14px; color: var(--muted); line-height: 1.75; 
       border-left: 1px solid rgba(34,211,238,0.2);
       padding-left: 14px; font-style: italic;
       margin-bottom: 20px;
@@ -326,8 +336,8 @@
 
       <nav class="hidden md:flex space-x-10 text-sm opacity-80">
         <a href="index.html" class="hover:opacity-100 transition-opacity">Главная</a>
-        <a href="o-proekte.html" class="hover:opacity-100 transition-opacity">О проекте</a>
         <a href="prostranstvo.html" class="text-cyan-400">Пространство</a>
+        <a href="o-proekte.html" class="hover:opacity-100 transition-opacity">О проекте</a>
         <a href="priehat.html">Приехать</a>
         <a href="#">Партнерам</a>
       </nav>
@@ -339,8 +349,8 @@
   <!-- мобильное меню -->
   <div id="mobile-menu" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.97); z-index:45; flex-direction:column; align-items:center; justify-content:center; gap:32px; font-size:20px;">
     <a href="index.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Главная</a>
-    <a href="o-proekte.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">О проекте</a>
     <a href="prostranstvo.html" style="color:#22d3ee; text-decoration:none;">Пространство</a>
+    <a href="o-proekte.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">О проекте</a>
     <a href="priehat.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Приехать</a>
     <a href="#" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Партнерам</a>
   </div>
