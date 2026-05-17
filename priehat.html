@@ -349,14 +349,15 @@
     <a href="#" class="hover:opacity-100">Партнерам</a>
   </nav>
   <a href="index.html" class="hidden md:block border border-cyan-400 px-8 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mr-8">← Главная</a>
-  <div id="mobile-menu" class="fixed inset-0 bg-slate-950 bg-opacity-95 flex-col items-center justify-center gap-8 text-xl z-40" style="display:none;">
-    <a href="prostranstvo.html" class="opacity-80 hover:opacity-100">Пространство</a>
-    <a href="o-proekte.html" class="opacity-80 hover:opacity-100">О проекте</a>
-    <a href="priehat.html" class="text-cyan-400">Приехать</a>
-    <a href="#" class="opacity-80 hover:opacity-100">Партнерам</a>
-    <a href="index.html" class="border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mt-4">← Главная</a>
-  </div>
 </header>
+
+<div id="mobile-menu" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.97); z-index:100; flex-direction:column; align-items:center; justify-content:center; gap:32px; font-size:20px;">
+  <a href="prostranstvo.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Пространство</a>
+  <a href="o-proekte.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">О проекте</a>
+  <a href="priehat.html" style="color:#22d3ee; text-decoration:none;">Приехать</a>
+  <a href="#" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Партнерам</a>
+  <a href="index.html" style="margin-top:16px; border:1px solid #22d3ee; color:#22d3ee; padding:12px 40px; border-radius:99px; font-size:14px; text-decoration:none;">← Главная</a>
+</div>
 <script>
   const burger = document.getElementById('burger');
   const mob = document.getElementById('mobile-menu');
@@ -566,7 +567,7 @@
           Документов минимум — только то, что нужно, чтобы вам было спокойно, а нам понятно. Всё в электронном виде, подписывается онлайн.
         </p>
       </div>
-      <div class="notice" style="margin-top:80px; align-self:center;">
+      <div class="notice" style="margin-top:48px; align-self:center;">
         Документы высылаются <em>после согласования заявки.</em> До приезда нужно только подписать договор и внести предоплату 50%.
       </div>
     </div>
