@@ -25,7 +25,6 @@
       overflow: hidden;
       background: url('ohero.jpg') center/cover no-repeat;
     }
-
     .about-hero::before {
       content: "";
       position: absolute; inset: 0;
@@ -49,7 +48,7 @@ position: absolute; inset: 0; z-index: 1;
     .hero-content { position: relative; z-index: 2; max-width: 780px; }
     .hero-eyebrow {
       font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: #22d3ee; margin-bottom: 28px;
+      color: #22d3ee;  margin-bottom: 28px;
       display: flex; align-items: center; gap: 12px;
     }
     .hero-eyebrow::before {
@@ -74,7 +73,7 @@ position: absolute; inset: 0; z-index: 1;
     /* ─── Floating number ─── */
     .section-num {
       font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: #22d3ee; opacity: 0.4; margin-bottom: 20px;
+      color: #22d3ee; opacity: 0.7; margin-bottom: 20px;
       display: flex; align-items: center; gap: 10px;
     }
     .section-num::after { content: ""; flex: 1; height: 0.5px; background: rgba(34,211,238,0.5); }
@@ -307,7 +306,7 @@ position: absolute; inset: 0; z-index: 1;
     header { position: sticky; top: 0; z-index: 50; background: rgba(2,6,23,0.85); backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(255,255,255,0.05); }
 
     /* ─── Мобайл ─── */
-    @media (max-width: 768px) {
+     @media (max-width: 768px) {
       .about-hero { padding: 0 24px 60px; background: url('ohero_m.jpg') center/cover no-repeat;}
       .content-section,
       .philosophy-section, .mission-section,
@@ -544,8 +543,8 @@ position: absolute; inset: 0; z-index: 1;
 
       <nav class="hidden md:flex space-x-10 text-sm opacity-80">
         <a href="index.html" class="hover:opacity-100 transition-opacity">Главная</a>
-        <a href="o-proekte.html" class="text-cyan-400">О проекте</a>
         <a href="prostranstvo.html" class="hover:opacity-100 transition-opacity">Пространство</a>
+        <a href="o-proekte.html" class="text-cyan-400">О проекте</a>
         <a href="priehat.html" class="hover:opacity-100 transition-opacity">Приехать</a>
         <a href="#" class="hover:opacity-100 transition-opacity">Партнерам</a>
       </nav>
@@ -557,8 +556,8 @@ position: absolute; inset: 0; z-index: 1;
   <!-- Мобильное меню -->
   <div id="mobile-menu" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.97); z-index:45; flex-direction:column; align-items:center; justify-content:center; gap:32px; font-size:20px;">
     <a href="index.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Главная</a>
-    <a href="o-proekte.html" style="color:#22d3ee; text-decoration:none;">О проекте</a>
     <a href="prostranstvo.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Пространство</a>
+    <a href="o-proekte.html" style="color:#22d3ee; text-decoration:none;">О проекте</a>
     <a href="priehat.html" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Приехать</a>
     <a href="#" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Партнерам</a>
   </div>
