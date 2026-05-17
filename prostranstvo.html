@@ -279,7 +279,17 @@
     @media (max-width: 900px) {
       .landscape-layout { grid-template-columns: 1fr; gap: 40px; }
       .hero { padding: 0 24px 64px; }
-      .hero-svg-wrap { display: none; }
+.hero-svg-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+.hero-svg-wrap svg {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
       .landscape-section, .rhythm-section { padding-left: 24px; padding-right: 24px; }
 
       /* Секция 01: вертикальная раскладка карточек вместо горизонтального скролла */
