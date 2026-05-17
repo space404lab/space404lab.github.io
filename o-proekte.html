@@ -25,11 +25,7 @@
       overflow: hidden;
       background: url('ohero.jpg') center/cover no-repeat;
     }
-    @media (max-width: 768px) {
-  .about-hero {
-    background: url('ohero_m.jpg') center/cover no-repeat;
-  }
-}
+
     .about-hero::before {
       content: "";
       position: absolute; inset: 0;
@@ -312,7 +308,7 @@ position: absolute; inset: 0; z-index: 1;
 
     /* ─── Мобайл ─── */
     @media (max-width: 768px) {
-      .about-hero { padding: 0 24px 60px; }
+      .about-hero { padding: 0 24px 60px; background: url('ohero_m.jpg') center/cover no-repeat;}
       .content-section,
       .philosophy-section, .mission-section,
       .why-now-section, .principles-section, .cta-section { padding-left: 24px; padding-right: 24px; }
