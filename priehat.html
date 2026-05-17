@@ -50,8 +50,8 @@
     .hero-grid-bg {
       position: absolute; inset: 0; z-index: 1;
       background-image:
-        linear-gradient(rgba(34,211,238,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,211,238,0.045) 1px, transparent 1px);
+        linear-gradient(rgba(34,211,238,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,0.08) 1px, transparent 1px);
       background-size: 72px 72px;
       -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
@@ -311,6 +311,22 @@
 
     .two-col { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
     @media (max-width:720px) { .two-col { grid-template-columns:1fr; gap:36px; } }
+
+    /* ═══ CTA ═══ */
+    .cta-section {
+      padding: 80px 40px 100px;
+      text-align: center;
+      border-top: 0.5px solid rgba(255,255,255,0.05);
+    }
+    .cta-section p {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 300;
+      color: #e8e4dc;
+      opacity: 0.6;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .cta-section p:last-of-type { margin-bottom: 48px; opacity: 0.3; }
   </style>
 </head>
 <body class="bg-slate-950 text-white">
@@ -332,15 +348,13 @@
     <a href="priehat.html" class="text-cyan-400">Приехать</a>
     <a href="#" class="hover:opacity-100">Партнерам</a>
   </nav>
-  <a href="#step-form" class="hidden md:block border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mr-8">
-    «Выйти из системы»
-  </a>
+  <a href="index.html" class="hidden md:block border border-cyan-400 px-8 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mr-8">← Главная</a>
   <div id="mobile-menu" class="fixed inset-0 bg-slate-950 bg-opacity-95 flex-col items-center justify-center gap-8 text-xl z-40" style="display:none;">
     <a href="prostranstvo.html" class="opacity-80 hover:opacity-100">Пространство</a>
     <a href="o-proekte.html" class="opacity-80 hover:opacity-100">О проекте</a>
     <a href="priehat.html" class="text-cyan-400">Приехать</a>
     <a href="#" class="opacity-80 hover:opacity-100">Партнерам</a>
-    <a href="#step-form" class="border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mt-4">«Выйти из системы»</a>
+    <a href="index.html" class="border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mt-4">← Главная</a>
   </div>
 </header>
 <script>
@@ -458,7 +472,7 @@
       </div>
 
       <!-- ─ STEP 3: Заявка ─ -->
-      <div class="step-row locked" id="step-3" id="step-form">
+      <div class="step-row locked" id="step-3">
         <div class="step-left">
           <div class="step-num-circle">03</div>
           <div class="step-line"></div>
@@ -538,8 +552,6 @@
   </div>
 </div>
 
-
-
 <!-- ══════════════════════════════════════
      DOCUMENTS
 ══════════════════════════════════════ -->
@@ -577,7 +589,7 @@
         </div>
       </div>
       <div class="doc-card">
-  <div class="doc-icon">🔒</div>
+        <div class="doc-icon">🔒</div>
         <div>
           <div class="doc-title">Согласие на обработку персональных данных</div>
           <div class="doc-text">Стандартный документ по 152-ФЗ. Собираем только необходимое: имя, контакт, даты. Данные не передаются третьим лицам.</div>
@@ -650,10 +662,10 @@
 </div>
 
 <!-- ── CTA ── -->
-<section style="background:#020617; text-align:center; padding:60px 24px 100px; border-top:.5px solid rgba(255,255,255,.04);">
-  <p class="text-2xl font-light opacity-70 glow-text leading-relaxed">Возможно, вам не нужно менять жизнь.</p>
-  <p class="text-2xl font-light mt-3 opacity-50 glow-text leading-relaxed">Возможно, вам нужна пауза.</p>
-  <a href="#steps" class="inline-block mt-12 border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn">
+<section class="cta-section">
+  <p>Возможно, вам не нужно менять жизнь.</p>
+  <p>Возможно, вам нужна пауза.</p>
+  <a href="#steps" class="inline-block border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn">
     Выбрать режим →
   </a>
 </section>
