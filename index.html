@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Лаборатория 404</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
   body { font-family: 'Inter', sans-serif; }
 
@@ -311,6 +313,7 @@ width: 100%;
       pointer-events: none;
     }
 
+
   .lab-section {
     padding: 50px 48px;
     font-family: 'Inter', sans-serif;
@@ -496,6 +499,92 @@ margin-bottom: 40px;
       grid-column: 1;
     }
   }
+
+  /* ===== СТИЛИ МОДАЛОК ===== */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(2,6,23,0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: all; }
+  .modal-box {
+    background: #0f172a;
+    border: 0.5px solid rgba(34,211,238,0.22);
+    border-radius: 20px;
+    width: 100%; max-width: 520px;
+    max-height: 90vh; overflow-y: auto;
+    transform: translateY(16px);
+    transition: transform 0.25s;
+    scrollbar-width: none;
+  }
+  .modal-box::-webkit-scrollbar { display: none; }
+  .modal-overlay.active .modal-box { transform: translateY(0); }
+  .modal-hero {
+    background: #000;
+    padding: 24px 24px 20px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    position: sticky; top: 0; z-index: 2;
+  }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 0.5px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04);
+    color: #64748b; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.1); color: #f1f5f9; }
+  .modal-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .modal-title { font-size: 22px; font-weight: 400; color: #f1f5f9; margin-bottom: 4px; }
+  .modal-tagline { font-size: 13px; color: #64748b; font-style: italic; }
+  .modal-body { padding: 20px 24px 8px; }
+  .m-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+  .m-tab {
+    font-size: 12px; padding: 5px 14px; border-radius: 99px;
+    border: 0.5px solid rgba(255,255,255,0.1);
+    color: #64748b; background: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; transition: all 0.15s;
+  }
+  .m-tab.active { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.22); color: #f1f5f9; }
+  .m-panel { display: none; }
+  .m-panel.active { display: block; }
+  .desc-text { font-size: 14px; color: #94a3b8; line-height: 1.8; }
+  .desc-text p { margin-bottom: 10px; }
+  .desc-text p:last-child { margin-bottom: 0; }
+  .modal-items-list { display: flex; flex-direction: column; gap: 8px; }
+  .modal-items-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #94a3b8; line-height: 1.5; list-style: none; }
+  .modal-items-list li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #22d3ee; margin-top: 7px; flex-shrink: 0; }
+  .m-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 18px 0; }
+  .dur-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; margin-bottom: 10px; }
+  .dur-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .dur-btn {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 10px 12px;
+    color: #94a3b8; font-size: 13px; cursor: pointer;
+    text-align: left; font-family: 'Inter', sans-serif;
+    transition: all 0.15s; line-height: 1.3;
+  }
+  .dur-btn .dur-sub { font-size: 10px; color: #475569; margin-top: 3px; }
+  .dur-btn.active { border-color: rgba(34,211,238,0.5); color: #22d3ee; background: rgba(34,211,238,0.05); }
+  .dur-btn.active .dur-sub { color: rgba(34,211,238,0.5); }
+  .modal-footer { padding: 16px 24px 24px; }
+  .btn-book {
+    width: 100%; background: #22d3ee; color: #020617;
+    border: none; border-radius: 99px; padding: 14px 20px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 0 16px rgba(34,211,238,0.35);
+    transition: box-shadow 0.2s, opacity 0.2s;
+  }
+  .btn-book:hover { box-shadow: 0 0 28px rgba(34,211,238,0.55); opacity: 0.92; }
 </style>
 </head>
 <body class="bg-slate-950 text-white">
@@ -569,7 +658,7 @@ margin-bottom: 40px;
   <div class="light-glow"></div>
 
   <div class="max-w-2xl hero-content mx-auto">
-    <h1 class="text-5xl font-light mb-10 glow-text " data-text="Лаборатория 404">
+    <h1 class="text-5xl font-light mb-10 glow-text" data-text="Лаборатория 404">
       Лаборатория 404
     </h1>
 
@@ -793,100 +882,12 @@ margin-bottom: 40px;
           <span id="f-btn-text">Отправить заявку</span>
           <span class="f-arrow">→</span>
         </button>
-        <p class="f-status" id="f-status"></p>
+     <p class="f-status" id="f-status"></p>
       </form>
  
-      <p class="f-note">Мы не передаём данные третьим лицам<br>и не пишем без повода.</p>
+       <p class="f-note">Мы не передаём данные третьим лицам<br>и не пишем без повода.</p>
     </div>
   </section>
-
-<!-- ===== СТИЛИ МОДАЛОК ===== -->
-<style>
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(2,6,23,0.82);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 100;
-    display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.2s;
-  }
-  .modal-overlay.active { opacity: 1; pointer-events: all; }
-  .modal-box {
-    background: #0f172a;
-    border: 0.5px solid rgba(34,211,238,0.22);
-    border-radius: 20px;
-    width: 100%; max-width: 520px;
-    max-height: 90vh; overflow-y: auto;
-    transform: translateY(16px);
-    transition: transform 0.25s;
-    scrollbar-width: none;
-  }
-  .modal-box::-webkit-scrollbar { display: none; }
-  .modal-overlay.active .modal-box { transform: translateY(0); }
-  .modal-hero {
-    background: #000;
-    padding: 24px 24px 20px;
-    border-bottom: 0.5px solid rgba(255,255,255,0.06);
-    position: sticky; top: 0; z-index: 2;
-  }
-  .modal-close {
-    position: absolute; top: 16px; right: 16px;
-    width: 30px; height: 30px; border-radius: 50%;
-    border: 0.5px solid rgba(255,255,255,0.14);
-    background: rgba(255,255,255,0.04);
-    color: #64748b; font-size: 14px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: background 0.15s;
-  }
-  .modal-close:hover { background: rgba(255,255,255,0.1); color: #f1f5f9; }
-  .modal-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
-  .modal-title { font-size: 22px; font-weight: 400; color: #f1f5f9; margin-bottom: 4px; }
-  .modal-tagline { font-size: 13px; color: #64748b; font-style: italic; }
-  .modal-body { padding: 20px 24px 8px; }
-  .m-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
-  .m-tab {
-    font-size: 12px; padding: 5px 14px; border-radius: 99px;
-    border: 0.5px solid rgba(255,255,255,0.1);
-    color: #64748b; background: none; cursor: pointer;
-    font-family: 'Inter', sans-serif; transition: all 0.15s;
-  }
-  .m-tab.active { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.22); color: #f1f5f9; }
-  .m-panel { display: none; }
-  .m-panel.active { display: block; }
-  .desc-text { font-size: 14px; color: #94a3b8; line-height: 1.8; }
-  .desc-text p { margin-bottom: 10px; }
-  .desc-text p:last-child { margin-bottom: 0; }
-  .items-list { display: flex; flex-direction: column; gap: 8px; }
-  .items-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #94a3b8; line-height: 1.5; list-style: none; }
-  .items-list li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #22d3ee; margin-top: 7px; flex-shrink: 0; }
-  .m-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 18px 0; }
-  .dur-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; margin-bottom: 10px; }
-  .dur-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-  .dur-btn {
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid rgba(255,255,255,0.1);
-    border-radius: 10px; padding: 10px 12px;
-    color: #94a3b8; font-size: 13px; cursor: pointer;
-    text-align: left; font-family: 'Inter', sans-serif;
-    transition: all 0.15s; line-height: 1.3;
-  }
-  .dur-btn .dur-sub { font-size: 10px; color: #475569; margin-top: 3px; }
-  .dur-btn.active { border-color: rgba(34,211,238,0.5); color: #22d3ee; background: rgba(34,211,238,0.05); }
-  .dur-btn.active .dur-sub { color: rgba(34,211,238,0.5); }
-  .modal-footer { padding: 16px 24px 24px; }
-  .btn-book {
-    width: 100%; background: #22d3ee; color: #020617;
-    border: none; border-radius: 99px; padding: 14px 20px;
-    font-size: 15px; font-weight: 600; cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    box-shadow: 0 0 16px rgba(34,211,238,0.35);
-    transition: box-shadow 0.2s, opacity 0.2s;
-  }
-  .btn-book:hover { box-shadow: 0 0 28px rgba(34,211,238,0.55); opacity: 0.92; }
-</style>
 
 <!-- ===== МОДАЛКА: БАТАРЕЯ РАЗРЯЖЕНА ===== -->
 <div class="modal-overlay" id="modal-battery" onclick="closeOnOverlay(event,'battery')">
@@ -915,7 +916,7 @@ margin-bottom: 40px;
       </div>
 
       <div class="m-panel" id="battery-includes">
-        <ul class="items-list">
+        <ul class="modal-items-list">
           <li>Проживание, питание 2–3 раза в день (общая простая еда)</li>
           <li>Сон без будильников и расписания</li>
           <li>Полное отсутствие программы и обязательств</li>
@@ -974,7 +975,7 @@ margin-bottom: 40px;
       </div>
 
       <div class="m-panel" id="charge-includes">
-        <ul class="items-list">
+        <ul class="modal-items-list">
           <li>Массаж</li>
           <li>Баня</li>
           <li>Мягкая йога</li>
@@ -1035,7 +1036,7 @@ margin-bottom: 40px;
       </div>
 
       <div class="m-panel" id="reload-includes">
-        <ul class="items-list">
+        <ul class="modal-items-list">
           <li>Поездки по красивым местам</li>
           <li>Лёгкие приключения</li>
           <li>Совместные активности</li>
@@ -1096,7 +1097,7 @@ margin-bottom: 40px;
       <div class="m-panel" id="update-includes">
         <div class="desc-text"><p>Возможные направления:</p></div>
         <br>
-        <ul class="items-list">
+        <ul class="modal-items-list">
           <li>Иностранные языки</li>
           <li>Творчество — рисунок, гончарство, что угодно</li>
           <li>Навыки руками и ремёсла</li>
