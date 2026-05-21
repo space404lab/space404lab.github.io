@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Preconnect как можно раньше -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>Приехать — Лаборатория 404</title>
+  <meta name="description" content="Как работает Лаборатория 404 и практическая информация для гостей.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://labnotfound.ru/priehat/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://labnotfound.ru/priehat/">
+  <meta property="og:title" content="Приехать — Лаборатория 404">
+  <meta property="og:description" content="Как работает Лаборатория 404 и практическая информация для гостей.">
+  <meta property="og:image" content="https://labnotfound.ru/hero.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Лаборатория 404">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Приехать — Лаборатория 404">
+  <meta name="twitter:description" content="Как работает Лаборатория 404 и практическая информация для гостей.">
+  <meta name="twitter:image" content="https://labnotfound.ru/hero.jpg">
+
+  <!-- Иконки -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (для продакшена рекомендуется заменить на сборку через Tailwind CLI) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #020617; color: #f1f5f9; }
+
+    .glow-text {
+      text-shadow: 0 0 5px #22d3ee, 0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 40px #06b6d4;
+    }
+    .glow-btn {
+      box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee;
+      animation: pulseGlow 2.5s infinite;
+    }
+    @keyframes pulseGlow {
+      0%,100% { box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee; }
+      50%      { box-shadow: 0 0 18px #22d3ee, 0 0 36px #22d3ee; }
+    }
+
+    /* ── Hero — стиль prostranstvo / o-proekte ── */
+    .bg-hero {
+      height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 48px 80px;
+      position: relative;
+      overflow: hidden;
+      background: url('/prihero.jpg') center/cover no-repeat;
+    }
+    @media (max-width:768px) {
+      .bg-hero { background-image: url('/prihero_m.jpg'); padding: 0 24px 60px; }
+    }
+    .bg-hero::before {
+      content: ""; position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 30%, rgba(34,211,238,0.04), transparent),
+        radial-gradient(ellipse 60% 80% at 10% 70%, rgba(255,140,0,0.03), transparent),
+        linear-gradient(to bottom, rgba(2,6,23,0.15) 0%, rgba(2,6,23,0.1) 40%, rgba(2,6,23,0.65) 70%, rgba(2,6,23,0.95) 100%);
+    }
+    .bg-hero::after {
+      content: ""; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 160px; z-index: 1;
+      background: linear-gradient(to bottom, transparent, #020617);
+      pointer-events: none;
+    }
+    /* Сетка — как в prostranstvo и o-proekte */
+    .hero-grid-bg {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        linear-gradient(rgba(34,211,238,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,0.08) 1px, transparent 1px);
+      background-size: 72px 72px;
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #22d3ee; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before { content: ""; width: 32px; height: 0.5px; background: #22d3ee; opacity: 0.4; }
+    .hero-h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.02em;
+      color: #f1f5f9; margin-bottom: 28px;
+    }
+    .hero-h1 em { font-style: normal; color: #22d3ee; }
+    .hero-desc {
+      font-size: 16px; color: #94a3b8; line-height: 1.8; max-width: 480px;
+    }
+    .hero-tag {
+      display: inline-block; margin-top: 36px;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: #22d3ee; opacity: 0.55;
+    }
+
+    /* Layout */
+    .lab-section { padding:70px 48px; color:#f1f5f9; }
+    .lab-inner   { max-width:960px; margin:0 auto; }
+    @media (max-width:768px) { .lab-section { padding:48px 20px; } }
+
+    .section-num {
+      font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
+      color:#22d3ee; opacity:0.7; margin-bottom:20px;
+      display:flex; align-items:center; gap:10px; width:100%;
+    }
+    .section-num::after { content:""; flex:1; height:.5px; background:rgba(34,211,238,.3); }
+
+    .section-title {
+      font-size:clamp(21px,4vw,21px); font-weight:300; line-height:1.15;
+      color:#f1f5f9; margin-top:16px; margin-bottom:16px; letter-spacing:-.02em;
+    }
+    .section-title em { font-style:normal; color:#22d3ee; }
+
+    /* ═══ STEPS ═══ */
+    .steps-flow { display:flex; flex-direction:column; }
+    .step-row {
+      display:grid; grid-template-columns:64px 1fr;
+      gap:0 24px; align-items:stretch;
+    }
+    .step-left { display:flex; flex-direction:column; align-items:center; }
+    .step-num-circle {
+      width:42px; height:42px; border-radius:50%;
+      border:.5px solid rgba(34,211,238,.35);
+      background:rgba(34,211,238,.05);
+      display:flex; align-items:center; justify-content:center;
+      font-size:12px; color:#22d3ee; flex-shrink:0; z-index:1;
+      transition:background .4s, box-shadow .4s, border-color .4s;
+    }
+    .step-row.unlocked .step-num-circle {
+      border-color:rgba(34,211,238,.7);
+      background:rgba(34,211,238,.12);
+      box-shadow:0 0 14px rgba(34,211,238,.25);
+    }
+    .step-line { width:.5px; flex:1; background:rgba(34,211,238,.12); margin:6px 0; min-height:20px; }
+    .step-row:last-child .step-line { display:none; }
+    .step-body { padding-bottom:52px; }
+    .step-row:last-child .step-body { padding-bottom:0; }
+
+    .step-label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#22d3ee; opacity:.45; margin-bottom:6px; padding-top:11px; }
+    .step-title { font-size:21px; font-weight:300; color:#f1f5f9; margin-bottom:8px; }
+    .step-desc  { font-size:14px; color:#64748b; line-height:1.8; }
+
+    /* Locked overlay */
+    .step-row { transition:opacity .4s; }
+    .step-row.locked { opacity:.28; pointer-events:none; }
+
+    /* ═══ MODE CARDS ═══ */
+    .mode-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:22px; }
+    @media (max-width:560px) { .mode-grid { grid-template-columns:1fr; } }
+
+    .mode-card-s {
+      background:rgba(0,0,0,.5); border:1.5px solid rgba(34,211,238,.18);
+      border-radius:16px; padding:18px 18px 14px;
+      cursor:pointer; transition:border-color .25s, transform .2s, box-shadow .25s;
+      position:relative; text-align:left; width:100%;
+    }
+    .mode-card-s:hover { border-color:rgba(34,211,238,.55); box-shadow:0 0 20px rgba(34,211,238,.12); transform:translateY(-2px); }
+    .mode-card-s.selected { border-color:#22d3ee; background:rgba(34,211,238,.06); box-shadow:0 0 24px rgba(34,211,238,.18); }
+    .mc-icon  { font-size:24px; margin-bottom:8px; }
+    .mc-title { font-size:14px; color:#e2e8f0; margin-bottom:3px; }
+    .mc-sub   { font-size:12px; color:#475569; line-height:1.45; }
+    .mc-check {
+      position:absolute; top:13px; right:13px;
+      width:18px; height:18px; border-radius:50%;
+      border:.5px solid rgba(34,211,238,.35); background:transparent;
+      display:flex; align-items:center; justify-content:center;
+      font-size:10px; color:#020617; transition:background .2s, border-color .2s;
+    }
+    .mode-card-s.selected .mc-check { background:#22d3ee; border-color:#22d3ee; }
+
+    /* ═══ DUR PILLS ═══ */
+    .dur-pills { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+    .dur-pill {
+      padding:10px 22px; border-radius:99px;
+      border:.5px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03);
+      color:#64748b; font-size:14px; cursor:pointer;
+      font-family:'Inter',sans-serif; transition:all .2s; position:relative;
+    }
+    .dur-pill:hover { border-color:rgba(34,211,238,.4); color:#94a3b8; }
+    .dur-pill.selected { border-color:#22d3ee; color:#22d3ee; background:rgba(34,211,238,.07); }
+    .pill-rec {
+      position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+      background:#22d3ee; color:#020617; font-size:9px; font-weight:600;
+      letter-spacing:.08em; padding:2px 8px; border-radius:99px; white-space:nowrap;
+    }
+
+    /* ═══ PRICE BLOCK ═══ */
+    .price-block {
+      margin-top:28px; padding:24px 26px;
+      border:.5px solid rgba(34,211,238,.18); border-radius:16px;
+      background:rgba(34,211,238,.03); min-height:110px;
+      transition:all .3s;
+    }
+    .price-eyebrow { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#475569; margin-bottom:12px; }
+    .price-val-big { font-size:30px; font-weight:300; color:#f1f5f9; margin-bottom:16px; }
+    .price-inc-row { display:flex; gap:10px; font-size:13px; color:#64748b; align-items:flex-start; margin-bottom:6px; }
+    .price-inc-dot { color:#22d3ee; opacity:.5; flex-shrink:0; }
+    .price-empty   { font-size:14px; color:#334155; font-style:italic; }
+
+    /* ═══ PROCEED BTN ═══ */
+    .proceed-btn {
+      margin-top:24px; display:inline-flex; align-items:center; gap:10px;
+      background:#22d3ee; color:#020617; border:none; border-radius:99px;
+      padding:12px 26px; font-family:'Inter',sans-serif; font-size:14px; font-weight:600;
+      cursor:pointer; box-shadow:0 0 14px rgba(34,211,238,.35);
+      transition:box-shadow .2s, opacity .2s;
+    }
+    .proceed-btn:hover { box-shadow:0 0 26px rgba(34,211,238,.55); opacity:.92; }
+    .proceed-btn:disabled { opacity:.3; cursor:not-allowed; box-shadow:none; animation:none; }
+
+    /* ═══ NOTICE ═══ */
+    .notice {
+      padding:16px 20px; border:.5px solid rgba(34,211,238,.18);
+      border-radius:12px; background:rgba(34,211,238,.03);
+      font-size:13px; color:#64748b; line-height:1.75; margin-top:18px;
+    }
+    .notice em { font-style:normal; color:#22d3ee; }
+
+    /* ═══ PRICING SECTION ═══ */
+    .price-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    @media (max-width:700px) { .price-cards { grid-template-columns:1fr; } }
+    .price-card {
+      border:.5px solid rgba(34,211,238,.18); border-radius:16px; overflow:hidden;
+    }
+    .price-card.featured { border-color:#22d3ee; box-shadow:0 0 22px rgba(34,211,238,.14); }
+    .price-card-head {
+      padding:18px 20px; border-bottom:.5px solid rgba(255,255,255,.06);
+      position:relative;
+    }
+    .price-card.featured .price-card-head { background:rgba(34,211,238,.07); }
+    .price-card:not(.featured) .price-card-head { background:rgba(0,0,0,.35); }
+    .pc-rec-tag {
+      position:absolute; top:0; right:18px;
+      background:#22d3ee; color:#020617; font-size:9px; font-weight:600;
+      letter-spacing:.1em; padding:3px 10px; border-radius:0 0 8px 8px;
+    }
+    .pc-dur { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#475569; margin-bottom:6px; }
+    .price-card.featured .pc-dur { color:rgba(34,211,238,.7); }
+    .pc-price { font-size:24px; font-weight:300; color:#f1f5f9; }
+    .pc-price span { font-size:13px; color:#475569; }
+    .price-card-body { padding:16px 20px; display:flex; flex-direction:column; gap:7px; }
+    .pc-inc { display:flex; gap:9px; font-size:13px; color:#64748b; align-items:flex-start; }
+    .pc-dot { color:#22d3ee; opacity:.4; flex-shrink:0; }
+
+    .addon-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:24px; }
+    @media (max-width:600px) { .addon-grid { grid-template-columns:1fr; } }
+    .addon-item {
+      padding:12px 16px; border-radius:10px;
+      border:.5px solid rgba(255,255,255,.07); background:rgba(255,255,255,.02);
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+    }
+    .addon-name  { font-size:13px; color:#94a3b8; }
+    .addon-price { font-size:13px; color:#22d3ee; white-space:nowrap; }
+
+    /* ═══ DOCS ═══ */
+    .docs-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    @media (max-width:640px) { .docs-grid { grid-template-columns:1fr; } }
+    .doc-card {
+      border:.5px solid rgba(255,255,255,.08); border-radius:14px; padding:22px 22px;
+      background:rgba(255,255,255,.02); display:flex; gap:16px; align-items:flex-start;
+      transition:border-color .25s, background .25s;
+    }
+    .doc-card:hover { border-color:rgba(34,211,238,.3); background:rgba(34,211,238,.03); }
+    .doc-icon  { font-size:22px; flex-shrink:0; }
+    .doc-title { font-size:15px; color:#e2e8f0; margin-bottom:6px; }
+    .doc-text  { font-size:13px; color:#475569; line-height:1.7; }
+    .doc-tag {
+      display:inline-block; margin-top:10px; font-size:10px; letter-spacing:.12em;
+      text-transform:uppercase; color:#22d3ee; opacity:.6;
+      border:.5px solid rgba(34,211,238,.3); border-radius:99px; padding:3px 10px;
+    }
+
+    /* ═══ FAQ ═══ */
+    .faq-item { border-top:.5px solid rgba(255,255,255,.07); padding:20px 0; cursor:pointer; }
+    .faq-item:last-child { border-bottom:.5px solid rgba(255,255,255,.07); }
+    .faq-question { display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:300; color:#e2e8f0; gap:20px; }
+    .faq-arrow    { color:#22d3ee; font-size:20px; flex-shrink:0; transition:transform .3s; }
+    .faq-item.open .faq-arrow { transform:rotate(45deg); }
+    .faq-answer {
+      font-size:13px; color:#475569; line-height:1.85;
+      max-height:0; overflow:hidden; transition:max-height .4s ease, padding-top .3s;
+    }
+    .faq-item.open .faq-answer { max-height:400px; padding-top:14px; }
+
+    /* ═══ FORM ═══ */
+    .f-label { display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#94a3b8; margin-bottom:7px; }
+.f-input, .f-select, .f-textarea {
+  width:100%;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(34,211,238,.22);
+  border-radius:10px;
+  padding:15px 16px;
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  line-height:1.5;
+  color:#f8fafc;
+  outline:none;
+  transition:background .2s, border-color .2s, box-shadow .2s;
+  appearance:none;
+  -webkit-appearance:none;
+}
+
+.f-input::placeholder,
+.f-textarea::placeholder {
+  color:#64748b;
+  opacity:0.9;
+}
+
+.f-input:focus,
+.f-select:focus,
+.f-textarea:focus {
+  background:rgba(34,211,238,.05);
+  border-color:#22d3ee;
+  box-shadow:0 0 0 3px rgba(34,211,238,.12);
+}
+    .f-input:focus, .f-select:focus, .f-textarea:focus { background:rgba(34,211,238,.04); border-color:rgba(34,211,238,.4); }
+    .f-textarea { resize:none; height:90px; line-height:1.6; }
+    .f-select-wrap { position:relative; }
+    .f-select-wrap::after {
+      content:''; position:absolute; right:14px; top:50%; transform:translateY(-50%);
+      width:9px; height:5px; background:#475569; clip-path:polygon(0 0,100% 0,50% 100%); pointer-events:none;
+    }
+    .f-select option { background:#0f172a; color:#f1f5f9; }
+.f-mode-row {
+  background:rgba(34,211,238,.08);
+  border:1px solid rgba(34,211,238,.35);
+  border-radius:10px;
+  padding:14px 16px;
+  font-size:15px;
+  font-weight:500;
+  color:#67e8f9;
+  line-height:1.5;
+}
+    .f-divider { height:.5px; background:rgba(255,255,255,.06); margin:24px 0; }
+    .f-submit {
+      width:100%; background:#22d3ee; color:#020617;
+      border:none; border-radius:99px; padding:15px 24px;
+      font-family:'Inter',sans-serif; font-size:15px; font-weight:600;
+      cursor:pointer; box-shadow:0 0 16px rgba(34,211,238,.35);
+      transition:box-shadow .2s, opacity .2s;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .f-submit:hover { box-shadow:0 0 28px rgba(34,211,238,.55); opacity:.92; }
+    .f-submit:disabled { opacity:.4; cursor:not-allowed; }
+    .f-arrow { transition:transform .2s; display:inline-block; }
+    .f-submit:not(:disabled):hover .f-arrow { transform:translateX(4px); }
+    .f-status  { margin-top:14px; font-size:13px; text-align:center; min-height:18px; }
+    .f-status.success { color:#4ade80; }
+    .f-status.error   { color:#f87171; }
+    .f-note { margin-top:16px; font-size:12px; color:#334155; text-align:center; line-height:1.5; }
+    .field-gap { margin-bottom:14px; }
+
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+    @media (max-width:720px) { .two-col { grid-template-columns:1fr; gap:36px; } }
+
+    /* ═══ CTA ═══ */
+    .cta-section {
+      padding: 80px 40px 100px;
+      text-align: center;
+      border-top: 0.5px solid rgba(255,255,255,0.05);
+    }
+    .cta-section p {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 300;
+      color: #e8e4dc;
+      opacity: 0.6;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .cta-section p:last-of-type { margin-bottom: 48px; opacity: 0.3; }
+  </style>
+</head>
+<body class="bg-slate-950 text-white">
+
+<!-- ── Header ── -->
+<header class="flex justify-between items-center px-4 py-1" style="position:sticky; top:0; z-index:50; background:rgba(2,6,23,0.88); backdrop-filter:blur(14px); border-bottom:0.5px solid rgba(255,255,255,0.06);">
+ <a href="/" class="flex items-center gap-2" style="text-decoration:none;">
+    <img src="/logo.png" alt="logo" class="w-20 h-20 object-contain">
+    <div class="text-xl font-semibold glow-text">Лаборатория 404</div>
+  </div>
+  <button id="burger" class="md:hidden flex flex-col gap-1.5 z-50 mr-2">
+    <span class="block w-6 h-0.5 bg-white transition-all"></span>
+    <span class="block w-6 h-0.5 bg-white transition-all"></span>
+    <span class="block w-6 h-0.5 bg-white transition-all"></span>
+  </button>
+  <nav class="hidden md:flex space-x-10 text-sm opacity-80">
+    <a href="/o-proekte/" class="hover:opacity-100">О проекте</a>
+    <a href="/prostranstvo/" class="hover:opacity-100">Пространство</a>
+    <a href="/priehat/" class="text-cyan-400">Приехать</a>
+    <a href="/partneram/" class="hover:opacity-100">Партнерам</a>
+  </nav>
+  <a href="/" class="hidden md:block border border-cyan-400 px-8 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mr-8">← Главная</a>
+</header>
+
+<div id="mobile-menu" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.97); z-index:100; flex-direction:column; align-items:center; justify-content:center; gap:32px; font-size:20px;">
+  <a href="/" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Главная</a>
+  <a href="/o-proekte/" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">О проекте</a>
+  <a href="/prostranstvo/" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Пространство</a>
+  <a href="/priehat/" style="color:#22d3ee; text-decoration:none;">Приехать</a>
+  <a href="/partneram/" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Партнерам</a>
+</div>
+<script>
+  const burger = document.getElementById('burger');
+  const mob = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => {
+    mob.style.display = mob.style.display === 'flex' ? 'none' : 'flex';
+    if (mob.style.display === 'flex') mob.style.flexDirection = 'column';
+  });
+  mob.querySelectorAll('a').forEach(el => el.addEventListener('click', () => { mob.style.display = 'none'; }));
+</script>
+
+<!-- ── Hero ── -->
+<section class="bg-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Приехать</div>
+    <h1 class="hero-h1">
+      Несколько шагов —<br>и вы уже<br><em>здесь</em>
+    </h1>
+    <p class="hero-desc">
+      Выберите режим, выберите длительность,<br>
+      оставьте заявку — мы согласуем и встретим.
+    </p>
+    <span class="hero-tag">↓ &nbsp; Начните с первого шага</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     STEPS SECTION
+══════════════════════════════════════ -->
+<div id="steps" style="background:#020617; padding:80px 48px 0;">
+  <div class="lab-inner">
+    <div class="section-num">01 &nbsp;/&nbsp;Как это работает</div>
+
+    <div class="steps-flow">
+
+      <!-- ─ STEP 1: Режим ─ -->
+      <div class="step-row unlocked" id="step-1">
+        <div class="step-left">
+          <div class="step-num-circle">01</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Шаг первый</div>
+          <div class="step-title">Выберите режим</div>
+          <div class="step-desc">Где вы сейчас? Выберите то, что откликается. <br>Не знаете какой режим подходит? Напишите нам — поможем разобраться.</div>
+
+          <div class="mode-grid">
+            <button class="mode-card-s" data-mode="battery" onclick="selectMode(this)">
+              <div class="mc-icon">🔋</div>
+              <div class="mc-title">Батарея разряжена</div>
+              <div class="mc-sub">Режим по умолчанию</div>
+              <div class="mc-check">✓</div>
+            </button>
+            <button class="mode-card-s" data-mode="charge" onclick="selectMode(this)">
+              <div class="mc-icon">⚡</div>
+              <div class="mc-title">Подзарядка</div>
+              <div class="mc-sub">Восстановление сил и восполнение энергии</div>
+              <div class="mc-check">✓</div>
+            </button>
+            <button class="mode-card-s" data-mode="reload" onclick="selectMode(this)">
+              <div class="mc-icon">🔥</div>
+              <div class="mc-title">Перезагрузка</div>
+              <div class="mc-sub">Вкус жизни через приключения и активности</div>
+              <div class="mc-check">✓</div>
+            </button>
+            <button class="mode-card-s" data-mode="update" onclick="selectMode(this)">
+              <div class="mc-icon">⚙️</div>
+              <div class="mc-title">Обновить прошивку</div>
+              <div class="mc-sub">Новые навыки без гонки за результатом</div>
+              <div class="mc-check">✓</div>
+            </button>
+          </div>
+
+
+          <button class="proceed-btn" id="btn-step1" onclick="unlock(2)" disabled>
+            Выбрать длительность <span>→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ─ STEP 2: Длительность + Цена ─ -->
+      <div class="step-row locked" id="step-2">
+        <div class="step-left">
+          <div class="step-num-circle">02</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Шаг второй</div>
+          <div class="step-title">Выберите длительность</div>
+          <div class="step-desc">У каждого свой ритм. Выбирайте столько, сколько чувствуете. <br>Можно продлить на месте. Режимы можно менять.</div>
+
+          <div class="dur-pills">
+            <button class="dur-pill" data-dur="week"  onclick="selectDur(this)">Неделя</button>
+            <button class="dur-pill" data-dur="two"   onclick="selectDur(this)" style="position:relative;padding-top:14px;">
+              <span class="pill-rec">Рекомендуем</span>2 недели
+            </button>
+            <button class="dur-pill" data-dur="month" onclick="selectDur(this)">Месяц</button>
+            <button class="dur-pill" data-dur="other" onclick="selectDur(this)">Другое</button>
+          </div>
+
+          <div class="price-block" id="price-block">
+            <div class="price-empty">← Выберите режим и длительность, чтобы увидеть стоимость</div>
+          </div>
+
+          <div class="notice">
+            Цены указаны за человека.<br>В цену входят проживание, питание 2–3 раза в день (общая простая еда), доступ ко всем общим пространствам и базовым активностям выбранного режима. Никаких скрытых платежей. <br><em>Точную стоимость уточняем при согласовании заявки.</em>
+          </div>
+
+          <button class="proceed-btn" id="btn-step2" onclick="unlock(3)" disabled>
+            Оставить заявку <span>→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ─ STEP 3: Заявка ─ -->
+      <div class="step-row locked" id="step-3">
+        <div class="step-left">
+          <div class="step-num-circle">03</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Шаг третий</div>
+          <div class="step-title">Оставьте заявку</div>
+          <div class="step-desc">Без обязательств. Просто расскажите немного о себе.<br>Мы свяжемся и все обсудим.</div>
+
+          <div style="margin-top:24px; max-width:480px;">
+            <form id="contact-form" action="https://formspree.io/f/mykvykby" method="POST">
+              <input type="hidden" name="Режим"        id="mode-input" value="">
+              <input type="hidden" name="Длительность" id="dur-input"  value="">
+
+              <div class="field-gap" id="selection-display" style="display:none;">
+                <p class="f-label">Выбрано</p>
+                <div class="f-mode-row" id="selection-text"></div>
+              </div>
+
+              <div class="field-gap">
+                <label class="f-label">Имя</label>
+                <input class="f-input" type="text" name="Имя" placeholder="Как вас зовут" required>
+              </div>
+              <div class="field-gap">
+                <label class="f-label">Телеграм / телефон / почта</label>
+                <input class="f-input" type="text" name="Контакт" placeholder="@ТГ / +7 900 000 00 00 / hello@mail.ru" required>
+              </div>
+              <div class="field-gap">
+                <label class="f-label">Комментарий <span style="opacity:.35;font-size:10px;">(необязательно)</span></label>
+                <textarea class="f-textarea" name="Комментарий" placeholder="Можно ничего не писать. А можно — что угодно."></textarea>
+              </div>
+              <div class="f-divider"></div>
+              <button type="submit" class="f-submit" id="f-submit-btn">
+                <span id="f-btn-text">Отправить заявку</span>
+                <span class="f-arrow">→</span>
+              </button>
+              <div id="f-status" class="f-status"></div>
+              <p class="f-note">Мы не передаём данные третьим лицам<br>и не пишем без повода.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─ STEP 4: Согласование ─ -->
+      <div class="step-row locked" id="step-4">
+        <div class="step-left">
+          <div class="step-num-circle">04</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Шаг четвёртый</div>
+          <div class="step-title">Мы согласовываем</div>
+          <div class="step-desc">
+            Напишем в течение суток. Уточним даты и параметры пребывания, ответим на вопросы и пришлём всю необходимую информацию — включая точный адрес, договор и инструкцию по оплате.
+          </div>
+          <div class="notice">
+            Оплата — только после того, как всё устроит. <em>Никаких авансов до подтверждения.</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─ STEP 5: Приезжаете ─ -->
+      <div class="step-row locked" id="step-5">
+        <div class="step-left">
+          <div class="step-num-circle">05</div>
+        </div>
+        <div class="step-body" style="padding-bottom:80px;">
+          <div class="step-label">Шаг пятый</div>
+          <div class="step-title">Приезжаете</div>
+          <div class="step-desc">
+            Мы встречаем. Показываем пространство. Отвечаем на вопросы. Дальше — как захочется.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     DOCUMENTS
+══════════════════════════════════════ -->
+<div style="background:#020617; padding:0 48px 80px; border-top:.5px solid rgba(255,255,255,.04);">
+  <div class="lab-inner">
+    <div class="section-num" style="padding-top:60px;">02 &nbsp;/&nbsp;Документы</div>
+
+    <div class="two-col" style="margin-bottom:36px;">
+      <div>
+        <h2 class="section-title">Что мы <em>подписываем</em></h2>
+        <p class="text-sm text-slate-500 leading-relaxed">
+          Документов минимум — только то, что нужно, чтобы вам было спокойно, а нам понятно. Всё в электронном виде, подписывается онлайн.
+        </p>
+      </div>
+      <div class="notice" style="margin-top:16px; align-self:center;">
+        Документы высылаются <em>после согласования заявки.</em> До приезда нужно только подписать договор и внести предоплату.
+      </div>
+    </div>
+
+    <div class="docs-grid">
+      <div class="doc-card">
+        <div class="doc-icon">📄</div>
+        <div>
+          <div class="doc-title">Договор участия в комьюнити</div>
+          <div class="doc-text">Основной документ: режим, длительность, стоимость, условия пребывания. Подписывается обеими сторонами до приезда.</div>
+          <span class="doc-tag">Обязательный</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">📋</div>
+        <div>
+          <div class="doc-title">Правила пространства</div>
+          <div class="doc-text">Одна страница. Формат совместной жизни, уважение к другим гостям, соблюдение тишины, бережное отношение к пространству, ответственность. Всё человеческое — ничего лишнего.</div>
+          <span class="doc-tag">Обязательный</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">🔒</div>
+        <div>
+          <div class="doc-title">Согласие на обработку персональных данных</div>
+          <div class="doc-text">Стандартный документ по 152-ФЗ. Собираем только необходимое: имя, контакт, даты. Данные не передаются третьим лицам.</div>
+          <span class="doc-tag">Обязательный</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">💳</div>
+        <div>
+          <div class="doc-title">Счёт на оплату</div>
+          <div class="doc-text">После подписания договора — 50% предоплата для бронирования, остаток в день заезда. Карты, переводы, наличные.</div>
+          <span class="doc-tag">После подписания договора</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice" style="margin-top:20px;">
+      Все документы — простые и читаемые. Если что-то непонятно — <em>спрашивайте, объясним.</em>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FAQ
+══════════════════════════════════════ -->
+<div style="background:#020617; padding:0 48px 80px; border-top:.5px solid rgba(255,255,255,.04);">
+  <div class="lab-inner">
+    <div class="section-num" style="padding-top:60px;">03 &nbsp;/&nbsp;Частые вопросы</div>
+    <h2 class="section-title" style="margin-top:36px; margin-bottom:36px;">Если что-то <em>непонятно</em></h2>
+
+    <div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Не знаю, какой режим подходит. Как выбрать?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Напишите нам — коротко расскажите, как сейчас. Мы не психологи, но умеем слушать. Поможем понять, что больше откликается. Иногда самый правильный ответ — «не знаю», и это нормально.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Можно продлить пребывание уже на месте?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Да, если есть места. Доплата по тому же тарифу.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Что если захочу уехать раньше срока?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Никаких вопросов и удержаний. Уезжайте в любой момент — только предупредите за несколько часов. Возврат оставшейся суммы (за вычетом фактических дней) — в течение 3 рабочих дней.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Когда нужно платить и сколько?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">50% предоплата после подписания договора — это бронирует ваше место. Остаток — в день приезда. Принимаем карты, переводы, наличные.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Есть ли скидки?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Да: −15% для пар при совместном проживании, скидки для резидентов. Иногда бывают спецпредложения — спрашивайте напрямую.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Есть ли интернет? Можно ли работать?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Wi-Fi есть. Работать — можно, мы не изымаем устройства. Многие сами откладывают телефон. Это ваш выбор.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Можно приехать с питомцем?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Обсуждаемо. Пишите заранее — скажем, что реально.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Нужны ли медицинские справки или другие документы?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Нет. Только паспортные данные для оформления договора. Если есть особенности здоровья — скажите при подаче заявки, постараемся учесть.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>Как добраться?</span><span class="faq-arrow">+</span></div>
+        <div class="faq-answer">Мы в Ленобласти, ~150 км от Спб. Точный адрес и маршрут высылаем после подтверждения заявки. Есть трансфер — по запросу и за доп. плату.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <p>Возможно, вам не нужно менять жизнь.</p>
+  <p>Возможно, вам нужна пауза.</p>
+  <a href="#steps" class="inline-block border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn">
+    Выбрать режим →
+  </a>
+</section>
+
+<script>
+  /* ── Pricing data ── */
+  const priceData = {
+    battery: {
+      week:  { price:'от 40 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Сон без будильников и расписания','Полное отсутствие программы и обязательств','Доступ к общим пространствам','Люди рядом — быть в окружении комьюнити'] },
+      two:   { price:'от 70 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Сон без будильников и расписания','Полное отсутствие программы и обязательств','Доступ к общим пространствам','Люди рядом — быть в окружении комьюнити'] },
+      month: { price:'от 100 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Сон без будильников и расписания','Полное отсутствие программы и обязательств','Доступ к общим пространствам','Люди рядом — быть в окружении комьюнити','Статус резидента'] },
+      other: null
+    },
+    charge: {
+      week:  { price:'от 65 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Массаж — 3 сеанса','Баня — 1 раз','Йога — 4 занятия','Дыхательные практики, медитации'] },
+      two:   { price:'от 105 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Массаж — 6 сеансов','Баня — 3 раза','Йога — 10 занятий','Дыхательные практики, медитации'] },
+      month: { price:'от 145 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Массаж — 12 сеансов','Баня — безлимитно','Йога — безлимитно','Дыхательные практики, медитации','Статус резидента'] },
+      other: null
+    },
+    reload: {
+      week:  { price:'от 90 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Программа совместных активностей: мини путешествия, Ладога, залив, озера, походы, водные прогулки, спорт активности, нетуристический Петербург, музыкальные бары, винил. Программа зависит от сезона.'] },
+      two:   { price:'от 130 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Программа совместных активностей: мини путешествия, Ладога, залив, озера, походы, водные прогулки, спорт активности, нетуристический Петербург, музыкальные бары, винил. Программа зависит от сезона.'] },
+      month: { price:'от 160 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Программа совместных активностей: мини путешествия, Ладога, залив, озера, походы, водные прогулки, спорт активности, нетуристический Петербург, музыкальные бары, винил. Программа зависит от сезона.','Статус резидента'] },
+      other: null
+    },
+    update: {
+      week:  { price:'от 60 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Доступ к воркшопам','1 направление на выбор: иностранный язык, творчество, ремесла, спорт'] },
+      two:   { price:'от 90 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Доступ к воркшопам','Доступ к библиотеке знаний','2 направление на выбор: иностранный язык, творчество, ремесла, спорт'] },
+      month: { price:'от 110 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Доступ к воркшопам','Любые направления на выбор: иностранный язык, творчество, ремесла, спорт','Статус резидента'] },
+      other: null
+    }
+  };
+
+  const modeNames = {
+    battery:'🔋 Батарея разряжена', charge:'⚡ Подзарядка',
+    reload:'🔥 Перезагрузка', update:'⚙️ Обновить прошивку'
+  };
+  const durNames = { week:'Неделя', two:'2 недели', month:'Месяц', other:'Другое' };
+
+  let selMode = null, selDur = null;
+
+  function selectMode(btn) {
+    document.querySelectorAll('.mode-card-s').forEach(c => c.classList.remove('selected'));
+    btn.classList.add('selected');
+    selMode = btn.dataset.mode;
+    document.getElementById('btn-step1').disabled = false;
+    updatePrice();
+  }
+
+  function selectDur(btn) {
+    document.querySelectorAll('.dur-pill').forEach(p => p.classList.remove('selected'));
+    btn.classList.add('selected');
+    selDur = btn.dataset.dur;
+    document.getElementById('btn-step2').disabled = false;
+    updatePrice();
+  }
+
+  function updatePrice() {
+    const block = document.getElementById('price-block');
+    if (!selMode || !selDur) {
+      block.innerHTML = '<div class="price-empty">← Выберите режим и длительность</div>';
+      return;
+    }
+    const d = priceData[selMode][selDur];
+    if (!d) {
+      block.innerHTML = '<div class="price-empty">Напишите нам — обсудим подходящий вариант</div>';
+      return;
+    }
+    const rows = d.inc.map(i => `<div class="price-inc-row"><span class="price-inc-dot">–</span>${i}</div>`).join('');
+    block.innerHTML = `
+      <div class="price-eyebrow">${modeNames[selMode]} · ${durNames[selDur]}</div>
+      <div class="price-val-big">${d.price}</div>
+      ${rows}
+    `;
+    /* Update form */
+    document.getElementById('mode-input').value = modeNames[selMode];
+    document.getElementById('dur-input').value  = durNames[selDur];
+    document.getElementById('selection-text').textContent = modeNames[selMode] + ' · ' + durNames[selDur];
+    document.getElementById('selection-display').style.display = 'block';
+  }
+
+  function unlock(n) {
+    const el = document.getElementById('step-' + n);
+    el.classList.remove('locked');
+    el.classList.add('unlocked');
+    setTimeout(() => el.scrollIntoView({ behavior:'smooth', block:'start' }), 120);
+  }
+
+  /* FAQ */
+  function toggleFaq(el) {
+    const open = el.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!open) el.classList.add('open');
+  }
+
+  /* Form submit */
+  const contactForm = document.getElementById('contact-form');
+  const submitBtn   = document.getElementById('f-submit-btn');
+  const btnText     = document.getElementById('f-btn-text');
+  const statusEl    = document.getElementById('f-status');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true; btnText.textContent = 'Отправляем...';
+    statusEl.className = 'f-status'; statusEl.textContent = '';
+    try {
+      const res = await fetch(contactForm.action, {
+        method:'POST', body:new FormData(contactForm), headers:{'Accept':'application/json'}
+      });
+      if (res.ok) {
+        statusEl.textContent = 'Заявка отправлена. Мы напишем в ближайшее время.';
+        statusEl.className = 'f-status success';
+        contactForm.reset();
+        btnText.textContent = 'Отправлено ✓';
+        /* Unlock steps 4 & 5 */
+        setTimeout(() => { unlock(4); setTimeout(() => { unlock(5); }, 600); }, 400);
+      } else { throw new Error(); }
+    } catch {
+      statusEl.textContent = 'Что-то пошло не так. Напишите нам напрямую.';
+      statusEl.className = 'f-status error';
+      submitBtn.disabled = false; btnText.textContent = 'Отправить заявку';
+    }
+  });
+</script>
+
+</body>
+</html>
