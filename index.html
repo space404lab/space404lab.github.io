@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- index.html -->
-<link rel="canonical" href="https://labnotfound.ru/">
+<!-- index.html -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Лаборатория 404</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Preconnect как можно раньше — до любых внешних ресурсов -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <title>Лаборатория 404</title>
+  <meta name="description" content="Лаборатория 404 — комьюнити-пространство для отдыха и восстановления. Место, куда можно уехать «на временную пенсию». Без обязательств, целей и продуктивности.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://labnotfound.ru/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://labnotfound.ru/">
+  <meta property="og:title" content="Лаборатория 404 — пространство для отдыха">
+  <meta property="og:description" content="Место, куда можно уехать «на временную пенсию». Без целей, обязательств и продуктивности.">
+  <meta property="og:image" content="https://labnotfound.ru/hero.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Лаборатория 404">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Лаборатория 404 — пространство для отдыха">
+  <meta name="twitter:description" content="Место, куда можно уехать «на временную пенсию». Без целей, обязательств и продуктивности.">
+  <meta name="twitter:image" content="https://labnotfound.ru/hero.jpg">
+
+  <!-- Иконки -->
   <link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (для продакшена рекомендуется заменить на сборку через Tailwind CLI) -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
   body { font-family: 'Inter', sans-serif; }
 
@@ -22,17 +49,6 @@
     background-position: center;
     overflow: hidden;
   }
-
-@media (max-width: 768px) {
-  .bg-hero {
-    background-image: url('./hero_m.jpg');
-    animation: none;
-  }
-  .bg-secondary {
-    background-image: url('./second_m.jpg');
-    animation: none;
-  }
-}
 
 .bg-secondary {
   background: url('./second.jpg');
@@ -86,6 +102,8 @@
   /* Лёгкое "дыхание" фона */
   .bg-secondary {
     animation: bgMove 20s ease-in-out infinite alternate;
+    margin-top: -1px;       /* убираем возможный разрыв */
+    padding-top: 80px;
   }
 
   /* Лёгкое "дыхание" фона */
@@ -96,6 +114,18 @@
   @keyframes bgMove {
     0% { background-position: center; }
     100% { background-position: center 20%; }
+  }
+
+  /* Мобайл — ПОСЛЕ деклараций анимации, чтобы каскад гарантированно побеждал */
+  @media (max-width: 768px) {
+    .bg-hero {
+      background-image: url('./hero_m.jpg');
+      animation: none;
+    }
+    .bg-secondary {
+      background-image: url('./second_m.jpg');
+      animation: none;
+    }
   }
 
   /* Контент поверх */
@@ -139,10 +169,7 @@
 pointer-events: none;
 }
 
-.bg-secondary {
-  margin-top: -1px;       /* убираем возможный разрыв */
-  padding-top: 80px;
-}
+
 
 /* ── Переход снизу bg-secondary → тёмный фон формы ── */
 .bg-secondary::after {
@@ -188,33 +215,38 @@ pointer-events: none;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 7px;
 }
-.f-input,
-.f-select,
-.f-textarea {
-  width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 0.5px solid rgba(34,211,238,0.15);
-  border-radius: 8px;
-  padding: 13px 15px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  color: #f1f5f9;
-  outline: none;
-  transition: background 0.2s, border-color 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
+.f-input, .f-select, .f-textarea {
+  width:100%;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(34,211,238,.22);
+  border-radius:10px;
+  padding:15px 16px;
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  line-height:1.5;
+  color:#f8fafc;
+  outline:none;
+  transition:background .2s, border-color .2s, box-shadow .2s;
+  appearance:none;
+  -webkit-appearance:none;
 }
+
 .f-input::placeholder,
-.f-textarea::placeholder { color: #334155; }
+.f-textarea::placeholder {
+  color:#64748b;
+  opacity:0.9;
+}
+
 .f-input:focus,
 .f-select:focus,
 .f-textarea:focus {
-  background: rgba(34,211,238,0.04);
-  border-color: rgba(34,211,238,0.4);
+  background:rgba(34,211,238,.05);
+  border-color:#22d3ee;
+  box-shadow:0 0 0 3px rgba(34,211,238,.12);
 }
 .f-textarea { resize: none; height: 90px; line-height: 1.6; }
 .f-select-wrap { position: relative; }
@@ -230,13 +262,14 @@ pointer-events: none;
 }
 .f-select option { background: #0f172a; color: #f1f5f9; }
 .f-mode-row {
-  background: rgba(34,211,238,0.05);
-  border: 0.5px solid rgba(34,211,238,0.25);
-  border-radius: 8px;
-  padding: 11px 15px;
-  font-size: 14px;
-  color: #22d3ee;
-  display: none;
+  background:rgba(34,211,238,.08);
+  border:1px solid rgba(34,211,238,.35);
+  border-radius:10px;
+  padding:14px 16px;
+  font-size:15px;
+  font-weight:500;
+  color:#67e8f9;
+  line-height:1.5;
 }
 .f-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 28px 0; }
 .f-submit {
@@ -595,7 +628,7 @@ margin-bottom: 40px;
 
   <!-- Header -->
  <header class="flex justify-between items-center px-4 py-1 relative">
-  <div class="flex items-center gap-2">
+<div class="flex items-center gap-2">
     <img src="logo.png" alt="logo" class="w-20 h-20 object-contain">
     <div class="text-xl font-semibold glow-text">Лаборатория 404</div>
   </div>
@@ -609,10 +642,10 @@ margin-bottom: 40px;
 
   <!-- Десктопное меню -->
   <nav class="hidden md:flex space-x-10 text-sm opacity-80">
-    <a href="o-proekte.html">О проекте</a>
-    <a href="prostranstvo.html">Пространство</a>
-    <a href="priehat.html">Приехать</a>
-    <a href="partneram.html">Партнерам</a>
+    <a href="/o-proekte/">О проекте</a>
+    <a href="/prostranstvo/">Пространство</a>
+    <a href="/priehat/">Приехать</a>
+    <a href="/partneram/">Партнерам</a>
   </nav>
 
 <button onclick="scrollToForm()" class="hidden md:block border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mr-8">
@@ -623,11 +656,11 @@ margin-bottom: 40px;
 <div id="mobile-menu" 
      class="fixed inset-0 bg-slate-950 bg-opacity-95 flex-col items-center justify-center gap-8 text-xl z-40"
      style="display: none;">
-<a href="index.html" style="color:#22d3ee; text-decoration:none;">Главная</a>
-  <a href="o-proekte.html" class="opacity-80 hover:opacity-100">О проекте</a>
-  <a href="prostranstvo.html" class="opacity-80 hover:opacity-100">Пространство</a>
-  <a href="priehat.html" class="opacity-80 hover:opacity-100">Приехать</a>
-  <a href="partneram.html" class="opacity-80 hover:opacity-100">Партнерам</a>
+<a href="/" style="color:#22d3ee; text-decoration:none;">Главная</a>
+  <a href="/o-proekte/" class="opacity-80 hover:opacity-100">О проекте</a>
+  <a href="/prostranstvo/" class="opacity-80 hover:opacity-100">Пространство</a>
+  <a href="/priehat/" class="opacity-80 hover:opacity-100">Приехать</a>
+  <a href="/partneram/" class="opacity-80 hover:opacity-100">Партнерам</a>
 <button onclick="scrollToForm()" class="border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mt-4">
     «Выйти из системы»
   </button>
@@ -672,7 +705,7 @@ margin-bottom: 40px;
       Место, куда можно уехать <br>«на временную пенсию» 
     </p>
 
-<a href="o-proekte.html"
+<a href="/o-proekte/"
    class="inline-block bg-cyan-500 text-white px-6 py-3 rounded-full glow-btn mt-20">
   Просто посмотреть →
 </a>
@@ -736,7 +769,7 @@ margin-bottom: 40px;
             <div>
               <div class="p-title">Никакой продуктивности</div>
               <div class="p-desc">
-                Мы не трансформируем и не прокачиваем. Мы создаём условия — что с ними делать, решаете вы.
+                Мы не трансформируем и не прокачиваем. 
               </div>
             </div>
           </div>
@@ -761,7 +794,7 @@ margin-bottom: 40px;
           для внешних запросов, но обнаруженным для самого себя.
           Это не побег от жизни, а осознанная
           <em>пауза для восстановления</em>
-          связи с собой. Вы просто временно выходите из системы —
+          связи с собой. Вы просто временно «выходите из системы» —
           и возвращаетесь к себе.
         </p>
       </div>
@@ -792,28 +825,28 @@ margin-bottom: 40px;
 
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('battery')">
-  <img src="b.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
+  <img src="b.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Батарея разряжена">
   <h3 class="text-xl mb-1">Батарея разряжена</h3>
   <p class="opacity-60 text-sm">Режим по умолчанию</p>
   <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('charge')">
-  <img src="r.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
+  <img src="r.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Подзарядка">
   <h3 class="text-xl mb-1">Подзарядка</h3>
   <p class="opacity-60 text-sm">Восстановление сил и восполнение энергии</p>
   <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('reload')">
-  <img src="c.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
+  <img src="c.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Перезагрузка">
   <h3 class="text-xl mb-1">Перезагрузка</h3>
   <p class="opacity-60 text-sm">Вкус жизни через приключения и активности</p>
   <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
    
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('update')">
-  <img src="u.png" class="w-18 h-18 mb-2 mt-0" alt="icon">
+  <img src="u.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Обновить прошивку">
   <h3 class="text-xl mb-1">Обновить прошивку</h3>
   <p class="opacity-60 text-sm">Новые навыки без гонки за результатом</p>
   <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
@@ -858,8 +891,8 @@ margin-bottom: 40px;
         </div>
  
         <div class="field-gap">
-          <label class="f-label" for="f-contact">Телефон или почта</label>
-          <input class="f-input" type="text" id="f-contact" name="Контакт" placeholder="+7 900 000 00 00 или hello@mail.ru" required>
+          <label class="f-label" for="f-contact">Телеграм / телефон / почта</label>
+          <input class="f-input" type="text" id="f-contact" name="Контакт" placeholder="@ТГ / +7 900 000 00 00 / hello@mail.ru" required>
         </div>
  
         <div class="field-gap">
@@ -924,7 +957,7 @@ margin-bottom: 40px;
           <li>Проживание, питание 2–3 раза в день (общая простая еда)</li>
           <li>Сон без будильников и расписания</li>
           <li>Полное отсутствие программы и обязательств</li>
-          <li>Доступ к общим пространствам: гостиная, двор, природа</li>
+          <li>Доступ к общим пространствам: кухня и гостиная, двор, природа</li>
           <li>Люди рядом — быть в окружении комьюнити</li>
         </ul>
       </div>
