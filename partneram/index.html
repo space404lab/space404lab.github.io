@@ -324,29 +324,39 @@
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #475569;
-      margin-bottom: 7px;
+      color: #94a3b8;
+      margin-bottom: 8px;
     }
-    .f-input, .f-select, .f-textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 0.5px solid rgba(34,211,238,0.15);
-      border-radius: 8px;
-      padding: 13px 15px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      color: #f1f5f9;
-      outline: none;
-      transition: background 0.2s, border-color 0.2s;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-    .f-input::placeholder, .f-textarea::placeholder { color: #334155; }
-    .f-input:focus, .f-select:focus, .f-textarea:focus {
-      background: rgba(34,211,238,0.04);
-      border-color: rgba(34,211,238,0.4);
-    }
+.f-input, .f-select, .f-textarea {
+  width:100%;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(34,211,238,.22);
+  border-radius:10px;
+  padding:15px 16px;
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  line-height:1.5;
+  color:#f8fafc;
+  outline:none;
+  transition:background .2s, border-color .2s, box-shadow .2s;
+  appearance:none;
+  -webkit-appearance:none;
+}
+
+.f-input::placeholder,
+.f-textarea::placeholder {
+  color:#64748b;
+  opacity:0.9;
+}
+
+.f-input:focus,
+.f-select:focus,
+.f-textarea:focus {
+  background:rgba(34,211,238,.05);
+  border-color:#22d3ee;
+  box-shadow:0 0 0 3px rgba(34,211,238,.12);
+}
     .f-textarea { resize: none; height: 120px; line-height: 1.6; }
     .f-select-wrap { position: relative; }
     .f-select-wrap::after {
@@ -697,9 +707,9 @@
         </div>
 
         <div class="field-gap">
-          <label class="f-label" for="p-contact">Telegram или почта</label>
+          <label class="f-label" for="p-contact">Телеграм / телефон / почта</label>
           <input class="f-input" id="p-contact" name="contact" type="text"
-                 placeholder="@username или email" required>
+                 placeholder="@ТГ / +7 900 000 00 00 / hello@mail.ru" required>
         </div>
 
         <div class="field-gap">
