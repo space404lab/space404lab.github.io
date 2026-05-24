@@ -838,7 +838,7 @@
         contactForm.reset();
         btnText.textContent = 'Отправлено ✓';
         /* Unlock steps 4 & 5 */
-        setTimeout(() => { unlock(4); setTimeout(() => { unlock(5); }, 600); }, 400);
+        setTimeout(() => { unlock(4); }, 1000);
       } else { throw new Error(); }
     } catch {
       statusEl.textContent = 'Что-то пошло не так. Напишите нам напрямую.';
