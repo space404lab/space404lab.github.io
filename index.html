@@ -622,6 +622,36 @@ margin-bottom: 40px;
     transition: box-shadow 0.2s, opacity 0.2s;
   }
   .btn-book:hover { box-shadow: 0 0 28px rgba(34,211,238,0.55); opacity: 0.92; }
+
+  /* ── Price block inside modal ── */
+  .modal-price-block {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: rgba(34,211,238,0.05);
+    border: 0.5px solid rgba(34,211,238,0.25);
+    border-radius: 12px;
+    transition: all 0.2s;
+    min-height: 52px;
+  }
+  .modal-price-empty {
+    font-size: 12px; color: #475569; text-align: center; padding: 4px 0;
+  }
+  .modal-price-val {
+    font-size: 20px; font-weight: 600; color: #22d3ee;
+    letter-spacing: -0.01em;
+  }
+  .modal-price-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: #475569; margin-bottom: 4px;
+  }
+
+  /* ── "Стоимость от" on mode cards ── */
+  .mode-card-price {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #22d3ee;
+    opacity: 0.75;
+  }
 </style>
 </head>
 <body class="bg-slate-950 text-white">
@@ -828,28 +858,32 @@ margin-bottom: 40px;
   <img src="b.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Батарея разряжена">
   <h3 class="text-xl mb-1">Батарея разряжена</h3>
   <p class="opacity-60 text-sm">Режим по умолчанию</p>
-  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
+  <div class="mode-card-price">от 40 000 ₽</div>
+  <div class="mt-4 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('charge')">
   <img src="r.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Подзарядка">
   <h3 class="text-xl mb-1">Подзарядка</h3>
   <p class="opacity-60 text-sm">Восстановление сил и восполнение энергии</p>
-  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
+  <div class="mode-card-price">от 65 000 ₽</div>
+  <div class="mt-4 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('reload')">
   <img src="c.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Перезагрузка">
   <h3 class="text-xl mb-1">Перезагрузка</h3>
   <p class="opacity-60 text-sm">Вкус жизни через приключения и активности</p>
-  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
+  <div class="mode-card-price">от 90 000 ₽</div>
+  <div class="mt-4 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
    
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" onclick="openModal('update')">
   <img src="u.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Обновить прошивку">
   <h3 class="text-xl mb-1">Обновить прошивку</h3>
   <p class="opacity-60 text-sm">Новые навыки без гонки за результатом</p>
-  <div class="mt-6 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
+  <div class="mode-card-price">от 60 000 ₽</div>
+  <div class="mt-4 text-xs text-cyan-400 opacity-70 tracking-widest uppercase">Подробнее →</div>
 </div>
  
 </div>  
@@ -972,17 +1006,18 @@ margin-bottom: 40px;
 
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row">
-        <button class="dur-btn active" onclick="selectDur(this)">
+      <div class="dur-row" id="dur-row-battery">
+        <button class="dur-btn active" onclick="selectDur(this,'battery')">
           <div>Неделя</div>
         </button>
-        <button class="dur-btn" onclick="selectDur(this)">
+        <button class="dur-btn" onclick="selectDur(this,'battery')">
           <div>2 недели</div>
         </button>
-        <button class="dur-btn" onclick="selectDur(this)">
+        <button class="dur-btn" onclick="selectDur(this,'battery')">
           <div>Месяц</div>
         </button>
       </div>
+      <div class="modal-price-block" id="price-battery"></div>
     </div>
     <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('battery', '🔋 Батарея разряжена')">Оставить заявку →</button></div>
   </div>
@@ -1031,17 +1066,18 @@ margin-bottom: 40px;
 
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row">
-        <button class="dur-btn" onclick="selectDur(this)">
+      <div class="dur-row" id="dur-row-charge">
+        <button class="dur-btn active" onclick="selectDur(this,'charge')">
           <div>Неделя</div>
         </button>
-        <button class="dur-btn active" onclick="selectDur(this)">
-          <div>2 недели</div><div class="dur-sub">Рекомендуем</div>
+        <button class="dur-btn" onclick="selectDur(this,'charge')">
+          <div>2 недели</div>
         </button>
-        <button class="dur-btn" onclick="selectDur(this)">
+        <button class="dur-btn" onclick="selectDur(this,'charge')">
           <div>Месяц</div>
         </button>
       </div>
+      <div class="modal-price-block" id="price-charge"></div>
     </div>
     <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('charge', '⚡ Подзарядка')">Оставить заявку →</button></div>
   </div>
@@ -1092,17 +1128,18 @@ margin-bottom: 40px;
 
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row">
-        <button class="dur-btn active" onclick="selectDur(this)">
-          <div>Неделя</div><div class="dur-sub">Рекомендуем</div>
+      <div class="dur-row" id="dur-row-reload">
+        <button class="dur-btn active" onclick="selectDur(this,'reload')">
+          <div>Неделя</div>
         </button>
-        <button class="dur-btn" onclick="selectDur(this)">
+        <button class="dur-btn" onclick="selectDur(this,'reload')">
           <div>2 недели</div>
         </button>
-        <button class="dur-btn" onclick="selectDur(this)">
+        <button class="dur-btn" onclick="selectDur(this,'reload')">
           <div>Месяц</div>
         </button>
       </div>
+      <div class="modal-price-block" id="price-reload"></div>
     </div>
     <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('reload', '🔥 Перезагрузка')">Оставить заявку →</button></div>
   </div>
@@ -1154,17 +1191,18 @@ margin-bottom: 40px;
 
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row">
-        <button class="dur-btn" onclick="selectDur(this)">
+      <div class="dur-row" id="dur-row-update">
+        <button class="dur-btn active" onclick="selectDur(this,'update')">
           <div>Неделя</div>
         </button>
-        <button class="dur-btn" onclick="selectDur(this)">
+        <button class="dur-btn" onclick="selectDur(this,'update')">
           <div>2 недели</div>
         </button>
-        <button class="dur-btn active" onclick="selectDur(this)">
-          <div>Месяц</div><div class="dur-sub">Рекомендуем</div>
+        <button class="dur-btn" onclick="selectDur(this,'update')">
+          <div>Месяц</div>
         </button>
       </div>
+      <div class="modal-price-block" id="price-update"></div>
     </div>
     <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('update', '⚙️ Обновить прошивку')">Оставить заявку →</button></div>
   </div>
@@ -1172,9 +1210,56 @@ margin-bottom: 40px;
 
 <!-- ===== СКРИПТЫ МОДАЛОК ===== -->
 <script>
+  /* ── Pricing data ── */
+  const priceData = {
+    battery: {
+      week:  '40 000 ₽',
+      two:   '70 000 ₽',
+      month: '100 000 ₽'
+    },
+    charge: {
+      week:  '65 000 ₽',
+      two:   '105 000 ₽',
+      month: '145 000 ₽'
+    },
+    reload: {
+      week:  '90 000 ₽',
+      two:   '130 000 ₽',
+      month: '160 000 ₽'
+    },
+    update: {
+      week:  '60 000 ₽',
+      two:   '90 000 ₽',
+      month: '110 000 ₽'
+    }
+  };
+
+  const durKeyMap = { 'Неделя': 'week', '2 недели': 'two', 'Месяц': 'month' };
+  const durLabelMap = { week: 'Неделя', two: '2 недели', month: 'Месяц' };
+
+  function updateModalPrice(modalId) {
+    const block = document.getElementById('price-' + modalId);
+    if (!block) return;
+    const row = document.getElementById('dur-row-' + modalId);
+    const activeBtn = row ? row.querySelector('.dur-btn.active') : null;
+    if (!activeBtn) {
+      block.innerHTML = '<div class="modal-price-empty">Выберите длительность</div>';
+      return;
+    }
+    const durText = activeBtn.querySelector('div:first-child').textContent.trim();
+    const durKey = durKeyMap[durText];
+    const price = priceData[modalId] && durKey ? priceData[modalId][durKey] : null;
+    if (price) {
+      block.innerHTML = `<div class="modal-price-label">Стоимость</div><div class="modal-price-val">${price}</div>`;
+    } else {
+      block.innerHTML = '<div class="modal-price-empty">Обсудим индивидуально</div>';
+    }
+  }
+
   function openModal(id) {
     document.getElementById('modal-' + id).classList.add('active');
     document.body.style.overflow = 'hidden';
+    updateModalPrice(id);
   }
   function closeModal(id) {
     document.getElementById('modal-' + id).classList.remove('active');
@@ -1198,10 +1283,17 @@ margin-bottom: 40px;
     btn.classList.add('active');
     document.getElementById(modalId + '-' + panelId).classList.add('active');
   }
-  function selectDur(btn) {
+  function selectDur(btn, modalId) {
     btn.closest('.dur-row').querySelectorAll('.dur-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    if (modalId) updateModalPrice(modalId);
   }
+
+  /* Инициализация цен при загрузке для всех модалок */
+  document.addEventListener('DOMContentLoaded', () => {
+    ['battery','charge','reload','update'].forEach(id => updateModalPrice(id));
+  });
+
 /* — Кнопка "Оставить заявку" из модалки — */
   function bookFromModal(modalId, modeName) {
     // Берём выбранную длительность из этой модалки
