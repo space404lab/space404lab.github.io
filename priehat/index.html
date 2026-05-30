@@ -155,7 +155,12 @@
 
     .step-label { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#22d3ee; opacity:.45; margin-bottom:6px; padding-top:11px; }
     .step-title { font-size:21px; font-weight:300; color:#f1f5f9; margin-bottom:8px; }
-    .step-desc  { font-size:14px; color:#64748b; line-height:1.8; }
+    .step-desc  { font-size:14px; color:#64748b; line-height:1.8; text-align:justify; }
+
+    @media (max-width:560px) {
+      .dur-pills { flex-direction:column; }
+      .dur-pill  { width:100%; text-align:center; }
+    }
 
     /* Locked overlay */
     .step-row { transition:opacity .4s; }
@@ -230,6 +235,7 @@
       padding:16px 20px; border:.5px solid rgba(34,211,238,.18);
       border-radius:12px; background:rgba(34,211,238,.03);
       font-size:13px; color:#64748b; line-height:1.75; margin-top:18px;
+      text-align:justify;
     }
     .notice em { font-style:normal; color:#22d3ee; }
 
@@ -567,8 +573,8 @@
                 <span id="f-btn-text">Отправить заявку</span>
                 <span class="f-arrow">→</span>
               </button>
-              <p class="f-note" style="margin-top:16px;">
-                Оставляя заявку, вы соглашаетесь с <br><a href="#" onclick="openLegalModal('personal-data'); return false;" style="color:#22d3ee; text-decoration:underline; text-underline-offset:3px;">политикой обработки персональных данных</a>
+              <p class="f-note" style="margin-top:16px; text-align:center; line-height:1.7;">
+                Оставляя заявку, вы соглашаетесь с <a href="#" onclick="openLegalModal('personal-data'); return false;" style="color:#22d3ee; text-decoration:underline; text-underline-offset:3px; white-space:nowrap;">политикой обработки<br>персональных данных</a>
               </p>
               <p id="f-status" class="f-status"></p>
               <p class="f-note" style="margin-top:9px;">Мы не передаём данные третьим лицам<br>и не пишем без повода.</p>
@@ -634,34 +640,32 @@
 
     <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:28px;">
 
-      <div style="display:grid; grid-template-columns:48px 1fr auto; gap:0 20px; align-items:start; background:rgba(255,255,255,0.025); border:0.5px solid rgba(255,255,255,0.07); border-radius:14px; padding:22px 24px;">
-        <div style="font-size:22px; padding-top:2px;">📄</div>
-        <div>
+      <div style="display:flex; gap:20px; align-items:flex-start; background:rgba(255,255,255,0.025); border:0.5px solid rgba(255,255,255,0.07); border-radius:14px; padding:22px 24px; flex-wrap:wrap;">
+        <div style="font-size:22px; padding-top:2px; flex-shrink:0;">📄</div>
+        <div style="flex:1; min-width:180px;">
           <div style="font-size:15px; font-weight:500; color:#e2e8f0; margin-bottom:6px;">Договор участия в комьюнити</div>
           <div style="font-size:13px; color:#64748b; line-height:1.65;">Режим, длительность, стоимость и условия пребывания. Подписывается обеими сторонами до приезда.</div>
         </div>
-        <div style="padding-top:3px;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#22d3ee; background:rgba(34,211,238,0.08); border:0.5px solid rgba(34,211,238,0.2); border-radius:6px; padding:4px 10px; white-space:nowrap;">До приезда</span></div>
+        <div style="flex-shrink:0; align-self:flex-start;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#22d3ee; background:rgba(34,211,238,0.08); border:0.5px solid rgba(34,211,238,0.2); border-radius:6px; padding:4px 10px; white-space:nowrap;">До приезда</span></div>
       </div>
 
-      <div style="display:grid; grid-template-columns:48px 1fr auto; gap:0 20px; align-items:start; background:rgba(255,255,255,0.025); border:0.5px solid rgba(255,255,255,0.07); border-radius:14px; padding:22px 24px;">
-        <div style="font-size:22px; padding-top:2px;">📋</div>
-        <div>
+      <div style="display:flex; gap:20px; align-items:flex-start; background:rgba(255,255,255,0.025); border:0.5px solid rgba(255,255,255,0.07); border-radius:14px; padding:22px 24px; flex-wrap:wrap;">
+        <div style="font-size:22px; padding-top:2px; flex-shrink:0;">📋</div>
+        <div style="flex:1; min-width:180px;">
           <div style="font-size:15px; font-weight:500; color:#e2e8f0; margin-bottom:6px;">Правила пространства</div>
           <div style="font-size:13px; color:#64748b; line-height:1.65;">Одна страница. Уважение к соседям, тишина в нужное время, бережное отношение к дому. Всё по-человечески — ничего лишнего.</div>
         </div>
-        <div style="padding-top:3px;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#22d3ee; background:rgba(34,211,238,0.08); border:0.5px solid rgba(34,211,238,0.2); border-radius:6px; padding:4px 10px; white-space:nowrap;">До приезда</span></div>
+        <div style="flex-shrink:0; align-self:flex-start;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#22d3ee; background:rgba(34,211,238,0.08); border:0.5px solid rgba(34,211,238,0.2); border-radius:6px; padding:4px 10px; white-space:nowrap;">До приезда</span></div>
       </div>
 
-      <div style="display:grid; grid-template-columns:48px 1fr auto; gap:0 20px; align-items:start; background:rgba(255,255,255,0.025); border:0.5px solid rgba(255,255,255,0.07); border-radius:14px; padding:22px 24px;">
-        <div style="font-size:22px; padding-top:2px;">💳</div>
-        <div>
+      <div style="display:flex; gap:20px; align-items:flex-start; background:rgba(255,255,255,0.025); border:0.5px solid rgba(255,255,255,0.07); border-radius:14px; padding:22px 24px; flex-wrap:wrap;">
+        <div style="font-size:22px; padding-top:2px; flex-shrink:0;">💳</div>
+        <div style="flex:1; min-width:180px;">
           <div style="font-size:15px; font-weight:500; color:#e2e8f0; margin-bottom:6px;">Счёт на оплату</div>
           <div style="font-size:13px; color:#64748b; line-height:1.65;">50% предоплата после подписания договора, остаток — в день заезда. Карты, переводы, наличные.</div>
         </div>
-        <div style="padding-top:3px;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#94a3b8; background:rgba(148,163,184,0.08); border:0.5px solid rgba(148,163,184,0.2); border-radius:6px; padding:4px 10px; white-space:nowrap;">После договора</span></div>
+        <div style="flex-shrink:0; align-self:flex-start;"><span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#94a3b8; background:rgba(148,163,184,0.08); border:0.5px solid rgba(148,163,184,0.2); border-radius:6px; padding:4px 10px; white-space:nowrap;">После договора</span></div>
       </div>
-
-    </div>
 
     <div class="notice" style="margin-top:4px;">
       Все документы — простые и читаемые. Если что-то непонятно — <em>спрашивайте, объясним.</em>
@@ -963,6 +967,16 @@
   footer > div > div:last-of-type {
     flex-direction: column !important;
     align-items: flex-start !important;
+  }
+  .faq-answer,
+  .pc-inc,
+  .price-inc-row,
+  .hero-desc,
+  .doc-text {
+    text-align: justify;
+  }
+  .text-sm.text-slate-500 {
+    text-align: justify;
   }
 }
 </style>
