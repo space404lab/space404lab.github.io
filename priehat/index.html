@@ -392,12 +392,13 @@
       margin-bottom: 12px;
     }
     .cta-section p:last-of-type { margin-bottom: 48px; opacity: 0.3; }
-@media (max-width: 768px) {
-  .cta-section { padding-left: 24px; padding-right: 24px; }
-}
+    @media (max-width: 768px) {
+      .cta-section { padding-left: 24px !important; padding-right: 24px !important; }
+      .cta-section p { font-size: 16px !important; }
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-white">
+<body class="bg-slate-950">
 
 <!-- ── Header ── -->
 <header class="flex justify-between items-center px-4 py-1" style="position:sticky; top:0; z-index:50; background:rgba(2,6,23,0.88); backdrop-filter:blur(14px); border-bottom:0.5px solid rgba(255,255,255,0.06);">
