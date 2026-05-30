@@ -379,9 +379,8 @@
 
     /* ═══ CTA ═══ */
     .cta-section {
-      padding: 80px 40px 100px;
+      padding: 80px 0 100px;
       text-align: center;
-      border-top: 0.5px solid rgba(255,255,255,0.05);
     }
     .cta-section p {
       font-size: clamp(18px, 2.5vw, 28px);
@@ -392,8 +391,7 @@
       margin-bottom: 12px;
     }
     .cta-section p:last-of-type { margin-bottom: 48px; opacity: 0.3; }
-    @media (max-width: 900px) {
-      .cta-section { padding-left: 24px !important; padding-right: 24px !important; }
+    @media (max-width: 768px) {
       .cta-section p { font-size: 16px !important; }
     }
   </style>
@@ -727,13 +725,17 @@
 </div>
 
 <!-- ── CTA ── -->
-<section class="cta-section">
-  <p>Возможно, вам не нужно менять жизнь.</p>
-  <p>Возможно, вам нужна пауза.</p>
-  <a href="#steps" class="inline-block border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn">
-    Выбрать режим →
-  </a>
-</section>
+<div style="background:#020617; border-top:0.5px solid rgba(255,255,255,0.05);">
+  <div class="lab-inner">
+    <section class="cta-section">
+      <p>Возможно, вам не нужно менять жизнь.</p>
+      <p>Возможно, вам нужна пауза.</p>
+      <a href="#steps" class="inline-block border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn">
+        Выбрать режим →
+      </a>
+    </section>
+  </div>
+</div>
 
 <script>
   /* ── Pricing data ── */
