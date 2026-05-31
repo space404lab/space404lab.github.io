@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<!-- index.html -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Preconnect как можно раньше — до любых внешних ресурсов -->
+  <!-- Preconnect как можно раньше -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>Лаборатория 404 — комьюнити-пространство для отдыха</title>
-  <meta name="description" content="Лаборатория 404 — комьюнити-пространство для отдыха. Место, куда можно уехать «на временную пенсию». Без обязательств, целей и продуктивности.">
+  <title>Партнёрам — Лаборатория 404</title>
+  <meta name="description" content="Сотрудничество с Лабораторией 404 — форматы партнёрства, условия и возможности для совместных проектов.">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://labnotfound.ru/">
+  <link rel="canonical" href="https://labnotfound.ru/partneram/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://labnotfound.ru/">
-  <meta property="og:title" content="Лаборатория 404 — комьюнити-пространство для отдыха">
-  <meta property="og:description" content="Место, куда можно уехать «на временную пенсию». Без обязательств, целей и продуктивности.">
-  <meta property="og:image" content="https://labnotfound.ru/hero.jpg">
+  <meta property="og:url" content="https://labnotfound.ru/partneram/">
+  <meta property="og:title" content="Партнёрам — Лаборатория 404">
+  <meta property="og:description" content="Сотрудничество с Лабораторией 404 — форматы партнёрства, условия и возможности для совместных проектов.">
+  <meta property="og:image" content="https://labnotfound.ru/parhero.jpg">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Лаборатория 404">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Лаборатория 404 — комьюнити-пространство для отдыха">
-  <meta name="twitter:description" content="Место, куда можно уехать «на временную пенсию». Без обязательств, целей и продуктивности.">
-  <meta name="twitter:image" content="https://labnotfound.ru/hero.jpg">
+  <meta name="twitter:title" content="Партнёрам — Лаборатория 404">
+  <meta name="twitter:description" content="Сотрудничество с Лабораторией 404 — форматы партнёрства, условия и возможности для совместных проектов.">
+  <meta name="twitter:image" content="https://labnotfound.ru/parhero.jpg">
 
   <!-- Иконки -->
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
 
   <!-- Шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -40,184 +39,294 @@
   <!-- Tailwind (для продакшена рекомендуется заменить на сборку через Tailwind CLI) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-  body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; background: #020617; color: #f1f5f9; }
 
-  .bg-hero {
-    position: relative;
-    background: url('./hero.jpg');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-  }
-
-.bg-secondary {
-  background: url('./second.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-/* затемнение, чтобы текст читался */
-.bg-secondary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(2,6,23,0.7);
-  z-index: 0;
-}
-
-/* чтобы контент был поверх */
-.bg-secondary > * {
-  position: relative;
-  z-index: 1;
-}
-
-    /* Glow effect */
+    /* ── Glow ── */
     .glow-text {
-      text-shadow:
-        0 0 5px #22d3ee,
-        0 0 10px #22d3ee,
-        0 0 20px #22d3ee,
-        0 0 40px #06b6d4;
+      text-shadow: 0 0 5px #22d3ee, 0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 40px #06b6d4;
     }
-
     .glow-btn {
       box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee;
     }
 
-
-  /* Темный градиент как у igloo */
-  .bg-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 70% 40%, rgba(255,140,0,0.2), transparent 40%),
-      radial-gradient(circle at 20% 80%, rgba(34,211,238,0.2), transparent 40%),
-      linear-gradient(to bottom, rgba(2,6,23,0.4), rgba(2,6,23,0.7));
-    z-index: 1;
-  }
-
-  /* Лёгкое "дыхание" фона */
-  .bg-secondary {
-    animation: bgMove 20s ease-in-out infinite alternate;
-    margin-top: -1px;       /* убираем возможный разрыв */
-    padding-top: 80px;
-  }
-
-  /* Лёгкое "дыхание" фона */
-  .bg-hero {
-    animation: bgMove 20s ease-in-out infinite alternate;
-  }
-
-  @keyframes bgMove {
-    0% { background-position: center; }
-    100% { background-position: center 20%; }
-  }
-
-  /* Мобайл — ПОСЛЕ деклараций анимации, чтобы каскад гарантированно побеждал */
-  @media (max-width: 768px) {
-    .bg-hero {
-      background-image: url('./hero_m.jpg');
-      animation: none;
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid rgba(255,255,255,0.05);
     }
-    .bg-secondary {
-      background-image: url('./second_m.jpg');
-      animation: none;
+
+    /* ── Hero ── */
+    .about-hero {
+      height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 48px 80px;
+      position: relative;
+      overflow: hidden;
+      background: url('/parhero.jpg') center/cover no-repeat;
     }
-  }
 
-  /* Контент поверх */
-  .hero-content {
-    position: relative;
-    z-index: 3;
-  }
+    .about-hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 30%, rgba(34,211,238,0.05), transparent),
+        radial-gradient(ellipse 60% 80% at 10% 70%, rgba(255,140,0,0.04), transparent),
+        linear-gradient(to bottom, rgba(2,6,23,0.3) 0%, rgba(2,6,23,0.85) 100%);
+      z-index: 1;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        linear-gradient(rgba(34,211,238,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,0.05) 1px, transparent 1px);
+      background-size: 72px 72px;
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #22d3ee; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ""; width: 32px; height: 0.5px; background: #22d3ee; opacity: 0.4;
+    }
+    .hero-title {
+      font-size: clamp(42px, 6vw, 78px);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #f1f5f9;
+      margin-bottom: 28px;
+    }
+    .hero-title em { font-style: normal; color: #22d3ee; }
+    .hero-desc {
+      font-size: 16px;
+      color: #94a3b8;
+      line-height: 1.8;
+      max-width: 520px;
+    }
 
-  /* Параллакс свет */
-  .light-glow {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255,140,0,0.3), transparent 70%);
-    top: 20%;
-    left: 60%;
-    filter: blur(80px);
-    animation: floatLight 10s ease-in-out infinite alternate;
-    z-index: 1;
-  }
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  @keyframes floatLight {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-40px); }
-  }
+    /* ── Section ── */
+    .lab-section { padding: 100px 48px; color: #f1f5f9; }
+    .lab-inner   { max-width: 960px; margin: 0 auto; }
 
-/* На секцию bg-hero добавляем нижний fade */
-.bg-hero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 200px;          /* высота зоны перехода */
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(2, 6, 23, 1)     /* цвет должен совпасть с тоном bg-secondary */
-  );
-  z-index: 2;             /* поверх фото, но под контентом */
-pointer-events: none;
+
+    .section-num {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #22d3ee;
+      opacity: 0.7;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .section-num::after {
+      content: "";
+      flex: 1;
+      height: 0.5px;
+      background: rgba(34,211,238,0.3);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .section-title em {
+      font-style: normal;
+      color: #22d3ee;
+    }
+    .section-sub {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 540px;
+    }
+
+    /* ── Partner cards ── */
+    .partner-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 0 48px;
+  margin-top: 64px;
 }
 
 
+    .partner-card {
+      background: rgba(255,255,255,0.02);
+      border: 0.5px solid rgba(34,211,238,0.2);
+      border-radius: 20px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .partner-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(34,211,238,0.04), transparent 60%);
+      pointer-events: none;
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+    .partner-card:hover {
+      border-color: rgba(34,211,238,0.5);
+      box-shadow: 0 0 32px rgba(34,211,238,0.1), 0 0 64px rgba(34,211,238,0.05);
+      transform: translateY(-4px);
+    }
+    .partner-card:hover::before { opacity: 1; }
 
-/* ── Переход снизу bg-secondary → тёмный фон формы ── */
-.bg-secondary::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(to bottom, transparent, #020617);
-  z-index: 2;
-  pointer-events: none;
-}
 
-/* ── Форма ── */
-.form-section {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 80px 24px 80px;
-}
-.form-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #475569;
-  margin-bottom: 16px;
-}
-.form-heading {
-  font-size: clamp(24px, 5vw, 36px);
-  font-weight: 300;
-  line-height: 1.25;
-  color: #f1f5f9;
-  margin-bottom: 10px;
-}
-.form-sub {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
-.f-label {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #94a3b8;
-  margin-bottom: 7px;
-}
+
+    .card-icon {
+      font-size: 36px;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .card-num {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #22d3ee;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 400;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.75;
+      font-weight: 300;
+      flex: 1;
+      text-align: justify;
+    }
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #22d3ee;
+      opacity: 0.7;
+      transition: opacity 0.2s, gap 0.2s;
+    }
+    .partner-card:hover .card-cta {
+      opacity: 1;
+      gap: 12px;
+    }
+
+
+
+    /* ── Divider ── */
+    .h-divider {
+      height: 0.5px;
+      background: rgba(255,255,255,0.05);
+      margin: 0;
+    }
+
+    /* ── Why us block ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 60px;
+    }
+    .why-item {
+      padding: 36px 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.05);
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .why-item:nth-child(odd)  { padding-right: 60px; }
+    .why-item:nth-child(even) { padding-left: 60px; border-left: 0.5px solid rgba(255,255,255,0.05); }
+    .why-item:nth-last-child(-n+2) { border-bottom: none; }
+    .why-num {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #22d3ee;
+      opacity: 0.4;
+      padding-top: 3px;
+    }
+    .why-title {
+      font-size: 15px;
+      font-weight: 400;
+      color: #f1f5f9;
+      margin-bottom: 8px;
+    }
+    .why-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.7;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    /* ── Form ── */
+    .form-section {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+    .form-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 16px;
+    }
+    .form-heading {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 300;
+      line-height: 1.25;
+      color: #f1f5f9;
+      margin-bottom: 10px;
+    }
+    .form-sub {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .f-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
 .f-input, .f-select, .f-textarea {
   width:100%;
   background:rgba(255,255,255,.06);
@@ -248,738 +357,468 @@ pointer-events: none;
   border-color:#22d3ee;
   box-shadow:0 0 0 3px rgba(34,211,238,.12);
 }
-.f-textarea { resize: none; height: 90px; line-height: 1.6; }
-.f-select-wrap { position: relative; }
-.f-select-wrap::after {
-  content: '';
-  position: absolute;
-  right: 14px; top: 50%;
-  transform: translateY(-50%);
-  width: 9px; height: 5px;
-  background: #475569;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  pointer-events: none;
-}
-.f-select option { background: #0f172a; color: #f1f5f9; }
-.f-mode-row {
-  background:rgba(34,211,238,.08);
-  border:1px solid rgba(34,211,238,.35);
-  border-radius:10px;
-  padding:14px 16px;
-  font-size:15px;
-  font-weight:500;
-  color:#67e8f9;
-  line-height:1.5;
-}
-.f-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 28px 0; }
-.f-submit {
-  width: 100%;
-  background: #22d3ee;
-  color: #020617;
-  border: none;
-  border-radius: 99px;
-  padding: 15px 24px;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 0 16px rgba(34,211,238,0.35);
-  transition: box-shadow 0.2s, opacity 0.2s;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-}
-.f-submit:hover { box-shadow: 0 0 28px rgba(34,211,238,0.55); opacity: 0.92; }
-.f-submit:disabled { opacity: 0.4; cursor: not-allowed; }
-.f-arrow { transition: transform 0.2s; display: inline-block; }
-.f-submit:not(:disabled):hover .f-arrow { transform: translateX(4px); }
-.f-status { margin-top: 14px; font-size: 13px; text-align: center;  }
-.f-status.success { color: #4ade80; }
-.f-status.error   { color: #f87171; }
-.f-note { margin-top: 18px; font-size: 12px; color: #334155; text-align: center; line-height: 1.5; }
-.field-gap { margin-bottom: 16px; }
-
-.page-hero {
-  padding: 60px 0 18px;
-}
-
-.hero-eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #22d3ee;
-  opacity: 0.7;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-width: 100%;
-}
-
-/* линия */
-.hero-eyebrow::after {
-  content: "";
-  flex-grow: 1;
-  min-width: 40px;
-  height: 0.5px;
-  background: rgba(34,211,238,0.3);
-}
-
-@media (max-width: 768px) {
-  .page-hero {
-    padding: 40px 24px 36px;
-  }
-}
-.mode-card {
-      background: #000;
-      border: 1.5px solid rgba(34,211,238,0.35);
-      border-radius: 18px;
-      padding: 32px 24px 28px;
-      display: flex; flex-direction: column;
-      align-items: center; text-align: center;
-      cursor: pointer;
-      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
-      position: relative; overflow: hidden;
-    }
-    .mode-card:hover {
-      border-color: rgba(34,211,238,0.8);
-      box-shadow: 0 0 24px rgba(34,211,238,0.2), 0 0 48px rgba(34,211,238,0.08);
-      transform: translateY(-3px);
-    }
-    .mode-card::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(circle at 50% 30%, rgba(34,211,238,0.04), transparent 70%);
+    .f-textarea { resize: none; height: 120px; line-height: 1.6; }
+    .f-select-wrap { position: relative; }
+    .f-select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      width: 9px; height: 5px;
+      background: #475569;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
       pointer-events: none;
     }
+    .f-select option { background: #0f172a; color: #f1f5f9; }
+    .f-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 28px 0; }
+    .field-gap { margin-bottom: 16px; }
+    .f-submit {
+      width: 100%;
+      background: #22d3ee;
+      color: #020617;
+      border: none;
+      border-radius: 99px;
+      padding: 15px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 16px rgba(34,211,238,0.35);
+      transition: box-shadow 0.2s, opacity 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .f-submit:hover { box-shadow: 0 0 28px rgba(34,211,238,0.55); opacity: 0.92; }
+    .f-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+    .f-arrow { transition: transform 0.2s; display: inline-block; }
+    .f-submit:not(:disabled):hover .f-arrow { transform: translateX(4px); }
+    .f-status { margin-top: 14px; font-size: 13px; text-align: center; min-height:}
+    .f-status.success { color: #4ade80; }
+    .f-status.error   { color: #f87171; }
 
+    /* Agent highlight in form */
+.f-note {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #334155;
+  text-align: center;
+  line-height: 1.5;
+}
+    #agent-hint {
+      display: none;
+      background: rgba(34,211,238,0.05);
+      border: 0.5px solid rgba(34,211,238,0.2);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.65;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .bg-hero { background-image: url('/parhero_m.jpg')}
+  .about-hero {
+    padding: 0 24px 60px;
+  }
 
   .lab-section {
-    padding: 50px 48px;
-    font-family: 'Inter', sans-serif;
-    color: #f1f5f9;
+    padding: 60px 24px;
   }
 
   .lab-inner {
-    max-width: 960px;
-    margin: 0 auto;
+    width: 100%;
   }
 
-  .section-num {
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #22d3ee;
-    opacity: 0.7;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-.section-num {
-  grid-column: 1 / -1;
-  width: 100%;
-}
-  .section-num::after {
-    content: "";
-    flex: 1;
-    height: 0.5px;
-    background: rgba(34,211,238,0.3);
+  /* ЕДИНАЯ ШИРИНА ДЛЯ ВСЕГО */
+  .partner-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+    margin-top: 48px;
   }
 
-  .layout-2col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 80px;
-    align-items: start;
+  .partner-card {
+    width: 100%;
+    padding: 32px 24px;
   }
 
-  .section-title {
-    font-size: 42px;
-    font-weight: 300;
-    line-height: 1.15;
-    color: #f1f5f9;
-    margin-bottom: 18px;
-    letter-spacing: -0.02em;
+  .section-title,
+  .section-sub,
+  .card-title,
+  .card-desc,
+  .why-title,
+  .why-desc,
+  .form-heading,
+  .form-sub {
+    max-width: 100%;
   }
 
-  .section-title em {
-    font-style: normal;
-    color: #22d3ee;
+  .why-grid {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
   }
 
-  .items-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  .why-item {
+    padding: 28px 0;
   }
 
-  .items-list li {
-    font-size: 14px;
-    color: #64748b;
-    line-height: 1.65;
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 16px 0;
-    border-bottom: 0.5px solid rgba(255,255,255,0.04);
+  .why-item:nth-child(odd),
+  .why-item:nth-child(even) {
+    padding-left: 0;
+    padding-right: 0;
+    border-left: none;
   }
 
-  .items-list li:last-child {
-    border-bottom: none;
-  }
-
-  .items-list li .dot {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #22d3ee;
-    margin-top: 6px;
-    flex-shrink: 0;
-    opacity: 0.6;
-  }
-
-  .right-col {
-    padding-top: 80px;
-  }
-
-  .right-label {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #22d3ee;
-    opacity: 0.5;
-    margin-bottom: 10px;
-  }
-
-  .principle-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .principle-item {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 8px;
-    align-items: start;
-    padding: 10px 0;
-    border-top: 0.5px solid rgba(255,255,255,0.05);
-  }
-
-  .principle-item:last-child {
+  .why-item:nth-last-child(-n+2) {
     border-bottom: 0.5px solid rgba(255,255,255,0.05);
   }
 
-  .p-num {
-    font-size: 11px;
-    color: #22d3ee;
-    opacity: 0.4;
-    letter-spacing: 0.1em;
-    padding-top: 3px;
+  .why-item:last-child {
+    border-bottom: none;
   }
 
-  .p-title {
-    font-size: 15px;
-    font-weight: 400;
-    color: #e2e8f0;
-    margin-bottom: 6px;
+  .form-section {
+    padding: 0 24px 80px;
   }
-
-  .p-desc {
-    font-size: 13px;
-    color: #475569;
-    line-height: 1.7;
-  }
-
-  .mission-block {
-    margin-top: 24px;
-margin-bottom: 40px;
-    padding: 28px 32px;
-    border: 0.5px solid rgba(34,211,238,0.15);
-    border-radius: 14px;
-    background: rgba(34,211,238,0.02);
-    grid-column: 1 / -1;
-  }
-
-  .mission-block p {
-    font-size: 15px;
-    color: #64748b;
-    line-height: 1.85;
-    font-weight: 300;
-    text-align: justify;
-    text-align-last: left;
-    hyphens: auto;
-  }
-
-  .mission-block em {
-    font-style: normal;
-    color: #22d3ee;
-  }
-
-  @media (max-width: 680px) {
-    .lab-section {
-      padding: 60px 24px;
-    }
-
-    .layout-2col {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-
-    .right-col {
-      padding-top: 0;
-    }
-
-    .section-title {
-      font-size: 30px;
-    }
-
-    .mission-block {
-      grid-column: 1;
+}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Партнёрам — Лаборатория 404",
+    "url": "https://labnotfound.ru/partneram/",
+    "description": "Сотрудничество с Лабораторией 404 — форматы партнёрства, условия и возможности для совместных проектов.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Лаборатория 404",
+      "url": "https://labnotfound.ru/"
     }
   }
-
-  /* ===== СТИЛИ МОДАЛОК ===== */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(2,6,23,0.82);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 100;
-    display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.2s;
-  }
-  .modal-overlay.active { opacity: 1; pointer-events: all; }
-  .modal-box {
-    background: #0f172a;
-    border: 0.5px solid rgba(34,211,238,0.22);
-    border-radius: 20px;
-    width: 100%; max-width: 520px;
-    max-height: 90vh; overflow-y: auto;
-    transform: translateY(16px);
-    transition: transform 0.25s;
-    scrollbar-width: none;
-  }
-  .modal-box::-webkit-scrollbar { display: none; }
-  .modal-overlay.active .modal-box { transform: translateY(0); }
-  .modal-hero {
-    background: #000;
-    padding: 24px 24px 20px;
-    border-bottom: 0.5px solid rgba(255,255,255,0.06);
-    position: sticky; top: 0; z-index: 2;
-  }
-  .modal-close {
-    position: absolute; top: 16px; right: 16px;
-    width: 30px; height: 30px; border-radius: 50%;
-    border: 0.5px solid rgba(255,255,255,0.14);
-    background: rgba(255,255,255,0.04);
-    color: #64748b; font-size: 14px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: background 0.15s;
-  }
-  .modal-close:hover { background: rgba(255,255,255,0.1); color: #f1f5f9; }
-  .modal-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
-  .modal-title { font-size: 22px; font-weight: 400; color: #f1f5f9; margin-bottom: 4px; }
-  .modal-tagline { font-size: 13px; color: #64748b; font-style: italic; }
-  .modal-body { padding: 20px 24px 8px; }
-  .m-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
-  .m-tab {
-    font-size: 12px; padding: 5px 14px; border-radius: 99px;
-    border: 0.5px solid rgba(255,255,255,0.1);
-    color: #64748b; background: none; cursor: pointer;
-    font-family: 'Inter', sans-serif; transition: all 0.15s;
-  }
-  .m-tab.active { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.22); color: #f1f5f9; }
-  .m-panel { display: none; }
-  .m-panel.active { display: block; }
-  .desc-text { font-size: 14px; color: #94a3b8; line-height: 1.8; }
-  .desc-text p { margin-bottom: 10px; }
-  .desc-text p:last-child { margin-bottom: 0; }
-  .modal-items-list { display: flex; flex-direction: column; gap: 8px; }
-  .modal-items-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #94a3b8; line-height: 1.5; list-style: none; }
-  .modal-items-list li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #22d3ee; margin-top: 7px; flex-shrink: 0; }
-  .m-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 18px 0; }
-  .dur-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; margin-bottom: 10px; }
-  .dur-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-  .dur-btn {
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid rgba(255,255,255,0.1);
-    border-radius: 10px; padding: 10px 12px;
-    color: #94a3b8; font-size: 13px; cursor: pointer;
-    text-align: left; font-family: 'Inter', sans-serif;
-    transition: all 0.15s; line-height: 1.3;
-  }
-  .dur-btn .dur-sub { font-size: 10px; color: #475569; margin-top: 3px; }
-  .dur-btn.active { border-color: rgba(34,211,238,0.5); color: #22d3ee; background: rgba(34,211,238,0.05); }
-  .dur-btn.active .dur-sub { color: rgba(34,211,238,0.5); }
-  .modal-footer { padding: 16px 24px 24px; }
-  .btn-book {
-    width: 100%; background: #22d3ee; color: #020617;
-    border: none; border-radius: 99px; padding: 14px 20px;
-    font-size: 15px; font-weight: 600; cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    box-shadow: 0 0 16px rgba(34,211,238,0.35);
-    transition: box-shadow 0.2s, opacity 0.2s;
-  }
-  .btn-book:hover { box-shadow: 0 0 28px rgba(34,211,238,0.55); opacity: 0.92; }
-
-  /* ── Price block inside modal ── */
-  .modal-price-block {
-    margin-top: 14px;
-    padding: 14px 16px;
-    background: rgba(34,211,238,0.05);
-    border: 0.5px solid rgba(34,211,238,0.25);
-    border-radius: 12px;
-    transition: all 0.2s;
-    min-height: 52px;
-  }
-  .modal-price-empty {
-    font-size: 12px; color: #475569; text-align: center; padding: 4px 0;
-  }
-  .modal-price-val {
-    font-size: 20px; font-weight: 600; color: #22d3ee;
-    letter-spacing: -0.01em;
-  }
-  .modal-price-label {
-    font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
-    color: #475569; margin-bottom: 4px;
-  }
-
-  /* ── "Стоимость от" on mode cards ── */
-  .mode-card-price {
-    margin-top: 8px;
-    font-size: 12px;
-    color: #22d3ee;
-    opacity: 0.75;
-  }
-</style>
+  </script>
 </head>
 <body class="bg-slate-950 text-white">
 
   <!-- Header -->
- <header class="flex justify-between items-center px-4 py-1 relative">
-<div class="flex items-center gap-2">
-    <img src="logo.png" alt="logo" class="w-20 h-20 object-contain">
-    <div class="text-xl font-semibold glow-text">Лаборатория 404</div>
-  </div>
+  <header>
+    <div class="flex justify-between items-center px-4 py-1">
+ <a href="/" class="flex items-center gap-2" style="text-decoration:none;">
+        <img src="/logo.png" alt="logo" class="w-20 h-20 object-contain">
+        <div class="text-xl font-semibold glow-text">Лаборатория 404</div>
+      </a>
 
-  <!-- Бургер-кнопка (только мобайл) -->
-  <button id="burger" class="md:hidden flex flex-col gap-1.5 z-50 mr-2">
-    <span class="block w-6 h-0.5 bg-white transition-all"></span>
-    <span class="block w-6 h-0.5 bg-white transition-all"></span>
-    <span class="block w-6 h-0.5 bg-white transition-all"></span>
-  </button>
+      <button id="burger" class="md:hidden flex flex-col gap-1.5 z-50 mr-2">
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      </button>
 
-  <!-- Десктопное меню -->
-  <nav class="hidden md:flex space-x-10 text-sm opacity-80">
-    <a href="/o-proekte/">О проекте</a>
-    <a href="/prostranstvo/">Пространство</a>
-    <a href="/priehat/">Приехать</a>
-    <a href="/partneram/">Партнерам</a>
-  </nav>
+      <nav class="hidden md:flex space-x-10 text-sm opacity-80">
+        <a href="/o-proekte/"   class="hover:opacity-100 transition-opacity">О проекте</a>
+        <a href="/prostranstvo/" class="hover:opacity-100 transition-opacity">Пространство</a>
+        <a href="/priehat/"     class="hover:opacity-100 transition-opacity">Приехать</a>
+        <a href="/partneram/"   class="text-cyan-400">Партнерам</a>
+      </nav>
 
-<button onclick="scrollToForm()" class="hidden md:block border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mr-8">
-    «Выйти из системы»
-  </button>
-
-  <!-- Мобильное меню (выпадает) -->
-<div id="mobile-menu" 
-     class="fixed inset-0 bg-slate-950 bg-opacity-95 flex-col items-center justify-center gap-8 text-xl z-40"
-     style="display: none;">
-<a href="/" style="color:#22d3ee; text-decoration:none;">Главная</a>
-  <a href="/o-proekte/" class="opacity-80 hover:opacity-100">О проекте</a>
-  <a href="/prostranstvo/" class="opacity-80 hover:opacity-100">Пространство</a>
-  <a href="/priehat/" class="opacity-80 hover:opacity-100">Приехать</a>
-  <a href="/partneram/" class="opacity-80 hover:opacity-100">Партнерам</a>
-<button onclick="scrollToForm()" class="border border-cyan-400 px-10 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mt-4">
-    «Выйти из системы»
-  </button>
-</div>
-</header>
-
-
-
-<script>
-  const burger = document.getElementById('burger');
-  const menu = document.getElementById('mobile-menu');
-
-  burger.addEventListener('click', () => {
-    if (menu.style.display === 'none' || menu.style.display === '') {
-      menu.style.display = 'flex';
-      menu.style.flexDirection = 'column';
-    } else {
-      menu.style.display = 'none';
-    }
-  });
-
-  menu.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('click', () => {
-      menu.style.display = 'none';
-    });
-  });
-</script>
-
-  <!-- Hero -->
-<section class="bg-hero min-h-screen flex items-center justify-center text-center px-10">
-
-  <div class="light-glow"></div>
-
-  <div class="max-w-2xl hero-content mx-auto">
-    <h1 class="text-5xl font-light mb-10 glow-text" data-text="Лаборатория 404">
-      Лаборатория 404
-    </h1>
-
-    <p class="text-xl opacity-80 mb-10">Комьюнити - пространство для отдыха</p>
-
-    <p class="opacity-70 mb-8">
-      Место, куда можно уехать <br>«на временную пенсию» 
-    </p>
-
-<a href="/o-proekte/"
-   class="inline-block bg-cyan-500 text-white px-6 py-3 rounded-full glow-btn mt-20">
-  Просто посмотреть →
-</a>
-  </div>
-
-</section>
-
-<div class="bg-secondary">
-
-  <!-- Features -->
- <div class="lab-section">
-  <div class="lab-inner">
-    <div class="layout-2col">
-
-<div class="section-num">01 / Для кого это место</div>
-
-<div class="left-col">
-
-        <h2 class="section-title">
-          Возможно,<br>
-          это место для вас<br>
-          <em>если</em>
-        </h2>
-
-        <ul class="items-list">
-          <li>Всё вроде нормально, но сил нет</li>
-          <li>Не хочется ничего достигать</li>
-          <li>Устали быть «функциональным»</li>
-          <li>Хочется тишины и отсутствия ожиданий</li>
-          <li>Формально всё хорошо, но внутри пусто</li>
-        </ul>
-      </div>
-
-      <div class="right-col">
-        <div class="right-label">Здесь по-другому</div>
-
-        <div class="principle-list">
-
-          <div class="principle-item">
-            <div class="p-num">01</div>
-            <div>
-              <div class="p-title">Без вопросов про цели</div>
-              <div class="p-desc">
-                Никто не спрашивает, зачем вы приехали и что планируете делать дальше.
-              </div>
-            </div>
-          </div>
-
-          <div class="principle-item">
-            <div class="p-num">02</div>
-            <div>
-              <div class="p-title">Можно просто быть</div>
-              <div class="p-desc">
-                Не нужно соответствовать, активничать, общаться или показывать результат.
-              </div>
-            </div>
-          </div>
-
-          <div class="principle-item">
-            <div class="p-num">03</div>
-            <div>
-              <div class="p-title">Никакой продуктивности</div>
-              <div class="p-desc">
-                Мы не трансформируем и не прокачиваем. 
-              </div>
-            </div>
-          </div>
-
-          <div class="principle-item">
-            <div class="p-num">04</div>
-            <div>
-              <div class="p-title">Безусловное принятие</div>
-              <div class="p-desc">
-                Не оцениваем, правильно ли вы отдыхаете. Просто присутствуем рядом.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="mission-block">
-        <p>
-          Лаборатория 404 — это пространство, где можно быть
-          <em>«не найденным» (как системная ошибка 404)</em>
-          для внешних запросов, но обнаруженным для самого себя.
-          Это не побег от жизни, а осознанная
-          <em>пауза для восстановления</em>
-          связи с собой. Вы просто временно «выходите из системы» —
-          и возвращаетесь к себе.
-        </p>
-      </div>
-
+      <a href="/" class="hidden md:block border border-cyan-400 px-8 py-3 rounded-full text-sm hover:bg-cyan-400 hover:text-black transition glow-btn mr-8">← Главная</a>
     </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div id="mobile-menu" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.97); z-index:45; flex-direction:column; align-items:center; justify-content:center; gap:32px; font-size:20px;">
+    <a href="/"        style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Главная</a>
+    <a href="/o-proekte/"    style="color:#f1f5f9; text-decoration:none; opacity:0.8;">О проекте</a>
+    <a href="/prostranstvo/" style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Пространство</a>
+    <a href="/priehat/"      style="color:#f1f5f9; text-decoration:none; opacity:0.8;">Приехать</a>
+    <a href="/partneram/"    style="color:#22d3ee; text-decoration:none;">Партнерам</a>
   </div>
-</div>
 
-<!-- Page Hero -->
-<div class="lab-inner page-hero">
-  <div class="hero-eyebrow">02 &nbsp;/&nbsp;У каждого состояния — свой режим</div>
+  <script>
+    const burger = document.getElementById('burger');
+    const menu   = document.getElementById('mobile-menu');
+    burger.addEventListener('click', () => {
+      menu.style.display = (menu.style.display === 'none' || !menu.style.display) ? 'flex' : 'none';
+      if (menu.style.display === 'flex') menu.style.flexDirection = 'column';
+    });
+    menu.querySelectorAll('a').forEach(el => el.addEventListener('click', () => menu.style.display = 'none'));
+  </script>
 
-  <div class="text-center">
-    <h2 class="text-4xl md:text-5xl font-light mb-5 glow-text">
-      Выберите свой режим
-    </h2>
-
-    <p class="text-sm opacity-50 max-w-md mx-auto leading-relaxed mt-10">
-      Где вы сейчас, и что вам подходит?
-    </p>
-  </div>
-</div>
-
-  <!-- Cards -->
-  <section class="px-10 py-6">
-
-    <div class="grid md:grid-cols-4 gap-6">
-
-
-<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('battery')">
-  <div class="flex flex-col items-center text-center">
-    <img src="b.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Батарея разряжена">
-    <h3 class="text-xl mb-1">Батарея разряжена</h3>
-    <p class="opacity-60 text-sm">Режим по умолчанию</p>
-  </div>
-  <div class="flex flex-col items-center text-center">
-    <div class="mode-card-price">от 40 000 ₽</div>
-    <div class="text-xs text-cyan-400 opacity-70 tracking-widest uppercase" style="margin-top:16px;">Подробнее →</div>
-  </div>
-</div>
-
-<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('charge')">
-  <div class="flex flex-col items-center text-center">
-    <img src="r.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Подзарядка">
-    <h3 class="text-xl mb-1">Подзарядка</h3>
-    <p class="opacity-60 text-sm">Восстановление сил и восполнение энергии</p>
-  </div>
-  <div class="flex flex-col items-center text-center">
-    <div class="mode-card-price">от 65 000 ₽</div>
-    <div class="text-xs text-cyan-400 opacity-70 tracking-widest uppercase" style="margin-top:16px;">Подробнее →</div>
-  </div>
-</div>
-
-<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('reload')">
-  <div class="flex flex-col items-center text-center">
-    <img src="c.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Перезагрузка">
-    <h3 class="text-xl mb-1">Перезагрузка</h3>
-    <p class="opacity-60 text-sm">Вкус жизни через приключения и активности</p>
-  </div>
-  <div class="flex flex-col items-center text-center">
-    <div class="mode-card-price">от 90 000 ₽</div>
-    <div class="text-xs text-cyan-400 opacity-70 tracking-widest uppercase" style="margin-top:16px;">Подробнее →</div>
-  </div>
-</div>
-
-<div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('update')">
-  <div class="flex flex-col items-center text-center">
-    <img src="u.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Обновить прошивку">
-    <h3 class="text-xl mb-1">Обновить прошивку</h3>
-    <p class="opacity-60 text-sm">Новые навыки без гонки за результатом</p>
-  </div>
-  <div class="flex flex-col items-center text-center">
-    <div class="mode-card-price">от 60 000 ₽</div>
-    <div class="text-xs text-cyan-400 opacity-70 tracking-widest uppercase" style="margin-top:16px;">Подробнее →</div>
-  </div>
-</div>
- 
-</div>  
-      <p class="text-center text-sm opacity-50 mt-10">Не знаете какой режим подходит?<br>Напишите нам — поможем разобраться.</p> 
-</section>
-
-  <!-- CTA -->
-<section class="text-center pt-40 pb-24 px-5">
-    <p class="text-2xl md:text-2xl font-light opacity-70 glow-text leading-relaxed" >
-      Возможно, вам не нужно менять жизнь.
-    </p>
-    <p class="text-2xl md:text-2xl font-light mt-3 opacity-50 glow-text leading-relaxed" >
-      Возможно, вам нужна пауза.
-    </p>
+  <!-- ═══ HERO ═══ -->
+  <section class="about-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Партнерам</div>
+      <h1 class="hero-title">
+        Мы открыты к<br>
+        <em>сотрудничеству</em>
+      </h1>
+      <p class="hero-desc">
+        Лаборатория 404 — живая система.<br>
+        Мы ищем тех, кто разделяет наш подход<br>
+        и готов строить вместе.
+      </p>
+    </div>
   </section>
 
-</div>
+  <!-- ═══ DIRECTIONS ═══ -->
+  <div id="directions" class="lab-section reveal" style="background:#020617;">
+    <div class="lab-inner">
+      <div class="section-num">01 / Направления сотрудничества</div>
 
-<!-- ===== ФОРМА ЗАЯВКИ ===== -->
-<section id="form" style="background: #020617; ">
-    <div class="form-section">
-      <p class="form-eyebrow">Заявка</p>
-      <h2 class="form-heading">Напишите нам —<br>мы ответим</h2>
-      <p class="form-sub">Без обязательств. Просто расскажите немного о себе.<br>Мы свяжемся и всё обсудим.</p>
- 
-   
-      <form id="contact-form" action="https://formspree.io/f/mykvykby" method="POST">
- 
-        <input type="hidden" name="Режим" id="mode-input" value="">
- 
-        <div class="field-gap" id="mode-display-wrap" style="display:none;">
-          <p class="f-label">Выбранный режим</p>
-          <div class="f-mode-row" id="mode-display" style="display:block;"></div>
+      <h2 class="section-title">
+        Способы<br>
+        быть частью <em>Лаборатории</em>
+      </h2>
+      <p class="section-sub">
+        Разные форматы — одна логика: делать вместе то, что в одиночку
+        не появилось бы.
+      </p>
+    </div>
+
+    <div class="partner-grid">
+
+        <!-- Пространство -->
+        <div class="partner-card">
+          <span class="card-icon">🏡</span>
+          <div class="card-num">01 — Локация</div>
+          <div class="card-title">У вас есть пространство</div>
+          <p class="card-desc">
+            Загородный дом, усадьба, глэмпинг, ферма или любое другое место,
+            которое подходит под наш формат — тишина, природа, камерность.
+            Мы можем приехать с резидентами, наполнить ваше пространство смыслом
+            и людьми, которые ценят такие места.
+          </p>
+          <a href="#form" class="card-cta">Написать нам <span>→</span></a>
         </div>
- 
-        <div class="field-gap">
-          <label class="f-label" for="f-name">Имя</label>
-          <input class="f-input" type="text" id="f-name" name="Имя" placeholder="Как вас зовут" required>
+
+        <!-- Преподаватель -->
+        <div class="partner-card">
+          <span class="card-icon">⚙️</span>
+          <div class="card-num">02 — Преподаватель</div>
+          <div class="card-title">Хотите преподавать «Обновить прошивку»</div>
+          <p class="card-desc">
+            Один из наших форматов — это мягкое освоение нового: языки, творчество,
+            ремёсла, знания «для себя». Если вы умеете передавать что-то ценное
+            и готовы делать это в нашем ритме — без давления и результатов —
+            мы будем рады познакомиться.
+          </p>
+          <a href="#form" class="card-cta">Написать нам <span>→</span></a>
         </div>
- 
-        <div class="field-gap">
-          <label class="f-label" for="f-contact">Телеграм / телефон / почта</label>
-          <input class="f-input" type="text" id="f-contact" name="Контакт" placeholder="@ТГ / +7 900 000 00 00 / hello@mail.ru" required>
+
+        <!-- Мастер практик -->
+        <div class="partner-card">
+          <span class="card-icon">🌿</span>
+          <div class="card-num">03 — Практик</div>
+          <div class="card-title">Мастер йоги, практик или медитации</div>
+          <p class="card-desc">
+            Телесные практики, медитации, дыхательные техники, работа с энергией —
+            всё, что помогает человеку замедлиться и вернуться к себе.
+            Если ваш подход бережный и без эзотерического давления,
+            нам точно есть о чём поговорить.
+          </p>
+          <a href="#form" class="card-cta">Написать нам <span>→</span></a>
         </div>
- 
-        <div class="field-gap">
-          <label class="f-label" for="f-dur">Примерная длительность</label>
-          <div class="f-select-wrap">
-            <select class="f-select" id="f-dur" name="Длительность">
-              <option value="">Ещё не знаю</option>
-              <option value="Неделя">Неделя</option>
-              <option value="2 недели">2 недели</option>
-              <option value="Месяц">Месяц</option>
-              <option value="Другое">Другое</option>
-            </select>
+
+        <!-- Агент -->
+        <div class="partner-card">
+          <span class="card-icon">📡</span>
+          <div class="card-num">04 — Агент</div>
+          <div class="card-title">У вас есть аудитория</div>
+          <p class="card-desc">
+            Блог, канал, сообщество, клуб, рассылка — неважно, где и какого размера.
+            Если среди вашей аудитории есть люди, которым нужна пауза и перезагрузка,
+            вы можете рекомендовать Лабораторию 404 и получать партнерское
+            вознаграждение за каждого пришедшего резидента. Никакого агрессивного
+            маркетинга — только честная рекомендация тем, кому это действительно подойдёт.
+          </p>
+          <a href="#form" class="card-cta">Стать агентом <span>→</span></a>
+        </div>
+
+      </div>
+  </div>
+
+  <div class="h-divider"></div>
+
+  <!-- ═══ WHY ═══ -->
+  <div class="lab-section" style="background:#020617;">
+    <div class="lab-inner">
+      <div class="section-num">02 / Почему это может быть интересно</div>
+
+      <h2 class="section-title">
+        Что мы<br>
+        <em>предлагаем</em>
+      </h2>
+
+      <div class="why-grid">
+
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <div class="why-title">Аудитория, которая ищет смысл</div>
+            <div class="why-desc">
+              Наши резиденты — люди, осознанно выбирающие паузу. Они готовы
+              пробовать новое, если оно идёт без давления.
+            </div>
           </div>
         </div>
- 
-        <div class="field-gap">
-          <label class="f-label" for="f-comment">Комментарий <span style="opacity:.4; font-size:10px;">(необязательно)</span></label>
-          <textarea class="f-textarea" id="f-comment" name="Комментарий" placeholder="Можно ничего не писать. А можно — что угодно."></textarea>
+
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <div class="why-title">Никакого массмаркета</div>
+            <div class="why-desc">
+              Мы работаем в камерном формате. Небольшие группы, живые истории,
+              настоящие знакомства.
+            </div>
+          </div>
         </div>
- 
+
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div>
+            <div class="why-title">Долгосрочное партнерство</div>
+            <div class="why-desc">
+              Нам не нужен разовый подрядчик. Мы строим среду вместе с теми,
+              кто разделяет ценности.
+            </div>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div>
+            <div class="why-title">Гибкий формат</div>
+            <div class="why-desc">
+              Условия обсуждаются индивидуально — в зависимости от вашего контекста
+              и того, что вы можете предложить.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="h-divider"></div>
+
+  <!-- ═══ FORM ═══ -->
+  <section id="form" style="background:#020617; padding-top: 80px;">
+    <div class="form-section">
+      <div class="form-eyebrow">Сотрудничество</div>
+      <h2 class="form-heading">Напишите нам</h2>
+      <p class="form-sub">
+        Расскажите, кто вы и в каком формате хотите сотрудничать —
+        мы ответим и обсудим детали.
+      </p>
+
+      <form id="partner-form"
+            action="https://formspree.io/f/mzdwbdkz"
+            method="POST">
+
+        <div class="field-gap">
+          <label class="f-label" for="p-name">Ваше имя</label>
+          <input class="f-input" id="p-name" name="name" type="text"
+                 placeholder="Как вас зовут" required>
+        </div>
+
+        <div class="field-gap">
+          <label class="f-label" for="p-contact">Телеграм / телефон / почта</label>
+          <input class="f-input" id="p-contact" name="contact" type="text"
+                 placeholder="@ТГ / +7 900 000 00 00 / hello@mail.ru" required>
+        </div>
+
+        <div class="field-gap">
+          <label class="f-label" for="p-type">Формат сотрудничества</label>
+          <div class="f-select-wrap">
+            <select class="f-select" id="p-type" name="type" required>
+              <option value="" disabled selected>Выберите направление</option>
+              <option value="space">У меня есть пространство</option>
+              <option value="teacher">Хочу преподавать «Обновить прошивку»</option>
+              <option value="practice">Я мастер по йоге / практикам / медитациям</option>
+              <option value="agent">Хочу стать агентом</option>
+              <option value="other">Другой формат</option>
+            </select>
+          </div>
+          <div id="agent-hint">
+            🤝 Расскажите о вашей аудитории: где она (канал, блог, клуб), примерный размер
+            и почему думаете, что ей откликнется формат Лаборатории. Остальное обсудим лично.
+          </div>
+        </div>
+
+        <div class="field-gap">
+          <label class="f-label" for="p-message">Расскажите о себе</label>
+          <textarea class="f-textarea" id="p-message" name="message"
+                    placeholder="Чем занимаетесь, что предлагаете, где находитесь — любые детали, которые считаете важными"
+                    required></textarea>
+        </div>
+
         <div class="f-divider"></div>
- 
-        <button type="submit" class="f-submit" id="f-submit-btn">
-          <span id="f-btn-text">Отправить заявку</span>
+
+        <button type="submit" class="f-submit" id="p-submit-btn">
+          <span id="p-btn-text">Отправить</span>
           <span class="f-arrow">→</span>
         </button>
         <p class="f-note" style="margin-top:16px;">
           Оставляя заявку, вы соглашаетесь с <br><a href="#" onclick="openLegalModal('personal-data'); return false;" style="color:#22d3ee; text-decoration:underline; text-underline-offset:3px;">политикой обработки персональных данных</a>
         </p>
-     <p class="f-status" id="f-status"></p>
+        <p class="f-status" id="p-status"></p>
+        <p class="f-note" style="margin-top:9px;">Мы не передаём данные третьим лицам<br>и не пишем без повода</p>
+
       </form>
- 
-       <p class="f-note" style="margin-top:9px;">Мы не передаём данные третьим лицам<br>и не пишем без повода</p>
     </div>
   </section>
 
-<!-- ===== ФУТЕР ===== -->
+  <script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Show agent hint when agent option selected
+    const typeSelect = document.getElementById('p-type');
+    const agentHint  = document.getElementById('agent-hint');
+    typeSelect.addEventListener('change', () => {
+      agentHint.style.display = typeSelect.value === 'agent' ? 'block' : 'none';
+    });
+
+    // Form submit
+    const form      = document.getElementById('partner-form');
+    const submitBtn = document.getElementById('p-submit-btn');
+    const btnText   = document.getElementById('p-btn-text');
+    const statusEl  = document.getElementById('p-status');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      btnText.textContent = 'Отправляем...';
+      statusEl.className = 'f-status';
+      statusEl.textContent = '';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          statusEl.textContent = 'Получили! Напишем вам в ближайшее время.';
+          statusEl.className = 'f-status success';
+          form.reset();
+          agentHint.style.display = 'none';
+          btnText.textContent = 'Отправлено ✓';
+        } else {
+          throw new Error();
+        }
+      } catch {
+        statusEl.textContent = 'Что-то пошло не так. Напишите нам напрямую.';
+        statusEl.className = 'f-status error';
+        submitBtn.disabled = false;
+        btnText.textContent = 'Отправить';
+      }
+    });
+  </script>
+
+
 <footer style="background:#020617; border-top:1px solid rgba(34,211,238,0.1); padding: 40px 48px 40px;">
   <div style="max-width:960px; margin:0 auto;">
 
@@ -993,7 +832,7 @@ margin-bottom: 40px;
 
       <div>
         <a href="/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:14px;">
-          <img src="logo.png" alt="Лаборатория 404" style="height:32px; opacity:0.85;">
+          <img src="/logo.png" alt="Лаборатория 404" style="height:32px; opacity:0.85;">
           <span style="font-size:15px; font-weight:600; color:#f1f5f9; letter-spacing:0.02em;">Лаборатория 404</span>
         </a>
         <div style="font-size:13px; color:#475569; line-height:1.7;">
@@ -1120,409 +959,6 @@ margin-bottom: 40px;
   });
 </script>
 
-<!-- ===== МОДАЛКА: БАТАРЕЯ РАЗРЯЖЕНА ===== -->
-<div class="modal-overlay" id="modal-battery" onclick="closeOnOverlay(event,'battery')">
-  <div class="modal-box">
-    <div class="modal-hero">
-      <button class="modal-close" onclick="closeModal('battery')">✕</button>
-      <div class="modal-eyebrow" style="color:#fb923c;">Режим по умолчанию</div>
-      <div class="modal-title">🔋 Батарея разряжена</div>
-      <div class="modal-tagline">Режим «бабушкиного дома»</div>
-    </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('battery','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('battery','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('battery','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="battery-essence">
-        <div class="desc-text">
-          <p>Без обязательств. Ничего делать не нужно. Ничего решать не нужно.</p>
-          <p>Вас встречают, селят, кормят — общая простая и полезная еда. Можно спать сколько заходите, смотреть в потолок, читать, смотреть сериалы.</p>
-          <p>Никто не тянет на активности, не спрашивает о планах. Безусловное принятие и покой.</p>
-          <p>Есть ритм дня, но нет требований. Есть люди рядом, но нет обязанности общаться.</p>
-          <p>Задача — восстановить базовые функции: сон, нервную систему, ощущение безопасности.</p>
-        </div>
-      </div>
-
-      <div class="m-panel" id="battery-includes">
-        <ul class="modal-items-list">
-          <li>Проживание, питание 2–3 раза в день (общая простая еда)</li>
-          <li>Сон без будильников и расписания</li>
-          <li>Полное отсутствие программы и обязательств</li>
-          <li>Доступ к общим пространствам: кухня и гостиная, двор, природа</li>
-          <li>Люди рядом — быть в окружении комьюнити</li>
-        </ul>
-      </div>
-
-      <div class="m-panel" id="battery-who">
-        <div class="desc-text">
-          <p>Для тех, у кого ресурсы закончились и нужна пауза.</p>
-          <p>Когда процессы замедлены, ритм жизни больше не вывозится, а продолжение работы без остановки приводит к сбою.</p>
-          <p>Когда не хочется ничего объяснять и ничего из себя делать.</p>
-        </div>
-      </div>
-
-      <div class="m-divider"></div>
-      <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row" id="dur-row-battery">
-        <button class="dur-btn active" onclick="selectDur(this,'battery')">
-          <div>Неделя</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'battery')">
-          <div>2 недели</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'battery')">
-          <div>Месяц</div>
-        </button>
-      </div>
-      <div class="modal-price-block" id="price-battery"></div>
-    </div>
-    <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('battery', '🔋 Батарея разряжена')">Оставить заявку →</button></div>
-  </div>
-</div>
-
-<!-- ===== МОДАЛКА: ПОДЗАРЯДКА ===== -->
-<div class="modal-overlay" id="modal-charge" onclick="closeOnOverlay(event,'charge')">
-  <div class="modal-box">
-    <div class="modal-hero">
-      <button class="modal-close" onclick="closeModal('charge')">✕</button>
-      <div class="modal-title">⚡ Подзарядка</div>
-      <div class="modal-tagline">Мягкое восстановление</div>
-    </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('charge','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('charge','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('charge','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="charge-essence">
-        <div class="desc-text">
-          <p>Аккуратное восполнение ресурса через тело и внимание.</p>
-          <p>Помочь телу вспомнить, как жить без напряжения. Помочь энергии вернуться и беречь её.</p>
-          <p>Никаких целей. Никаких результатов. Просто поддержка организма.</p>
-        </div>
-      </div>
-
-      <div class="m-panel" id="charge-includes">
-        <ul class="modal-items-list">
-          <li>Массаж</li>
-          <li>Баня</li>
-          <li>Мягкая йога</li>
-          <li>Дыхательные практики</li>
-          <li>Медитации</li>
-        </ul>
-      </div>
-
-      <div class="m-panel" id="charge-who">
-        <div class="desc-text">
-          <p>1. Вы ещё держитесь, но уже на пределе. Чувствуете, что ресурс на исходе. И хотите восстановиться до того, как станет совсем тяжело.</p>
-          <p>2. Вы уже немного восстановились. Выспались. Отдохнули. Стало чуть легче. И теперь хочется мягко поддержать тело и энергию.</p>
-          <p>3. Если хочется чего-то мягкого — не лежать и не бежать.</p>
-        </div>
-      </div>
-
-      <div class="m-divider"></div>
-      <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row" id="dur-row-charge">
-        <button class="dur-btn active" onclick="selectDur(this,'charge')">
-          <div>Неделя</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'charge')">
-          <div>2 недели</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'charge')">
-          <div>Месяц</div>
-        </button>
-      </div>
-      <div class="modal-price-block" id="price-charge"></div>
-    </div>
-    <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('charge', '⚡ Подзарядка')">Оставить заявку →</button></div>
-  </div>
-</div>
-
-<!-- ===== МОДАЛКА: ПЕРЕЗАГРУЗКА ===== -->
-<div class="modal-overlay" id="modal-reload" onclick="closeOnOverlay(event,'reload')">
-  <div class="modal-box">
-    <div class="modal-hero">
-      <button class="modal-close" onclick="closeModal('reload')">✕</button>
-      <div class="modal-title">🔥 Перезагрузка</div>
-      <div class="modal-tagline">Когда появляется интерес к миру, приходит время движения.</div>
-    </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('reload','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('reload','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('reload','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="reload-essence">
-        <div class="desc-text">
-          <p>Это режим возвращения вкуса к жизни.</p>
-          <p>Смена обстановки и встряска через приключения.</p>
-          <p>Бережная перезагрузка через впечатления, активности, природу.</p>
-          <p>В окружении людей, которые с тобой на одной волне.</p>
-          <p>Не экстрим. Не достижения. Здесь нет цели «перезапустить жизнь». Только почувствовать её.</p>
-        </div>
-      </div>
-
-      <div class="m-panel" id="reload-includes">
-        <ul class="modal-items-list">
-          <li>Поездки по красивым местам</li>
-          <li>Лёгкие приключения</li>
-          <li>Совместные активности</li>
-          <li>Эстетические путешествия</li>
-        </ul>
-      </div>
-
-      <div class="m-panel" id="reload-who">
-        <div class="desc-text">
-          <p>Если у вас появилось желание двигаться.</p>
-          <p>Если хочется впечатлений, но без перегруза.</p>
-          <p>Когда хочется сменить среду или новых мест. Хочется быть среди людей, но без необходимости «соответствовать».</p>
-          <p>Когда хочется просто ощутить, что жизнь — это не только работа и усталость.</p>
-        </div>
-      </div>
-
-      <div class="m-divider"></div>
-      <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row" id="dur-row-reload">
-        <button class="dur-btn active" onclick="selectDur(this,'reload')">
-          <div>Неделя</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'reload')">
-          <div>2 недели</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'reload')">
-          <div>Месяц</div>
-        </button>
-      </div>
-      <div class="modal-price-block" id="price-reload"></div>
-    </div>
-    <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('reload', '🔥 Перезагрузка')">Оставить заявку →</button></div>
-  </div>
-</div>
-
-<!-- ===== МОДАЛКА: ОБНОВИТЬ ПРОШИВКУ ===== -->
-<div class="modal-overlay" id="modal-update" onclick="closeOnOverlay(event,'update')">
-  <div class="modal-box">
-    <div class="modal-hero">
-      <button class="modal-close" onclick="closeModal('update')">✕</button>
-      <div class="modal-title">⚙️ Обновить прошивку</div>
-      <div class="modal-tagline">Новые навыки без гонки за результатом. Только если действительно хочется.</div>
-    </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('update','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('update','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('update','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="update-essence">
-        <div class="desc-text">
-          <p>Освоение того, на что всё время не было времени.</p>
-          <p>Не курсы, а попробуй то, что откладывал.</p>
-          <p>Можно передумать. Можно бросить. Процесс важнее результата.</p>
-        </div>
-      </div>
-
-      <div class="m-panel" id="update-includes">
-        <div class="desc-text"><p>Возможные направления:</p></div>
-        <br>
-        <ul class="modal-items-list">
-          <li>Иностранные языки</li>
-          <li>Творчество — рисунок, гончарство, что угодно</li>
-          <li>Навыки руками и ремёсла</li>
-          <li>Спорт «для себя»</li>
-          <li>Знания «для себя» — не для карьеры</li>
-          <li>Воркшопы от резидентов и приглашённых экспертов</li>
-        </ul>
-      </div>
-
-      <div class="m-panel" id="update-who">
-        <div class="desc-text">
-          <p>Для тех, у кого появился внутренний запрос учиться и пробовать.</p>
-          <p>Если есть вещи, которые давно хотелось попробовать, но «не было времени».</p>
-          <p>Если хочется двигаться, но без давления результата и оценки.</p>
-        </div>
-      </div>
-
-      <div class="m-divider"></div>
-      <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row" id="dur-row-update">
-        <button class="dur-btn active" onclick="selectDur(this,'update')">
-          <div>Неделя</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'update')">
-          <div>2 недели</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'update')">
-          <div>Месяц</div>
-        </button>
-      </div>
-      <div class="modal-price-block" id="price-update"></div>
-    </div>
-    <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('update', '⚙️ Обновить прошивку')">Оставить заявку →</button></div>
-  </div>
-</div>
-
-<!-- ===== СКРИПТЫ МОДАЛОК ===== -->
-<script>
-  /* ── Pricing data ── */
-  const priceData = {
-    battery: {
-      week:  '40 000 ₽',
-      two:   '70 000 ₽',
-      month: '100 000 ₽'
-    },
-    charge: {
-      week:  '65 000 ₽',
-      two:   '105 000 ₽',
-      month: '145 000 ₽'
-    },
-    reload: {
-      week:  '90 000 ₽',
-      two:   '130 000 ₽',
-      month: '160 000 ₽'
-    },
-    update: {
-      week:  '60 000 ₽',
-      two:   '90 000 ₽',
-      month: '110 000 ₽'
-    }
-  };
-
-  const durKeyMap = { 'Неделя': 'week', '2 недели': 'two', 'Месяц': 'month' };
-  const durLabelMap = { week: 'Неделя', two: '2 недели', month: 'Месяц' };
-
-  function updateModalPrice(modalId) {
-    const block = document.getElementById('price-' + modalId);
-    if (!block) return;
-    const row = document.getElementById('dur-row-' + modalId);
-    const activeBtn = row ? row.querySelector('.dur-btn.active') : null;
-    if (!activeBtn) {
-      block.innerHTML = '<div class="modal-price-empty">Выберите длительность</div>';
-      return;
-    }
-    const durText = activeBtn.querySelector('div:first-child').textContent.trim();
-    const durKey = durKeyMap[durText];
-    const price = priceData[modalId] && durKey ? priceData[modalId][durKey] : null;
-    if (price) {
-      block.innerHTML = `<div class="modal-price-label">Стоимость</div><div class="modal-price-val">${price}</div>`;
-    } else {
-      block.innerHTML = '<div class="modal-price-empty">Обсудим индивидуально</div>';
-    }
-  }
-
-  function openModal(id) {
-    document.getElementById('modal-' + id).classList.add('active');
-    document.body.style.overflow = 'hidden';
-    updateModalPrice(id);
-  }
-  function closeModal(id) {
-    document.getElementById('modal-' + id).classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  function closeOnOverlay(e, id) {
-    if (e.target === e.currentTarget) closeModal(id);
-  }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.active').forEach(m => {
-        m.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    }
-  });
-  function switchTab(modalId, panelId, btn) {
-    const modal = document.getElementById('modal-' + modalId);
-    modal.querySelectorAll('.m-tab').forEach(b => b.classList.remove('active'));
-    modal.querySelectorAll('.m-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(modalId + '-' + panelId).classList.add('active');
-  }
-  function selectDur(btn, modalId) {
-    btn.closest('.dur-row').querySelectorAll('.dur-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if (modalId) updateModalPrice(modalId);
-  }
-
-  /* Инициализация цен при загрузке для всех модалок */
-  document.addEventListener('DOMContentLoaded', () => {
-    ['battery','charge','reload','update'].forEach(id => updateModalPrice(id));
-  });
-
-/* — Кнопка "Оставить заявку" из модалки — */
-  function bookFromModal(modalId, modeName) {
-    // Берём выбранную длительность из этой модалки
-    const modal = document.getElementById('modal-' + modalId);
-    const activeDur = modal.querySelector('.dur-btn.active');
-    const dur = activeDur ? activeDur.querySelector('div:first-child').textContent.trim() : '';
- 
-    // Закрываем модалку
-    closeModal(modalId);
- 
-    // Заполняем форму
-    document.getElementById('mode-input').value = modeName;
-    document.getElementById('mode-display').textContent = modeName;
-    document.getElementById('mode-display-wrap').style.display = 'block';
-    if (dur) {
-      const sel = document.getElementById('f-dur');
-      for (let opt of sel.options) {
-        if (opt.value === dur) { sel.value = dur; break; }
-      }
-    }
- 
-    // Скролл к форме
-    setTimeout(() => {
-      document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-  }
- 
-  /* — Кнопки "Выйти из системы" → скролл к форме — */
-  function scrollToForm(e) {
-    if (e) e.preventDefault();
-    document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
- 
-  /* — Отправка формы — */
-  const contactForm = document.getElementById('contact-form');
-  const submitBtn   = document.getElementById('f-submit-btn');
-  const btnText     = document.getElementById('f-btn-text');
-  const statusEl    = document.getElementById('f-status');
- 
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    btnText.textContent = 'Отправляем...';
-    statusEl.className = 'f-status';
-    statusEl.textContent = '';
- 
-    try {
-      const res = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        statusEl.textContent = 'Заявка отправлена. Мы напишем в ближайшее время.';
-        statusEl.className = 'f-status success';
-        contactForm.reset();
-        document.getElementById('mode-display-wrap').style.display = 'none';
-        btnText.textContent = 'Отправлено ✓';
-      } else {
-        throw new Error();
-      }
-    } catch {
-      statusEl.textContent = 'Что-то пошло не так. Напишите нам напрямую.';
-      statusEl.className = 'f-status error';
-      submitBtn.disabled = false;
-      btnText.textContent = 'Отправить заявку';
-    }
-  });
-</script>
 
 </body>
 </html>
