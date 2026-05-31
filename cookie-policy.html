@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- cookie-policy.html -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>Политика cookie — Лаборатория 404</title>
+  <meta name="description" content="Политика использования файлов cookie на сайте Лаборатория 404.">
+
+  <link rel="canonical" href="https://labnotfound.ru/cookie-policy.html">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #020617;
+      color: #cbd5e1;
+      min-height: 100vh;
+    }
+
+    /* ── Навигация (упрощённая, единый стиль с сайтом) ── */
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(to bottom, rgba(2,6,23,0.95), transparent);
+      backdrop-filter: blur(8px);
+    }
+    .top-nav a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    .top-nav a:hover { color: #22d3ee; }
+    .top-nav .sep { color: #1e293b; }
+    .top-nav .current { color: #94a3b8; }
+
+    /* ── Основной контент ── */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 100px;
+    }
+
+    /* ── Заголовок ── */
+    .page-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #22d3ee;
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: #f1f5f9;
+      margin-bottom: 12px;
+    }
+    .page-updated {
+      font-size: 13px;
+      color: #334155;
+      margin-bottom: 56px;
+    }
+
+    /* ── Типографика документа ── */
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin: 48px 0 16px;
+    }
+    h2:first-of-type { margin-top: 0; }
+
+    p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #94a3b8;
+      margin-bottom: 16px;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    a {
+      color: #22d3ee;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(34,211,238,0.3);
+      transition: border-color 0.2s;
+    }
+    a:hover { border-color: #22d3ee; }
+
+    /* ── Таблица cookie ── */
+    .cookie-table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 12px;
+      border: 1px solid rgba(34,211,238,0.12);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      table-layout: fixed;
+    }
+    thead th {
+      background: rgba(34,211,238,0.07);
+      color: #67e8f9;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 16px;
+      text-align: left;
+      word-break: break-word;
+    }
+    thead th:nth-child(1) { width: 17%; }
+    thead th:nth-child(2) { width: 20%; }
+    thead th:nth-child(3) { width: 20%; }
+    thead th:nth-child(4) { width: 17%; }
+    thead th:nth-child(5) { width: 26%; }
+    tbody td {
+      padding: 13px 16px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+    tbody tr:hover td {
+      background: rgba(34,211,238,0.03);
+    }
+
+    /* ── Инфо-блок ── */
+    .info-block {
+      background: rgba(34,211,238,0.05);
+      border: 1px solid rgba(34,211,238,0.18);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    .info-block p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* ── Кнопка отзыва согласия ── */
+    .revoke-btn {
+      display: inline-block;
+      background: transparent;
+      color: #f87171;
+      border: 1px solid rgba(248,113,113,0.4);
+      border-radius: 99px;
+      padding: 11px 22px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      margin-top: 8px;
+    }
+    .revoke-btn:hover {
+      background: rgba(248,113,113,0.08);
+      border-color: rgba(248,113,113,0.7);
+    }
+    #revoke-status {
+      font-size: 13px;
+      color: #4ade80;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* ── Разделитель ── */
+    .doc-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 48px 0;
+    }
+
+    /* ── Подвал страницы ── */
+    .page-footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .page-footer a { color: #475569; border-bottom-color: rgba(71,85,105,0.3); }
+    .page-footer a:hover { color: #94a3b8; }
+  </style>
+</head>
+<body>
+
+<!-- Навигация -->
+<nav class="top-nav">
+  <a href="/">Лаборатория 404</a>
+  <span class="sep">→</span>
+  <span class="current">Политика cookie</span>
+</nav>
+
+<!-- Контент -->
+<div class="page-wrap">
+
+  <div class="page-eyebrow">Документ</div>
+  <h1>Политика использования&nbsp;файлов cookie</h1>
+  <p class="page-updated">Дата последнего обновления: 1 июня 2026 г.</p>
+
+  <!-- 1 -->
+  <h2>1. Что такое файлы cookie</h2>
+  <p>
+    Файлы cookie — небольшие текстовые файлы, которые веб-сайт сохраняет в браузере
+    при посещении. Они позволяют сайту «запоминать» информацию о вашем визите,
+    а нам — анализировать использование сайта и улучшать его работу.
+  </p>
+
+  <!-- 2 -->
+  <h2>2. Какие cookie мы используем</h2>
+
+  <div class="cookie-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Тип</th>
+          <th>Источник</th>
+          <th>Срок хранения</th>
+          <th>Назначение</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>lab404_cookie_consent</code></td>
+          <td>Необходимые</td>
+          <td>labnotfound.ru</td>
+          <td>365 дней</td>
+          <td>Хранит ваш выбор в отношении cookie-баннера, чтобы не показывать его повторно.</td>
+        </tr>
+        <tr>
+          <td><code>_ym_uid</code></td>
+          <td>Аналитические</td>
+          <td>mc.yandex.ru</td>
+          <td>1 год</td>
+          <td>Уникальный идентификатор пользователя для Яндекс Метрики. Загружается только при вашем согласии.</td>
+        </tr>
+        <tr>
+          <td><code>_ym_d</code></td>
+          <td>Аналитические</td>
+          <td>mc.yandex.ru</td>
+          <td>1 год</td>
+          <td>Дата первого посещения сайта в Яндекс Метрике.</td>
+        </tr>
+        <tr>
+          <td><code>_ym_isad</code></td>
+          <td>Аналитические</td>
+          <td>mc.yandex.ru</td>
+          <td>2 дня</td>
+          <td>Определяет наличие блокировщика рекламы.</td>
+        </tr>
+        <tr>
+          <td><code>_ym_visorc</code></td>
+          <td>Аналитические</td>
+          <td>mc.yandex.ru</td>
+          <td>30 минут</td>
+          <td>Служебный cookie Вебвизора Яндекс Метрики.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3 -->
+  <h2>3. Аналитика: Яндекс Метрика</h2>
+  <p>
+    Мы используем <a href="https://metrika.yandex.ru/" target="_blank" rel="noopener noreferrer">Яндекс Метрику</a>
+    — сервис веб-аналитики от ООО «Яндекс» — для понимания того, как посетители
+    взаимодействуют с нашим сайтом. Яндекс Метрика собирает статистику просмотров страниц,
+    источников трафика и поведения пользователей.
+  </p>
+  <p>
+    Аналитические cookie устанавливаются <strong>только после вашего явного согласия</strong>.
+    Если вы нажали «Только необходимые» — Яндекс Метрика не активируется.
+  </p>
+  <p>
+    Ознакомиться с политикой конфиденциальности Яндекса можно на
+    <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener noreferrer">yandex.ru/legal/confidential</a>.
+  </p>
+
+  <!-- 4 -->
+  <h2>4. Управление cookie</h2>
+  <p>
+    Вы можете изменить своё решение в любой момент:
+  </p>
+
+  <div class="info-block">
+    <p>
+      Нажмите кнопку ниже, чтобы отозвать согласие на аналитические cookie.
+      Страница обновится, и баннер с запросом согласия появится снова.
+    </p>
+    <button class="revoke-btn" id="revoke-consent-btn" onclick="revokeConsent()">
+      Отозвать согласие на аналитику
+    </button>
+    <div id="revoke-status">Согласие отозвано. Страница обновится…</div>
+  </div>
+
+  <p>
+    Помимо этого, большинство браузеров позволяют управлять cookie в настройках.
+    Вы можете заблокировать или удалить cookie через настройки браузера,
+    однако это может повлиять на функциональность сайта.
+  </p>
+  <p>Инструкции для популярных браузеров:</p>
+  <ul style="list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:8px;">
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/ru/kb/vklyuchenie-i-otklyuchenie-kukov-dlya-sajtov" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/ru-ru/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
+    <li><a href="https://support.microsoft.com/ru-ru/microsoft-edge/файлы-cookie-в-microsoft-edge-1fe8d525-0c8a-0f0a-f2c5-b34f33e02dde" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+  </ul>
+
+  <!-- 5 -->
+  <h2>5. Контакты</h2>
+  <p>
+    Если у вас есть вопросы об использовании cookie на нашем сайте,
+    напишите нам: <a href="mailto:hello@labnotfound.ru">hello@labnotfound.ru</a>.
+  </p>
+
+  <div class="doc-divider"></div>
+
+  <!-- 6 -->
+  <h2>6. Изменения политики</h2>
+  <p>
+    Мы можем обновлять эту политику. Актуальная версия всегда доступна по адресу
+    <a href="/cookie-policy.html">labnotfound.ru/cookie-policy.html</a>.
+    Дата последнего обновления указана в начале документа.
+  </p>
+
+  <!-- Подвал -->
+  <div class="page-footer">
+    <p>
+      © 2026 Лаборатория 404 ·
+      <a href="/">На главную</a>
+    </p>
+  </div>
+
+</div>
+
+<!-- Cookie-баннер (тот же скрипт) -->
+<script src="cookie-banner.js"></script>
+
+<script>
+  function revokeConsent() {
+    // Удаляем cookie согласия
+    document.cookie = 'lab404_cookie_consent=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;SameSite=Lax';
+    var status = document.getElementById('revoke-status');
+    status.style.display = 'block';
+    setTimeout(function () { window.location.reload(); }, 1500);
+  }
+</script>
+
+</body>
+</html>
