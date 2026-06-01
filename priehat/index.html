@@ -620,7 +620,7 @@
                 <span class="f-arrow">→</span>
               </button>
               <p class="f-note" style="margin-top:16px; text-align:center; line-height:1.7;">
-                Оставляя заявку, вы соглашаетесь с <a href="#" onclick="openLegalModal('personal-data'); return false;" style="color:#22d3ee; text-decoration:underline; text-underline-offset:3px; white-space:nowrap;">политикой обработки<br>персональных данных</a>
+                Оставляя заявку, вы соглашаетесь с <a href="/personal-data-policy.html" target="_blank" style="color:#22d3ee; text-decoration:underline; text-underline-offset:3px; white-space:nowrap;">политикой обработки<br>персональных данных</a>
               </p>
               <p id="f-status" class="f-status"></p>
               <p class="f-note" style="margin-top:9px;">Мы не передаём данные третьим лицам<br>и не пишем без повода.</p>
@@ -949,112 +949,17 @@
     <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div style="font-size:12px; color:#334155;">© 2026 Лаборатория 404</div>
       <div style="display:flex; gap:24px; flex-wrap:wrap;">
-        <a href="#" onclick="openLegalModal('privacy'); return false;" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Политика конфиденциальности</a>
+        <a href="/privacy-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Политика конфиденциальности</a>
+        <a href="/personal-data-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Персональные данные</a>
+        <a href="/cookie-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Cookie</a>
       </div>
     </div>
 
   </div>
 </footer>
 
-<!-- ===== МОДАЛКА: ПОЛИТИКА ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ ===== -->
-<div id="legal-modal-personal-data" onclick="closeLegalOnOverlay(event,'personal-data')" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.88); z-index:9999; overflow-y:auto; padding:40px 16px;">
-  <div style="max-width:680px; margin:0 auto; background:#0f172a; border:1px solid rgba(34,211,238,0.15); border-radius:16px; padding:40px 40px 48px; position:relative;">
-    <button onclick="closeLegalModal('personal-data')" style="position:absolute; top:20px; right:20px; background:none; border:none; color:#64748b; font-size:20px; cursor:pointer; line-height:1;">✕</button>
-    <h2 style="font-size:20px; font-weight:400; color:#f1f5f9; margin:0 0 28px;">Политика обработки персональных данных</h2>
-    <div style="font-size:14px; color:#94a3b8; line-height:1.8;">
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">1. Общие положения</strong><br>
-      Настоящая политика описывает порядок обработки персональных данных пользователей сайта labnotfound.ru в соответствии с Федеральным законом №&nbsp;152-ФЗ «О персональных данных».</p>
-      <p style="margin:0 0 16px;"><strong style="color:#cbd5e1;">2. Какие данные мы собираем</strong><br>
-      При подаче заявки: имя, контактные данные (телефон, email или Telegram), предпочтительная длительность пребывания, а также иная информация, которую пользователь сообщает добровольно.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">3. Цели обработки</strong><br>
-      Данные используются исключительно для обработки заявки и связи с вами, согласования условий пребывания, оформления договора.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">4. Передача данных третьим лицам</strong><br>
-      Мы не продаём и не используем персональные данные в рекламных целях. Данные могут обрабатываться сервисами, необходимыми для работы сайта и связи с пользователем.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">5. Сроки хранения</strong><br>
-      Данные хранятся в течение срока, необходимого для исполнения договора, и удаляются по вашему запросу.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">6. Ваши права</strong><br>
-      Вы вправе запросить доступ к своим данным, их исправление или удаление. Напишите на hello.labnotfound@gmail.com.</p>
-      <p style="margin:0; text-align:justify;"><strong style="color:#cbd5e1;">7. По вопросам, связанным с персональными данными</strong><br>
-      hello.labnotfound@gmail.com</p>
-    </div>
-  </div>
-</div>
-
-<!-- ===== МОДАЛКА: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ===== -->
-<div id="legal-modal-privacy" onclick="closeLegalOnOverlay(event,'privacy')" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.88); z-index:9999; overflow-y:auto; padding:40px 16px;">
-  <div style="max-width:680px; margin:0 auto; background:#0f172a; border:1px solid rgba(34,211,238,0.15); border-radius:16px; padding:40px 40px 48px; position:relative;">
-    <button onclick="closeLegalModal('privacy')" style="position:absolute; top:20px; right:20px; background:none; border:none; color:#64748b; font-size:20px; cursor:pointer; line-height:1;">✕</button>
-    <h2 style="font-size:20px; font-weight:400; color:#f1f5f9; margin:0 0 28px;">Политика конфиденциальности</h2>
-    <div style="font-size:14px; color:#94a3b8; line-height:1.8;">
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">1. Общие положения</strong><br>
-      Настоящая политика описывает порядок обработки и защиты информации пользователей сайта labnotfound.ru. Используя сайт и отправляя заявку через формы обратной связи, пользователь подтверждает согласие с настоящей политикой.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">2. Какие данные мы собираем</strong><br>
-      При отправке заявки пользователь может предоставить: имя; телефон; адрес электронной почты; Telegram или другие контактные данные; информацию о предпочтительной длительности пребывания; комментарии и дополнительные сведения, которые пользователь указывает добровольно. Также сайт может автоматически собирать обезличенные технические данные: IP-адрес, тип устройства, браузер, cookie и статистику посещений.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">3. Цели обработки данных</strong><br>
-      Персональные данные используются исключительно для обработки заявок; связи с пользователем; согласования условий пребывания; подготовки договоров и организационных вопросов; улучшения работы сайта. Мы не используем данные для навязчивых рассылок и рекламного спама.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">4. Передача данных третьим лицам</strong><br>
-      Данные не продаются и не передаются третьим лицам в маркетинговых целях. При этом отдельные данные могут обрабатываться сервисами, необходимыми для работы сайта и коммуникации с пользователями, включая сервисы отправки форм, почтовые сервисы и инструменты аналитики.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">5. Cookie</strong><br>
-      Сайт может использовать технические и аналитические cookie-файлы для корректной работы и улучшения пользовательского опыта. Cookie не используются для идентификации личности пользователя.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">6. Внешние сервисы и ссылки</strong><br>
-      Сайт может содержать ссылки на сторонние платформы и сервисы, включая Instagram, Telegram и другие внешние ресурсы. Политика конфиденциальности таких сервисов регулируется их собственными правилами и условиями.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">7. Защита данных</strong><br>
-      Мы принимаем разумные организационные и технические меры для защиты персональных данных от утраты, неправомерного доступа и распространения.</p>
-      <p style="margin:0 0 16px; text-align:justify;"><strong style="color:#cbd5e1;">8. Изменение политики</strong><br>
-      Актуальная версия политики всегда доступна на сайте labnotfound.ru. Мы вправе обновлять настоящую политику без предварительного уведомления пользователей.</p>
-      <p style="margin:0; text-align:justify;"><strong style="color:#cbd5e1;">9. Контакты</strong><br>
-      По вопросам обработки персональных данных и конфиденциальности: hello.labnotfound@gmail.com</p>
-    </div>
-  </div>
-</div>
-
-<style>
-@media (max-width: 640px) {
-  footer > div > div:first-of-type {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-  footer > div > div:last-of-type {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-  .faq-answer,
-  .pc-inc,
-  .price-inc-row,
-  .hero-desc,
-  .doc-text {
-    text-align: justify;
-  }
-  .text-sm.text-slate-500 {
-    text-align: justify;
-  }
-}
-</style>
-
-<script>
-  function openLegalModal(id) {
-    document.getElementById('legal-modal-' + id).style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLegalModal(id) {
-    document.getElementById('legal-modal-' + id).style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  function closeLegalOnOverlay(e, id) {
-    if (e.target === e.currentTarget) closeLegalModal(id);
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      ['personal-data','privacy'].forEach(function(id) {
-        var el = document.getElementById('legal-modal-' + id);
-        if (el && el.style.display === 'block') closeLegalModal(id);
-      });
-    }
-  });
-</script>
-
 <!-- Cookie-баннер + Яндекс Метрика -->
 <script src="/cookie-banner.js"></script>
-  
+
 </body>
 </html>
