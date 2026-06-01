@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+Disallow: /cookie-policy.html
+Disallow: /privacy-policy.html
+Disallow: /personal-data-policy.html
+
 Sitemap: https://labnotfound.ru/sitemap.xml
