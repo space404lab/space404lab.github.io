@@ -31,8 +31,8 @@
   <meta name="twitter:image" content="https://labnotfound.ru/hero.jpg">
 
   <!-- Иконки -->
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
 
   <!-- Шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -44,14 +44,14 @@
 
   .bg-hero {
     position: relative;
-    background: url('./hero.jpg');
+    background: url('/hero.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
   }
 
 .bg-secondary {
-  background: url('./second.jpg');
+  background: url('/second.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -119,11 +119,11 @@
   /* Мобайл — ПОСЛЕ деклараций анимации, чтобы каскад гарантированно побеждал */
   @media (max-width: 768px) {
     .bg-hero {
-      background-image: url('./hero_m.jpg');
+      background-image: url('/hero_m.jpg');
       animation: none;
     }
     .bg-secondary {
-      background-image: url('./second_m.jpg');
+      background-image: url('/second_m.jpg');
       animation: none;
     }
   }
@@ -685,7 +685,7 @@ margin-bottom: 40px;
   <!-- Header -->
  <header class="flex justify-between items-center px-4 py-1 relative">
 <div class="flex items-center gap-2">
-    <img src="logo.png" alt="logo" class="w-20 h-20 object-contain">
+    <img src="/logo.png" alt="logo" class="w-20 h-20 object-contain">
     <div class="text-xl font-semibold glow-text">Лаборатория 404</div>
   </div>
 
@@ -882,7 +882,7 @@ margin-bottom: 40px;
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('battery')">
   <div class="flex flex-col items-center text-center">
-    <img src="b.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Батарея разряжена">
+    <img src="/b.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Батарея разряжена">
     <h3 class="text-xl mb-1">Батарея разряжена</h3>
     <p class="opacity-60 text-sm">Режим по умолчанию</p>
   </div>
@@ -894,7 +894,7 @@ margin-bottom: 40px;
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('charge')">
   <div class="flex flex-col items-center text-center">
-    <img src="r.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Подзарядка">
+    <img src="/r.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Подзарядка">
     <h3 class="text-xl mb-1">Подзарядка</h3>
     <p class="opacity-60 text-sm">Восстановление сил и восполнение энергии</p>
   </div>
@@ -906,7 +906,7 @@ margin-bottom: 40px;
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('reload')">
   <div class="flex flex-col items-center text-center">
-    <img src="c.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Перезагрузка">
+    <img src="/c.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Перезагрузка">
     <h3 class="text-xl mb-1">Перезагрузка</h3>
     <p class="opacity-60 text-sm">Вкус жизни через приключения и активности</p>
   </div>
@@ -918,7 +918,7 @@ margin-bottom: 40px;
 
 <div class="mode-card bg-black pt-2 pb-4 px-4 rounded-2xl glow-btn flex flex-col items-center text-center cursor-pointer" style="justify-content:space-between;" onclick="openModal('update')">
   <div class="flex flex-col items-center text-center">
-    <img src="u.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Обновить прошивку">
+    <img src="/u.png" class="w-18 h-18 mb-2 mt-0" alt="Режим: Обновить прошивку">
     <h3 class="text-xl mb-1">Обновить прошивку</h3>
     <p class="opacity-60 text-sm">Новые навыки без гонки за результатом</p>
   </div>
@@ -1019,7 +1019,7 @@ margin-bottom: 40px;
 
       <div>
         <a href="/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:14px;">
-          <img src="logo.png" alt="Лаборатория 404" style="height:32px; opacity:0.85;">
+          <img src="/logo.png" alt="Лаборатория 404" style="height:32px; opacity:0.85;">
           <span style="font-size:15px; font-weight:600; color:#f1f5f9; letter-spacing:0.02em;">Лаборатория 404</span>
         </a>
         <div style="font-size:13px; color:#475569; line-height:1.7;">
