@@ -564,7 +564,6 @@
             <button class="dur-pill" data-dur="week"  onclick="selectDur(this)">Неделя</button>
             <button class="dur-pill" data-dur="two"   onclick="selectDur(this)">2 недели</button>
             <button class="dur-pill" data-dur="month" onclick="selectDur(this)">Месяц</button>
-            <button class="dur-pill" data-dur="other" onclick="selectDur(this)">Другое</button>
           </div>
 
           <div class="price-block" id="price-block">
@@ -572,7 +571,7 @@
           </div>
 
           <div class="notice">
-            Цены указаны за человека.<br>В цену входят проживание, питание 2–3 раза в день (общая простая еда), доступ ко всем общим пространствам и базовым активностям выбранного режима. Никаких скрытых платежей. <br><em>Точную стоимость уточняем при согласовании заявки.</em>
+            Цены указаны за человека.<br>В цену входят проживание, питание 2–3 раза в день (общая простая еда), доступ ко всем общим пространствам, активности выбранного режима. <br><em>Никаких скрытых платежей.</em>
           </div>
 
           <button class="proceed-btn" id="btn-step2" onclick="unlock(3)" disabled>
@@ -620,7 +619,7 @@
                 <span class="f-arrow">→</span>
               </button>
               <p class="f-note" style="margin-top:16px; text-align:center; line-height:1.7;">
-                Оставляя заявку, вы соглашаетесь с <a href="/personal-data-policy.html" target="_blank" style="color:#22d3ee; text-decoration:underline; text-underline-offset:3px; white-space:nowrap;">политикой обработки<br>персональных данных</a>
+                Оставляя заявку, вы соглашаетесь с <br><a href="/personal-data-policy.html" target="_blank" style="color:#22d3ee; text-decoration:underline; text-underline-offset:3px; white-space:nowrap;">политикой обработки персональных данных</a>
               </p>
               <p id="f-status" class="f-status"></p>
               <p class="f-note" style="margin-top:9px;">Мы не передаём данные третьим лицам<br>и не пишем без повода.</p>
@@ -785,28 +784,24 @@
   /* ── Pricing data ── */
   const priceData = {
     battery: {
-      week:  { price:'40 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Сон без будильников и расписания','Полное отсутствие программы и обязательств','Доступ к общим пространствам','Люди рядом — быть в окружении комьюнити'] },
-      two:   { price:'70 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Сон без будильников и расписания','Полное отсутствие программы и обязательств','Доступ к общим пространствам','Люди рядом — быть в окружении комьюнити'] },
-      month: { price:'100 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Сон без будильников и расписания','Полное отсутствие программы и обязательств','Доступ к общим пространствам','Люди рядом — быть в окружении комьюнити','Статус резидента'] },
-      other: null
+      week:  { price:'40 000 ₽', inc:[] },
+      two:   { price:'70 000 ₽', inc:[] },
+      month: { price:'100 000 ₽', inc:[] },
     },
     charge: {
-      week:  { price:'65 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Массаж — 3 сеанса','Баня — 1 раз','Йога — 4 занятия','Дыхательные практики, медитации'] },
-      two:   { price:'105 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Массаж — 6 сеансов','Баня — 3 раза','Йога — 10 занятий','Дыхательные практики, медитации'] },
-      month: { price:'145 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Массаж — 12 сеансов','Баня — безлимитно','Йога — безлимитно','Дыхательные практики, медитации','Статус резидента'] },
-      other: null
+      week:  { price:'65 000 ₽', inc:[] },
+      two:   { price:'105 000 ₽', inc:[] },
+      month: { price:'145 000 ₽', inc:[] },
     },
     reload: {
-      week:  { price:'90 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Программа совместных активностей: мини путешествия, Ладога, залив, озера, походы, водные прогулки, спорт активности, нетуристический Петербург, музыкальные бары, винил. Программа зависит от сезона.'] },
-      two:   { price:'130 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Программа совместных активностей: мини путешествия, Ладога, залив, озера, походы, водные прогулки, спорт активности, нетуристический Петербург, музыкальные бары, винил. Программа зависит от сезона.'] },
-      month: { price:'160 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Программа совместных активностей: мини путешествия, Ладога, залив, озера, походы, водные прогулки, спорт активности, нетуристический Петербург, музыкальные бары, винил. Программа зависит от сезона.','Статус резидента'] },
-      other: null
+      week:  { price:'90 000 ₽', inc:[] },
+      two:   { price:'130 000 ₽', inc:[] },
+      month: { price:'160 000 ₽', inc:[] },
     },
     update: {
-      week:  { price:'60 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Доступ к воркшопам','1 направление на выбор: иностранный язык, творчество, ремесла, спорт'] },
-      two:   { price:'90 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Доступ к воркшопам','Доступ к библиотеке знаний','2 направление на выбор: иностранный язык, творчество, ремесла, спорт'] },
-      month: { price:'110 000 ₽', inc:['Проживание, питание 2–3 раза (общая простая еда)','Доступ к воркшопам','Любые направления на выбор: иностранный язык, творчество, ремесла, спорт','Статус резидента'] },
-      other: null
+      week:  { price:'60 000 ₽', inc:[] },
+      two:   { price:'90 000 ₽', inc:[] },
+      month: { price:'110 000 ₽', inc:[] },
     }
   };
 
@@ -814,7 +809,7 @@
     battery:'🔋 Батарея разряжена', charge:'⚡ Подзарядка',
     reload:'🔥 Перезагрузка', update:'⚙️ Обновить прошивку'
   };
-  const durNames = { week:'Неделя', two:'2 недели', month:'Месяц', other:'Другое' };
+  const durNames = { week:'Неделя', two:'2 недели', month:'Месяц'};
 
   let selMode = null, selDur = null;
 
@@ -841,10 +836,6 @@
       return;
     }
     const d = priceData[selMode][selDur];
-    if (!d) {
-      block.innerHTML = '<div class="price-empty">Напишите нам — обсудим подходящий вариант</div>';
-      return;
-    }
     const rows = d.inc.map(i => `<div class="price-inc-row"><span class="price-inc-dot">–</span>${i}</div>`).join('');
     block.innerHTML = `
       <div class="price-eyebrow">${modeNames[selMode]} · ${durNames[selDur]}</div>
@@ -950,7 +941,7 @@
       <div style="font-size:12px; color:#334155;">© 2026 Лаборатория 404</div>
       <div style="display:flex; gap:24px; flex-wrap:wrap;">
         <a href="/privacy-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Политика конфиденциальности</a>
-         <a href="/cookie-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Cookie</a>
+        <a href="/cookie-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Cookie</a>
       </div>
     </div>
 
