@@ -582,21 +582,24 @@ margin-bottom: 40px;
   .modal-title { font-size: 22px; font-weight: 400; color: #f1f5f9; margin-bottom: 4px; }
   .modal-tagline { font-size: 13px; color: #64748b; font-style: italic; }
   .modal-body { padding: 20px 24px 8px; }
-  .m-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
-  .m-tab {
-    font-size: 12px; padding: 5px 14px; border-radius: 99px;
-    border: 0.5px solid rgba(255,255,255,0.1);
-    color: #64748b; background: none; cursor: pointer;
-    font-family: 'Inter', sans-serif; transition: all 0.15s;
-  }
-  .m-tab.active { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.22); color: #f1f5f9; }
-  .m-panel { display: none; }
-  .m-panel.active { display: block; }
-  .desc-text { font-size: 14px; color: #94a3b8; line-height: 1.8; }
+  .modal-scroll-zone { max-height: 260px; overflow-y: auto; padding: 20px 24px 0; scrollbar-width: none; }
+  .modal-scroll-zone::-webkit-scrollbar { display: none; }
+  .m-section { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+  .m-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 6px; }
+  .m-section-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #22d3ee; opacity: 0.45; margin-bottom: 12px; }
+  .who-list { display: flex; flex-direction: column; gap: 9px; }
+  .who-item { font-size: 14px; color: #94a3b8; line-height: 1.65; padding-left: 12px; border-left: 1.5px solid rgba(34,211,238,0.2); text-align: justify; }
+  .scroll-hint { display: flex; justify-content: center; padding: 8px 0 4px; position: relative; }
+  .scroll-hint::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: 36px; background: linear-gradient(to bottom, transparent, #0d1117); pointer-events: none; }
+  .scroll-arrow { width: 28px; height: 28px; border-radius: 50%; border: 0.5px solid rgba(34,211,238,0.3); background: rgba(34,211,238,0.05); display: flex; align-items: center; justify-content: center; animation: scrollbounce 1.8s ease-in-out infinite; }
+  .scroll-arrow svg { width: 13px; height: 13px; stroke: #22d3ee; stroke-width: 2; fill: none; opacity: 0.7; }
+  @keyframes scrollbounce { 0%,100% { transform: translateY(0); opacity: 0.55; } 50% { transform: translateY(3px); opacity: 1; } }
+  .scroll-hint.hidden { opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .desc-text { font-size: 14px; color: #94a3b8; line-height: 1.8; text-align: justify; }
   .desc-text p { margin-bottom: 10px; }
   .desc-text p:last-child { margin-bottom: 0; }
   .modal-items-list { display: flex; flex-direction: column; gap: 8px; }
-  .modal-items-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #94a3b8; line-height: 1.5; list-style: none; }
+  .modal-items-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #94a3b8; line-height: 1.5; list-style: none; text-align: justify; }
   .modal-items-list li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #22d3ee; margin-top: 7px; flex-shrink: 0; }
   .m-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin: 18px 0; }
   .dur-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; margin-bottom: 10px; }
@@ -1082,14 +1085,9 @@ margin-bottom: 40px;
       <div class="modal-title">🔋 Батарея разряжена</div>
       <div class="modal-tagline">Режим «бабушкиного дома»</div>
     </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('battery','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('battery','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('battery','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="battery-essence">
+    <div class="modal-scroll-zone" id="scroll-battery">
+      <div class="m-section">
+        <div class="m-section-label">Суть</div>
         <div class="desc-text">
           <p>Без обязательств. Ничего делать не нужно. Ничего решать не нужно.</p>
           <p>Вас встречают, селят, кормят — общая простая и полезная еда. Можно спать сколько заходите, смотреть в потолок, читать, смотреть сериалы.</p>
@@ -1098,8 +1096,8 @@ margin-bottom: 40px;
           <p>Задача — восстановить базовые функции: сон, нервную систему, ощущение безопасности.</p>
         </div>
       </div>
-
-      <div class="m-panel" id="battery-includes">
+      <div class="m-section">
+        <div class="m-section-label">Что входит</div>
         <ul class="modal-items-list">
           <li>Проживание, питание 2–3 раза в день (общая простая еда)</li>
           <li>Сон без будильников и расписания</li>
@@ -1108,15 +1106,19 @@ margin-bottom: 40px;
           <li>Люди рядом — быть в окружении комьюнити</li>
         </ul>
       </div>
-
-      <div class="m-panel" id="battery-who">
-        <div class="desc-text">
-          <p>Для тех, у кого ресурсы закончились и нужна пауза.</p>
-          <p>Когда процессы замедлены, ритм жизни больше не вывозится, а продолжение работы без остановки приводит к сбою.</p>
-          <p>Когда не хочется ничего объяснять и ничего из себя делать.</p>
+      <div class="m-section">
+        <div class="m-section-label">Для кого</div>
+        <div class="who-list">
+          <div class="who-item">Для тех, у кого ресурсы закончились и нужна пауза</div>
+          <div class="who-item">Когда ритм жизни больше не вывозится, а продолжение работы без остановки приводит к сбою</div>
+          <div class="who-item">Когда не хочется ничего объяснять и ничего из себя делать</div>
         </div>
       </div>
-
+    </div>
+    <div class="scroll-hint" id="hint-battery">
+      <div class="scroll-arrow"><svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg></div>
+    </div>
+    <div class="modal-body">
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
       <div class="dur-row" id="dur-row-battery">
@@ -1144,22 +1146,17 @@ margin-bottom: 40px;
       <div class="modal-title">⚡ Подзарядка</div>
       <div class="modal-tagline">Мягкое восстановление</div>
     </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('charge','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('charge','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('charge','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="charge-essence">
+    <div class="modal-scroll-zone" id="scroll-charge">
+      <div class="m-section">
+        <div class="m-section-label">Суть</div>
         <div class="desc-text">
           <p>Аккуратное восполнение ресурса через тело и внимание.</p>
           <p>Помочь телу вспомнить, как жить без напряжения. Помочь энергии вернуться и беречь её.</p>
           <p>Никаких целей. Никаких результатов. Просто поддержка организма.</p>
         </div>
       </div>
-
-      <div class="m-panel" id="charge-includes">
+      <div class="m-section">
+        <div class="m-section-label">Что входит</div>
         <ul class="modal-items-list">
           <li>Массаж</li>
           <li>Баня</li>
@@ -1168,15 +1165,19 @@ margin-bottom: 40px;
           <li>Медитации</li>
         </ul>
       </div>
-
-      <div class="m-panel" id="charge-who">
-        <div class="desc-text">
-          <p>1. Вы ещё держитесь, но уже на пределе. Чувствуете, что ресурс на исходе. И хотите восстановиться до того, как станет совсем тяжело.</p>
-          <p>2. Вы уже немного восстановились. Выспались. Отдохнули. Стало чуть легче. И теперь хочется мягко поддержать тело и энергию.</p>
-          <p>3. Если хочется чего-то мягкого — не лежать и не бежать.</p>
+      <div class="m-section">
+        <div class="m-section-label">Для кого</div>
+        <div class="who-list">
+          <div class="who-item">Вы ещё держитесь, но уже на пределе — хотите восстановиться до того, как станет совсем тяжело</div>
+          <div class="who-item">Вы уже немного восстановились и хочется мягко поддержать тело и энергию</div>
+          <div class="who-item">Если хочется чего-то мягкого — не лежать и не бежать</div>
         </div>
       </div>
-
+    </div>
+    <div class="scroll-hint" id="hint-charge">
+      <div class="scroll-arrow"><svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg></div>
+    </div>
+    <div class="modal-body">
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
       <div class="dur-row" id="dur-row-charge">
@@ -1204,24 +1205,17 @@ margin-bottom: 40px;
       <div class="modal-title">🔥 Перезагрузка</div>
       <div class="modal-tagline">Когда появляется интерес к миру, приходит время движения.</div>
     </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('reload','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('reload','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('reload','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="reload-essence">
+    <div class="modal-scroll-zone" id="scroll-reload">
+      <div class="m-section">
+        <div class="m-section-label">Суть</div>
         <div class="desc-text">
           <p>Это режим возвращения вкуса к жизни.</p>
-          <p>Смена обстановки и встряска через приключения.</p>
-          <p>Бережная перезагрузка через впечатления, активности, природу.</p>
-          <p>В окружении людей, которые с тобой на одной волне.</p>
+          <p>Бережная перезагрузка через впечатления, активности, природу. В окружении людей, которые с тобой на одной волне.</p>
           <p>Не экстрим. Не достижения. Здесь нет цели «перезапустить жизнь». Только почувствовать её.</p>
         </div>
       </div>
-
-      <div class="m-panel" id="reload-includes">
+      <div class="m-section">
+        <div class="m-section-label">Что входит</div>
         <ul class="modal-items-list">
           <li>Поездки по красивым местам</li>
           <li>Лёгкие приключения</li>
@@ -1229,16 +1223,19 @@ margin-bottom: 40px;
           <li>Эстетические путешествия</li>
         </ul>
       </div>
-
-      <div class="m-panel" id="reload-who">
-        <div class="desc-text">
-          <p>Если у вас появилось желание двигаться.</p>
-          <p>Если хочется впечатлений, но без перегруза.</p>
-          <p>Когда хочется сменить среду или новых мест. Хочется быть среди людей, но без необходимости «соответствовать».</p>
-          <p>Когда хочется просто ощутить, что жизнь — это не только работа и усталость.</p>
+      <div class="m-section">
+        <div class="m-section-label">Для кого</div>
+        <div class="who-list">
+          <div class="who-item">Если появилось желание двигаться и хочется впечатлений, но без перегруза</div>
+          <div class="who-item">Когда хочется сменить среду и быть среди людей без необходимости «соответствовать»</div>
+          <div class="who-item">Когда хочется просто ощутить, что жизнь — это не только работа и усталость</div>
         </div>
       </div>
-
+    </div>
+    <div class="scroll-hint" id="hint-reload">
+      <div class="scroll-arrow"><svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg></div>
+    </div>
+    <div class="modal-body">
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
       <div class="dur-row" id="dur-row-reload">
@@ -1266,24 +1263,16 @@ margin-bottom: 40px;
       <div class="modal-title">⚙️ Обновить прошивку</div>
       <div class="modal-tagline">Новые навыки без гонки за результатом. Только если действительно хочется.</div>
     </div>
-    <div class="modal-body">
-      <div class="m-tabs">
-        <button class="m-tab active" onclick="switchTab('update','essence',this)">Суть</button>
-        <button class="m-tab" onclick="switchTab('update','includes',this)">Что входит</button>
-        <button class="m-tab" onclick="switchTab('update','who',this)">Для кого</button>
-      </div>
-
-      <div class="m-panel active" id="update-essence">
+    <div class="modal-scroll-zone" id="scroll-update">
+      <div class="m-section">
+        <div class="m-section-label">Суть</div>
         <div class="desc-text">
           <p>Освоение того, на что всё время не было времени.</p>
-          <p>Не курсы, а попробуй то, что откладывал.</p>
-          <p>Можно передумать. Можно бросить. Процесс важнее результата.</p>
+          <p>Не курсы, а попробуй то, что откладывал. Можно передумать. Можно бросить. Процесс важнее результата.</p>
         </div>
       </div>
-
-      <div class="m-panel" id="update-includes">
-        <div class="desc-text"><p>Возможные направления:</p></div>
-        <br>
+      <div class="m-section">
+        <div class="m-section-label">Что входит</div>
         <ul class="modal-items-list">
           <li>Иностранные языки</li>
           <li>Творчество — рисунок, гончарство, что угодно</li>
@@ -1293,15 +1282,19 @@ margin-bottom: 40px;
           <li>Воркшопы от резидентов и приглашённых экспертов</li>
         </ul>
       </div>
-
-      <div class="m-panel" id="update-who">
-        <div class="desc-text">
-          <p>Для тех, у кого появился внутренний запрос учиться и пробовать.</p>
-          <p>Если есть вещи, которые давно хотелось попробовать, но «не было времени».</p>
-          <p>Если хочется двигаться, но без давления результата и оценки.</p>
+      <div class="m-section">
+        <div class="m-section-label">Для кого</div>
+        <div class="who-list">
+          <div class="who-item">Для тех, у кого появился внутренний запрос учиться и пробовать</div>
+          <div class="who-item">Если есть вещи, которые давно хотелось попробовать, но «не было времени»</div>
+          <div class="who-item">Если хочется двигаться, но без давления результата и оценки</div>
         </div>
       </div>
-
+    </div>
+    <div class="scroll-hint" id="hint-update">
+      <div class="scroll-arrow"><svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg></div>
+    </div>
+    <div class="modal-body">
       <div class="m-divider"></div>
       <div class="dur-label">Выберите длительность</div>
       <div class="dur-row" id="dur-row-update">
@@ -1389,13 +1382,15 @@ margin-bottom: 40px;
       });
     }
   });
-  function switchTab(modalId, panelId, btn) {
-    const modal = document.getElementById('modal-' + modalId);
-    modal.querySelectorAll('.m-tab').forEach(b => b.classList.remove('active'));
-    modal.querySelectorAll('.m-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(modalId + '-' + panelId).classList.add('active');
-  }
+  ['battery','charge','reload','update'].forEach(function(id) {
+    var zone = document.getElementById('scroll-' + id);
+    var hint = document.getElementById('hint-' + id);
+    if (!zone || !hint) return;
+    zone.addEventListener('scroll', function() {
+      var atBottom = zone.scrollHeight - zone.scrollTop - zone.clientHeight < 10;
+      hint.classList.toggle('hidden', atBottom);
+    });
+  });
   function selectDur(btn, modalId) {
     btn.closest('.dur-row').querySelectorAll('.dur-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
