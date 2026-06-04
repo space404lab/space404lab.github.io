@@ -190,6 +190,56 @@
     }
     .mode-card-s.selected .mc-check { background:#22d3ee; border-color:#22d3ee; }
 
+    /* ═══ MODE INFO PANEL ═══ */
+    .step1-layout { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+    @media (max-width:720px) { .step1-layout { grid-template-columns:1fr; } }
+
+    .mode-info-panel {
+      border:.5px solid rgba(34,211,238,.18);
+      border-radius:16px; overflow:hidden;
+      transition:opacity .3s, border-color .3s;
+      opacity:.3; pointer-events:none;
+  margin-top: 24px;
+    }
+    .mode-info-panel.visible { opacity:1; pointer-events:auto; }
+
+    .mip-header {
+      padding:16px 20px;
+      border-bottom:.5px solid rgba(255,255,255,.06);
+      background:rgba(0,0,0,.35);
+    }
+    .mip-icon { font-size:22px; margin-bottom:6px; }
+    .mip-title { font-size:16px; font-weight:400; color:#f1f5f9; margin-bottom:3px; }
+    .mip-tagline { font-size:12px; color:#64748b; font-style:italic; }
+
+    .mip-body { padding:18px 20px; display:flex; flex-direction:column; gap:16px; }
+    .mip-section-label {
+      font-size:9px; letter-spacing:.16em; text-transform:uppercase;
+      color:#22d3ee; opacity:.55; margin-bottom:8px;
+    }
+    .mip-desc { font-size:13px; color:#64748b; line-height:1.8; text-align:justify; }
+    .mip-desc p { margin-bottom:8px; }
+    .mip-desc p:last-child { margin-bottom:0; }
+
+    .mip-who-list { display:flex; flex-direction:column; gap:7px; }
+    .mip-who-item {
+      font-size:12px; color:#94a3b8; line-height:1.6;
+      padding:6px 10px 6px 12px;
+      border-left:1.5px solid rgba(34,211,238,.2);
+      text-align:justify;
+    }
+
+    .mip-inc-list { display:flex; flex-direction:column; gap:6px; }
+    .mip-inc-item { display:flex; gap:10px; font-size:12px; color:#64748b; align-items:flex-start; line-height:1.5; }
+    .mip-inc-dot { color:#22d3ee; opacity:.5; flex-shrink:0; margin-top:1px; }
+
+    .mip-divider { height:.5px; background:rgba(255,255,255,.06); }
+
+    .mip-empty {
+      padding:28px 20px; text-align:center;
+      font-size:13px; color:#334155; line-height:1.6;
+    }
+
     /* ═══ DUR PILLS ═══ */
     .dur-pills { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
     .dur-pill {
@@ -513,39 +563,71 @@
         <div class="step-body">
           <div class="step-label">Шаг первый</div>
           <div class="step-title">Выберите режим</div>
-          <div class="step-desc">Где вы сейчас? Выберите то, что откликается. <br>Не знаете какой режим подходит? Напишите нам — поможем разобраться.</div>
+          <div class="step-desc">Где вы сейчас? Выберите то, что откликается — справа появится описание.<br>Не знаете какой режим подходит? Напишите нам — поможем разобраться.</div>
 
-          <div class="mode-grid">
-            <button class="mode-card-s" data-mode="battery" onclick="selectMode(this)">
-              <div class="mc-icon">🔋</div>
-              <div class="mc-title">Батарея разряжена</div>
-              <div class="mc-sub">Режим по умолчанию</div>
-              <div class="mc-check">✓</div>
-            </button>
-            <button class="mode-card-s" data-mode="charge" onclick="selectMode(this)">
-              <div class="mc-icon">⚡</div>
-              <div class="mc-title">Подзарядка</div>
-              <div class="mc-sub">Восстановление сил и восполнение энергии</div>
-              <div class="mc-check">✓</div>
-            </button>
-            <button class="mode-card-s" data-mode="reload" onclick="selectMode(this)">
-              <div class="mc-icon">🔥</div>
-              <div class="mc-title">Перезагрузка</div>
-              <div class="mc-sub">Вкус жизни через приключения и активности</div>
-              <div class="mc-check">✓</div>
-            </button>
-            <button class="mode-card-s" data-mode="update" onclick="selectMode(this)">
-              <div class="mc-icon">⚙️</div>
-              <div class="mc-title">Обновить прошивку</div>
-              <div class="mc-sub">Новые навыки без гонки за результатом</div>
-              <div class="mc-check">✓</div>
-            </button>
+          <div class="step1-layout">
+            <!-- Карточки -->
+            <div>
+              <div class="mode-grid">
+                <button class="mode-card-s" data-mode="battery" onclick="selectMode(this)">
+                  <div class="mc-icon">🔋</div>
+                  <div class="mc-title">Батарея разряжена</div>
+                  <div class="mc-sub">Режим по умолчанию</div>
+                  <div class="mc-check">✓</div>
+                </button>
+                <button class="mode-card-s" data-mode="charge" onclick="selectMode(this)">
+                  <div class="mc-icon">⚡</div>
+                  <div class="mc-title">Подзарядка</div>
+                  <div class="mc-sub">Мягкое восстановление</div>
+                  <div class="mc-check">✓</div>
+                </button>
+                <button class="mode-card-s" data-mode="reload" onclick="selectMode(this)">
+                  <div class="mc-icon">🔥</div>
+                  <div class="mc-title">Перезагрузка</div>
+                  <div class="mc-sub">Вкус жизни через впечатления</div>
+                  <div class="mc-check">✓</div>
+                </button>
+                <button class="mode-card-s" data-mode="update" onclick="selectMode(this)">
+                  <div class="mc-icon">⚙️</div>
+                  <div class="mc-title">Обновить прошивку</div>
+                  <div class="mc-sub">Новые навыки без давления</div>
+                  <div class="mc-check">✓</div>
+                </button>
+              </div>
+
+              <button class="proceed-btn" id="btn-step1" onclick="unlock(2)" disabled>
+                Выбрать длительность <span>→</span>
+              </button>
+            </div>
+
+            <!-- Панель описания -->
+            <div class="mode-info-panel" id="mode-info-panel">
+              <div class="mip-empty" id="mip-empty">← Выберите режим, чтобы увидеть описание</div>
+              <div id="mip-content" style="display:none;">
+                <div class="mip-header">
+                  <div class="mip-icon" id="mip-icon"></div>
+                  <div class="mip-title" id="mip-title"></div>
+                  <div class="mip-tagline" id="mip-tagline"></div>
+                </div>
+                <div class="mip-body">
+                  <div>
+                    <div class="mip-section-label">Суть</div>
+                    <div class="mip-desc" id="mip-desc"></div>
+                  </div>
+                  <div class="mip-divider"></div>
+                  <div>
+                    <div class="mip-section-label">Для кого</div>
+                    <div class="mip-who-list" id="mip-who"></div>
+                  </div>
+                  <div class="mip-divider"></div>
+                  <div>
+                    <div class="mip-section-label">Что входит</div>
+                    <div class="mip-inc-list" id="mip-inc"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-
-          <button class="proceed-btn" id="btn-step1" onclick="unlock(2)" disabled>
-            Выбрать длительность <span>→</span>
-          </button>
         </div>
       </div>
 
@@ -813,12 +895,62 @@
 
   let selMode = null, selDur = null;
 
+  const modeInfo = {
+    battery: {
+      icon: '🔋',
+      title: 'Батарея разряжена',
+      tagline: 'Режим «бабушкиного дома»',
+      desc: '<p>Вас встречают, селят, кормят. Можно спать сколько заходите, смотреть в потолок, читать, смотреть сериалы.</p><p>Никто не тянет на активности, не спрашивает о планах. Безусловное принятие и покой. Есть ритм дня, но нет требований. Есть люди рядом, но нет обязанности общаться.</p><p>Задача — восстановить базовые функции: сон, нервную систему, ощущение безопасности.</p>',
+      who: ['Для тех, у кого ресурсы закончились и нужна пауза', 'Когда ритм жизни больше не вывозится, а продолжение работы без остановки приводит к сбою', 'Когда не хочется ничего объяснять и ничего из себя делать'],
+      inc: ['Проживание, питание 2–3 раза в день (общая простая еда)', 'Доступ к общим пространствам: кухня и гостиная, двор, природа', 'Люди рядом — быть в окружении комьюнити', 'Сон без будильников и расписания', 'Полное отсутствие программы и обязательств']
+    },
+    charge: {
+      icon: '⚡',
+      title: 'Подзарядка',
+      tagline: 'Мягкое восстановление',
+      desc: '<p>Аккуратное восполнение ресурса через тело и внимание. Помочь телу вспомнить, как жить без напряжения. Помочь энергии вернуться и беречь её.</p><p>Никаких целей. Никаких результатов. Просто поддержка организма.</p>',
+      who: ['Вы ещё держитесь, но уже на пределе — хотите восстановиться до того, как станет совсем тяжело', 'Или вы уже немного восстановились и хочется мягко поддержать тело и энергию', 'Если хочется чего-то мягкого — не лежать и не бежать'],
+      inc: ['Массаж', 'Баня', 'Йога', 'Практики']
+    },
+    reload: {
+      icon: '🔥',
+      title: 'Перезагрузка',
+      tagline: 'Когда появляется интерес к миру, приходит время движения.',
+      desc: '<p>Это режим возвращения вкуса к жизни. Бережная перезагрузка через впечатления, активности, природу. В окружении людей, которые с тобой на одной волне.</p><p>Здесь нет цели «перезапустить жизнь». Только почувствовать её.</p>',
+      who: ['Если появилось желание двигаться и хочется впечатлений, но без перегруза', 'Когда хочется сменить среду и быть среди людей без необходимости «соответствовать»', 'Когда хочется просто ощутить, что жизнь — это не только работа и бытовые дела'],
+      inc: ['Поездки по красивым местам', 'Лёгкие приключения', 'Совместные активности']
+    },
+    update: {
+      icon: '⚙️',
+      title: 'Обновить прошивку',
+      tagline: 'Новые навыки без гонки за результатом. Только если действительно хочется.',
+      desc: '<p>Освоение того, на что всё время не было времени.</p><p>Не курсы, а попробуй то, что откладывал. Можно передумать. Можно бросить. Процесс важнее результата.</p>',
+      who: ['Для тех, у кого появился внутренний запрос учиться и пробовать', 'Если есть вещи, которые давно хотелось попробовать, но «не было времени»', 'Если хочется двигаться, но без давления результата и оценки'],
+      inc: ['Иностранные языки', 'Творчество — рисунок, гончарство, что угодно', 'Навыки руками и ремёсла', 'Спорт «для себя»', 'Знания «для себя» — не для карьеры', 'Воркшопы от резидентов и приглашённых экспертов']
+    }
+  };
+
   function selectMode(btn) {
     document.querySelectorAll('.mode-card-s').forEach(c => c.classList.remove('selected'));
     btn.classList.add('selected');
     selMode = btn.dataset.mode;
     document.getElementById('btn-step1').disabled = false;
     updatePrice();
+    updateModePanel(selMode);
+  }
+
+  function updateModePanel(mode) {
+    const m = modeInfo[mode];
+    const panel = document.getElementById('mode-info-panel');
+    panel.classList.add('visible');
+    document.getElementById('mip-empty').style.display = 'none';
+    document.getElementById('mip-content').style.display = 'block';
+    document.getElementById('mip-icon').textContent = m.icon;
+    document.getElementById('mip-title').textContent = m.title;
+    document.getElementById('mip-tagline').textContent = m.tagline;
+    document.getElementById('mip-desc').innerHTML = m.desc;
+    document.getElementById('mip-who').innerHTML = m.who.map(w => `<div class="mip-who-item">${w}</div>`).join('');
+    document.getElementById('mip-inc').innerHTML = m.inc.map(i => `<div class="mip-inc-item"><span class="mip-inc-dot">–</span>${i}</div>`).join('');
   }
 
   function selectDur(btn) {
