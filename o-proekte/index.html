@@ -393,59 +393,12 @@
     reveals.forEach(el => observer.observe(el));
   </script>
 
-<footer style="background:#020617; border-top:1px solid rgba(34,211,238,0.1); padding: 40px 48px 40px;">
-  <div style="max-width:960px; margin:0 auto;">
-
-    <div style="
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:64px;
-  align-items:start;
-  margin-bottom:48px;
-">
-
-      <div>
-        <a href="/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:14px;">
-          <img src="/logo.png" alt="Лаборатория 404" style="height:32px; opacity:0.85;">
-          <span style="font-size:15px; font-weight:600; color:#f1f5f9; letter-spacing:0.02em;">Лаборатория 404</span>
-        </a>
-        <div style="font-size:13px; color:#475569; line-height:1.7;">
-          Комьюнити-пространство для отдыха.<br>
-          Место, куда можно уехать «на временную пенсию».
-        </div>
-      </div>
-
-      <div>
-        <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#334155; margin-bottom:16px;">Разделы</div>
-        <nav style="display:flex; flex-direction:column; gap:10px;">
-          <a href="/o-proekte/" style="font-size:13px; color:#94a3b8; text-decoration:none;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='#94a3b8'">О проекте</a>
-          <a href="/prostranstvo/" style="font-size:13px; color:#94a3b8; text-decoration:none;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='#94a3b8'">Пространство</a>
-          <a href="/priehat/" style="font-size:13px; color:#94a3b8; text-decoration:none;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='#94a3b8'">Приехать</a>
-          <a href="/partneram/" style="font-size:13px; color:#94a3b8; text-decoration:none;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='#94a3b8'">Партнерам</a>
-        </nav>
-      </div>
-
-      <div>
-        <div style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#334155; margin-bottom:16px;">Контакты</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="mailto:hello.labnotfound@gmail.com" style="font-size:13px; color:#94a3b8; text-decoration:none;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='#94a3b8'">hello.labnotfound@gmail.com</a>
-          <span style="font-size:13px; color:#334155; cursor:default;">Телеграм — скоро</span>
-          <a href="https://www.instagram.com/labnotfound" target="_blank" rel="noopener" style="font-size:13px; color:#94a3b8; text-decoration:none;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='#94a3b8'">Instagram</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-      <div style="font-size:12px; color:#334155;">© 2026 Лаборатория 404</div>
-      <div style="display:flex; gap:24px; flex-wrap:wrap;">
-        <a href="/privacy-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Политика конфиденциальности</a>
-          <a href="/cookie-policy.html" style="font-size:12px; color:#334155; text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#334155'">Cookie</a>
-      </div>
-    </div>
-
-  </div>
-</footer>
+<div id="site-footer"></div>
+<script>
+  fetch('/footer.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-footer').outerHTML = html; });
+</script>
 
 <!-- Cookie-баннер + Яндекс Метрика -->
 <script src="/cookie-banner.js"></script>
