@@ -1194,62 +1194,6 @@ margin-bottom: 40px;
   </div>
 </div>
 
-<!-- ===== МОДАЛКА: ПЕРЕЗАГРУЗКА ===== -->
-<div class="modal-overlay" id="modal-reload" onclick="closeOnOverlay(event,'reload')">
-  <div class="modal-box">
-    <div class="modal-hero">
-      <button class="modal-close" onclick="closeModal('reload')">✕</button>
-      <div class="modal-title">🔥 Перезагрузка</div>
-      <div class="modal-tagline">Когда появляется интерес к миру, приходит время движения.</div>
-    </div>
-    <div class="modal-scroll-zone" id="scroll-reload">
-      <div class="m-section">
-        <div class="m-section-label">Суть</div>
-        <div class="desc-text">
-          <p>Это режим возвращения вкуса к жизни. Бережная перезагрузка через впечатления, активности, природу. В окружении людей, которые с тобой на одной волне.</p>
-          <p>Здесь нет цели «перезапустить жизнь». Только почувствовать её.</p>
-        </div>
-      </div>
-      <div class="m-section">
-        <div class="m-section-label">Для кого</div>
-        <div class="who-list">
-          <div class="who-item">Если появилось желание двигаться и хочется впечатлений, но без перегруза</div>
-          <div class="who-item">Когда хочется сменить среду и быть среди людей без необходимости «соответствовать»</div>
-          <div class="who-item">Когда хочется просто ощутить, что жизнь — это не только работа и бытовые дела</div>
-        </div>
-      </div>
-      <div class="m-section">
-        <div class="m-section-label">Что входит</div>
-        <ul class="modal-items-list">
-          <li>Поездки по красивым местам</li>
-          <li>Лёгкие приключения</li>
-          <li>Совместные активности</li>
-        </ul>
-      </div>
-    </div>
-    <div class="scroll-hint" id="hint-reload">
-      <div class="scroll-arrow"><svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg></div>
-    </div>
-    <div class="modal-body">
-      <div class="m-divider"></div>
-      <div class="dur-label">Выберите длительность</div>
-      <div class="dur-row" id="dur-row-reload">
-        <button class="dur-btn active" onclick="selectDur(this,'reload')">
-          <div>Неделя</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'reload')">
-          <div>2 недели</div>
-        </button>
-        <button class="dur-btn" onclick="selectDur(this,'reload')">
-          <div>Месяц</div>
-        </button>
-      </div>
-      <div class="modal-price-block" id="price-reload"></div>
-    </div>
-    <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('reload', '🔥 Перезагрузка')">Оставить заявку →</button></div>
-  </div>
-</div>
-
 <!-- ===== МОДАЛКА: ОБНОВИТЬ ПРОШИВКУ ===== -->
 <div class="modal-overlay" id="modal-update" onclick="closeOnOverlay(event,'update')">
   <div class="modal-box">
@@ -1309,6 +1253,62 @@ margin-bottom: 40px;
   </div>
 </div>
 
+  <!-- ===== МОДАЛКА: ПЕРЕЗАГРУЗКА ===== -->
+<div class="modal-overlay" id="modal-reload" onclick="closeOnOverlay(event,'reload')">
+  <div class="modal-box">
+    <div class="modal-hero">
+      <button class="modal-close" onclick="closeModal('reload')">✕</button>
+      <div class="modal-title">🔥 Перезагрузка</div>
+      <div class="modal-tagline">Когда появляется интерес к миру, приходит время движения.</div>
+    </div>
+    <div class="modal-scroll-zone" id="scroll-reload">
+      <div class="m-section">
+        <div class="m-section-label">Суть</div>
+        <div class="desc-text">
+          <p>Это режим возвращения вкуса к жизни. Бережная перезагрузка через впечатления, активности, природу. В окружении людей, которые с тобой на одной волне.</p>
+          <p>Здесь нет цели «перезапустить жизнь». Только почувствовать её.</p>
+        </div>
+      </div>
+      <div class="m-section">
+        <div class="m-section-label">Для кого</div>
+        <div class="who-list">
+          <div class="who-item">Если появилось желание двигаться и хочется впечатлений, но без перегруза</div>
+          <div class="who-item">Когда хочется сменить среду и быть среди людей без необходимости «соответствовать»</div>
+          <div class="who-item">Когда хочется просто ощутить, что жизнь — это не только работа и бытовые дела</div>
+        </div>
+      </div>
+      <div class="m-section">
+        <div class="m-section-label">Что входит</div>
+        <ul class="modal-items-list">
+          <li>Поездки по красивым местам</li>
+          <li>Лёгкие приключения</li>
+          <li>Совместные активности</li>
+        </ul>
+      </div>
+    </div>
+    <div class="scroll-hint" id="hint-reload">
+      <div class="scroll-arrow"><svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg></div>
+    </div>
+    <div class="modal-body">
+      <div class="m-divider"></div>
+      <div class="dur-label">Выберите длительность</div>
+      <div class="dur-row" id="dur-row-reload">
+        <button class="dur-btn active" onclick="selectDur(this,'reload')">
+          <div>Неделя</div>
+        </button>
+        <button class="dur-btn" onclick="selectDur(this,'reload')">
+          <div>2 недели</div>
+        </button>
+        <button class="dur-btn" onclick="selectDur(this,'reload')">
+          <div>Месяц</div>
+        </button>
+      </div>
+      <div class="modal-price-block" id="price-reload"></div>
+    </div>
+    <div class="modal-footer"><button class="btn-book" onclick="bookFromModal('reload', '🔥 Перезагрузка')">Оставить заявку →</button></div>
+  </div>
+</div>
+
 <!-- ===== СКРИПТЫ МОДАЛОК ===== -->
 <script>
   /* ── Pricing data ── */
@@ -1323,16 +1323,16 @@ margin-bottom: 40px;
       two:   '105 000 ₽',
       month: '145 000 ₽'
     },
-    reload: {
-      week:  '90 000 ₽',
-      two:   '130 000 ₽',
-      month: '160 000 ₽'
-    },
     update: {
       week:  '60 000 ₽',
       two:   '90 000 ₽',
       month: '110 000 ₽'
     }
+    reload: {
+      week:  '90 000 ₽',
+      two:   '130 000 ₽',
+      month: '160 000 ₽'
+    },
   };
 
   const durKeyMap = { 'Неделя': 'week', '2 недели': 'two', 'Месяц': 'month' };
