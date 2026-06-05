@@ -98,7 +98,14 @@
     header { position: sticky; top: 0; z-index: 50; background: rgba(2,6,23,0.85); backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(255,255,255,0.05); }
     @media (max-width: 900px) {
       .about-hero { padding: 0 24px 60px; background: url('/ohero_m.jpg') center/cover no-repeat;}
-      .content-section, .philosophy-section, .mission-section, .why-now-section, .principles-section, .cta-section { padding-left: 24px; padding-right: 24px; }, .cta-section p { font-size: 16px !important; }
+      .content-section, .philosophy-section, .mission-section, .why-now-section, .principles-section, 
+              .cta-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+        .cta-section p {
+    font-size: 16px;
+  }
       .for-whom-grid { grid-template-columns: 1fr; }
       .stat-row { grid-template-columns: 1fr; }
       .principle-item { grid-template-columns: 36px 1fr; gap: 16px; }
