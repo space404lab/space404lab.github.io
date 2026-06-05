@@ -427,6 +427,21 @@
     .two-col { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
     @media (max-width:720px) { .two-col { grid-template-columns:1fr; gap:36px; } }
 
+    /* ═══ MODE INFO PANEL RESPONSIVE ═══ */
+    .mode-info-panel--mobile { display: none; }
+    .mode-info-panel--desktop { display: block; }
+    @media (max-width:720px) {
+      .mode-info-panel--mobile { display: block; }
+      .mode-info-panel--desktop { display: none !important; }
+    }
+
+    /* ═══ SECTION PADDING RESPONSIVE ═══ */
+    .section-pad-fix { padding-left: 48px; padding-right: 48px; }
+    .section-pad-fix--bottom { padding-bottom: 80px; }
+    @media (max-width:768px) {
+      .section-pad-fix { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+
     /* ═══ CTA ═══ */
     .cta-section {
       padding: 80px 0 100px;
@@ -548,7 +563,7 @@
 <!-- ══════════════════════════════════════
      STEPS SECTION
 ══════════════════════════════════════ -->
-<div id="steps" style="background:#020617; padding:80px 48px 0;">
+<div id="steps" style="background:#020617; padding:80px 48px 0;" class="section-pad-fix">
   <div class="lab-inner">
     <div class="section-num">01 &nbsp;/&nbsp;Как это работает</div>
 
@@ -595,13 +610,41 @@
                 </button>
               </div>
 
+              <!-- Панель описания для мобильных (показывается между карточками и кнопкой) -->
+              <div class="mode-info-panel mode-info-panel--mobile" id="mode-info-panel-mobile">
+                <div class="mip-empty" id="mip-empty-mobile">↑ Выберите режим, чтобы увидеть описание</div>
+                <div id="mip-content-mobile" style="display:none;">
+                  <div class="mip-header">
+                    <div class="mip-icon" id="mip-icon-mobile"></div>
+                    <div class="mip-title" id="mip-title-mobile"></div>
+                    <div class="mip-tagline" id="mip-tagline-mobile"></div>
+                  </div>
+                  <div class="mip-body">
+                    <div>
+                      <div class="mip-section-label">Суть</div>
+                      <div class="mip-desc" id="mip-desc-mobile"></div>
+                    </div>
+                    <div class="mip-divider"></div>
+                    <div>
+                      <div class="mip-section-label">Для кого</div>
+                      <div class="mip-who-list" id="mip-who-mobile"></div>
+                    </div>
+                    <div class="mip-divider"></div>
+                    <div>
+                      <div class="mip-section-label">Что входит</div>
+                      <div class="mip-inc-list" id="mip-inc-mobile"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <button class="proceed-btn" id="btn-step1" onclick="unlock(2)" disabled>
                 Выбрать длительность <span>→</span>
               </button>
             </div>
 
-            <!-- Панель описания -->
-            <div class="mode-info-panel" id="mode-info-panel">
+            <!-- Панель описания для десктопа (справа) -->
+            <div class="mode-info-panel mode-info-panel--desktop" id="mode-info-panel">
               <div class="mip-empty" id="mip-empty">← Выберите режим, чтобы увидеть описание</div>
               <div id="mip-content" style="display:none;">
                 <div class="mip-header">
@@ -749,7 +792,7 @@
 <!-- ══════════════════════════════════════
      DOCUMENTS
 ══════════════════════════════════════ -->
-<div style="background:#020617; padding:0 48px 80px; border-top:.5px solid rgba(255,255,255,.04);">
+<div style="background:#020617; border-top:.5px solid rgba(255,255,255,.04);" class="section-pad-fix section-pad-fix--bottom">
   <div class="lab-inner">
     <div class="section-num" style="padding-top:60px;">02 &nbsp;/&nbsp;Документы</div>
 
@@ -803,7 +846,7 @@
 <!-- ══════════════════════════════════════
      FAQ
 ══════════════════════════════════════ -->
-<div style="background:#020617; padding:0 48px 80px; border-top:.5px solid rgba(255,255,255,.04);">
+<div style="background:#020617; border-top:.5px solid rgba(255,255,255,.04);" class="section-pad-fix section-pad-fix--bottom">
   <div class="lab-inner">
     <div class="section-num" style="padding-top:60px;">03 &nbsp;/&nbsp;Частые вопросы</div>
     <h2 class="section-title" style="margin-top:36px; margin-bottom:36px;">Если что-то <em>непонятно</em></h2>
@@ -941,6 +984,8 @@
 
   function updateModePanel(mode) {
     const m = modeInfo[mode];
+
+    // Desktop panel
     const panel = document.getElementById('mode-info-panel');
     panel.classList.add('visible');
     document.getElementById('mip-empty').style.display = 'none';
@@ -951,6 +996,18 @@
     document.getElementById('mip-desc').innerHTML = m.desc;
     document.getElementById('mip-who').innerHTML = m.who.map(w => `<div class="mip-who-item">${w}</div>`).join('');
     document.getElementById('mip-inc').innerHTML = m.inc.map(i => `<div class="mip-inc-item"><span class="mip-inc-dot">–</span>${i}</div>`).join('');
+
+    // Mobile panel
+    const panelMobile = document.getElementById('mode-info-panel-mobile');
+    panelMobile.classList.add('visible');
+    document.getElementById('mip-empty-mobile').style.display = 'none';
+    document.getElementById('mip-content-mobile').style.display = 'block';
+    document.getElementById('mip-icon-mobile').textContent = m.icon;
+    document.getElementById('mip-title-mobile').textContent = m.title;
+    document.getElementById('mip-tagline-mobile').textContent = m.tagline;
+    document.getElementById('mip-desc-mobile').innerHTML = m.desc;
+    document.getElementById('mip-who-mobile').innerHTML = m.who.map(w => `<div class="mip-who-item">${w}</div>`).join('');
+    document.getElementById('mip-inc-mobile').innerHTML = m.inc.map(i => `<div class="mip-inc-item"><span class="mip-inc-dot">–</span>${i}</div>`).join('');
   }
 
   function selectDur(btn) {
