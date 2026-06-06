@@ -68,8 +68,11 @@
   /* ── Замена Tailwind CDN: только используемые утилиты ── */
   *, *::before, *::after { box-sizing: border-box; }
   /* Базовый reset (Tailwind preflight) */
+  html { line-height: 1.5; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  body { margin: 0; padding: 0; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
   button { background: transparent; border: none; color: inherit; font-family: inherit; cursor: pointer; padding: 0; }
+  img, video { max-width: 100%; display: block; }
   .flex { display: flex; }
   .flex-col { flex-direction: column; }
   .grid { display: grid; }
@@ -249,10 +252,14 @@
   @media (max-width: 768px) {
     .bg-hero {
       background-image: url('/hero_m.jpg');
+      background-size: cover;
+      background-position: center;
       animation: none;
     }
     .bg-secondary {
       background-image: url('/second_m.jpg');
+      background-size: cover;
+      background-position: center;
       animation: none;
     }
   }
