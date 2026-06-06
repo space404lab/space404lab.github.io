@@ -67,6 +67,9 @@
 
   /* ── Замена Tailwind CDN: только используемые утилиты ── */
   *, *::before, *::after { box-sizing: border-box; }
+  /* Базовый reset (Tailwind preflight) */
+  a { color: inherit; text-decoration: none; }
+  button { background: transparent; border: none; color: inherit; font-family: inherit; cursor: pointer; padding: 0; }
   .flex { display: flex; }
   .flex-col { flex-direction: column; }
   .grid { display: grid; }
@@ -125,6 +128,7 @@
   .gap-6 { gap: 1.5rem; }
   .gap-8 { gap: 2rem; }
   .space-x-10 > * + * { margin-left: 2.5rem; }
+  .bg-opacity-95 { --tw-bg-opacity: 0.95; background-color: rgba(2,6,23,0.95); }
   .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
   .text-xs { font-size: 0.75rem; line-height: 1rem; }
   .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
@@ -144,11 +148,12 @@
   .bg-slate-950 { background-color: #020617; }
   .bg-black { background-color: #000; }
   .bg-white { background-color: #fff; }
-  .bg-opacity-95 { background-color: rgba(2,6,23,0.95); }
   .bg-cyan-500 { background-color: #06b6d4; }
   .text-white { color: #fff; }
   .text-cyan-400 { color: #22d3ee; }
   .border-cyan-400 { border-color: #22d3ee; }
+  /* Мобильное меню с полупрозрачным фоном */
+  #mobile-menu { background-color: rgba(2,6,23,0.95); }
   /* Hover-утилиты */
   .hover\:bg-cyan-400:hover { background-color: #22d3ee; }
   .hover\:text-black:hover { color: #000; }
