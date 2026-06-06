@@ -396,7 +396,7 @@ width: 100%;
     font-weight: 300;
     line-height: 1.15;
     color: #f1f5f9;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     letter-spacing: -0.02em;
   }
 
@@ -438,7 +438,7 @@ width: 100%;
   }
 
   .right-col {
-    padding-top: 80px;
+    padding-top: 32px;
   }
 
   .right-label {
@@ -496,7 +496,6 @@ margin-bottom: 40px;
     border: 0.5px solid rgba(34,211,238,0.15);
     border-radius: 14px;
     background: rgba(34,211,238,0.02);
-    grid-column: 1 / -1;
   }
 
   .mission-block p {
@@ -533,7 +532,7 @@ margin-bottom: 40px;
     }
 
     .mission-block {
-      grid-column: 1;
+      /* вне грида, grid-column не нужен */
     }
   }
 
@@ -777,7 +776,19 @@ margin-bottom: 40px;
   <!-- Features -->
  <div class="lab-section">
   <div class="lab-inner">
-    <div class="layout-2col">
+    <div class="mission-block" style="margin-top:0; margin-bottom:48px;">
+  <p>
+    Лаборатория 404 — это пространство, где можно быть
+    <em>«не найденным» (как системная ошибка 404)</em>
+    для внешних запросов, но обнаруженным для самого себя.
+    Это не побег от жизни, а осознанная
+    <em>пауза для восстановления</em>
+    связи с собой. Вы просто временно «выходите из системы» —
+    и возвращаетесь к себе.
+  </p>
+</div>
+
+<div class="layout-2col">
 
 <div class="section-num">01 / Для кого это место</div>
 
@@ -844,18 +855,6 @@ margin-bottom: 40px;
           </div>
 
         </div>
-      </div>
-
-      <div class="mission-block">
-        <p>
-          Лаборатория 404 — это пространство, где можно быть
-          <em>«не найденным» (как системная ошибка 404)</em>
-          для внешних запросов, но обнаруженным для самого себя.
-          Это не побег от жизни, а осознанная
-          <em>пауза для восстановления</em>
-          связи с собой. Вы просто временно «выходите из системы» —
-          и возвращаетесь к себе.
-        </p>
       </div>
 
     </div>
