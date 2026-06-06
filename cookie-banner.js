@@ -8,7 +8,7 @@
   'use strict';
 
   /* ─── Конфигурация ─────────────────────────────────────────── */
-  var YM_ID = 'XXXXXXXX'; // ← замените на реальный номер счётчика
+  var YM_ID = '109700660'; 
   var COOKIE_NAME = 'lab404_cookie_consent';
   var COOKIE_DAYS = 365;
 
