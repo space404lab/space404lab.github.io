@@ -36,14 +36,14 @@
     .hero { height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden; background: url('/phero.jpg') center/cover no-repeat; }
     @media (max-width: 768px) { .hero { background: url('/phero_m.jpg') center/cover no-repeat; } }
     .hero::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to bottom, rgba(2,6,23,0.05) 0%, rgba(2,6,23,0.08) 40%, rgba(2,6,23,0.35) 70%, rgba(2,6,23,0.72) 100%); }
-    .hero::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 160px; z-index: 1; background: linear-gradient(to bottom, transparent, rgba(2,6,23,0.75)); pointer-events: none; }
+    .hero::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 160px; z-index: 1; background: linear-gradient(to bottom, transparent, #020617); pointer-events: none; }
     .hero-grid { position: absolute; inset: 0; z-index: 1; background-image: linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px); background-size: 72px 72px; }
-    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-content { position: relative; z-index: 3; max-width: 780px; }
     .hero-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cyan); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
     .hero-eyebrow::before { content:""; width:32px; height:0.5px; background:var(--cyan); opacity:0.4; }
     .hero-h1 { font-size: clamp(42px, 6vw, 78px); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: var(--text); margin-bottom: 28px; }
     .hero-h1 em { font-style: normal; color: var(--cyan); }
-    .hero-desc { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 460px; }
+    .hero-desc { font-size: 16px; color: #94a3b8; line-height: 1.8; max-width: 520px; }
     .hero-tag { display: inline-block; margin-top: 36px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); }
     .section-num { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); opacity: 0.7; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
     .section-num::after { content:""; flex:1; height:0.5px; background:rgba(34,211,238,0.5); }
@@ -63,7 +63,7 @@
     .feel-list { display: flex; flex-direction: column; gap: 7px; }
     .feel-list li { font-size: 13px; color: #475569; line-height: 1.5; display: flex; align-items: flex-start; gap: 9px; list-style: none; }
     .feel-list li::before { content:""; width:3px; height:3px; border-radius:50%; background: var(--cyan); margin-top:7px; flex-shrink:0; }
-    .landscape-section { padding: 100px 48px; border-top: 0.5px solid var(--border); }
+    .landscape-section { padding: 100px 48px; }
     .landscape-inner { max-width: 960px; margin: 0 auto; }
     .landscape-layout { display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center; }
     .section-title { font-size: clamp(28px, 3.5vw, 46px); font-weight: 300; line-height: 1.2; color: var(--text); margin-bottom: 36px; }
@@ -170,7 +170,11 @@
     <div class="hero-content">
       <div class="hero-eyebrow">Пространство</div>
       <h1 class="hero-h1">Место, где<br>время течёт<br><em>иначе</em></h1>
-      <p class="hero-desc">Разные резиденции для разных сезонов. <br>Мы не привязаны к точке на карте.<br>Мы привязаны к ощущению, ради которого люди приезжают.</p>
+      <p class="hero-desc">
+        Разные резиденции для разных сезонов.<br>
+        Мы не привязаны к точке на карте.<br>
+        Мы привязаны к ощущению, ради которого люди приезжают.
+      </p>
     </div>
   </section>
 
