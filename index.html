@@ -314,6 +314,11 @@ pointer-events: none;
 width: 100%;
 }
 
+.hero-eyebrow span {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 /* линия */
 .hero-eyebrow::after {
   content: "";
@@ -833,7 +838,7 @@ margin-bottom: 40px;
 
 <!-- Page Hero -->
 <div class="lab-inner page-hero">
-  <div class="hero-eyebrow">02 / У каждого состояния свой режим</div>
+  <div class="hero-eyebrow"><span>02 / У каждого состояния свой режим</span></div>
 
   <div class="text-center">
     <h2 class="text-4xl md:text-5xl font-light mb-5 glow-text">
