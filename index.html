@@ -352,7 +352,7 @@ width: 100%;
 
 
   .lab-section {
-    padding: 24px 48px 50px;
+    padding: 24px 48px 24px;
     font-family: 'Inter', sans-serif;
     color: #f1f5f9;
   }
@@ -412,15 +412,25 @@ width: 100%;
   }
 
   .items-list li {
-    font-size: 14px;
-    color: #64748b;
+    font-size: 15px;
+    color: #94a3b8;
     line-height: 1.65;
     list-style: none;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 14px;
-    padding: 16px 0;
-    border-bottom: 0.5px solid rgba(255,255,255,0.04);
+    padding: 14px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .items-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #22d3ee;
+    box-shadow: 0 0 6px #22d3ee, 0 0 12px rgba(34,211,238,0.4);
+    flex-shrink: 0;
   }
 
   .items-list li:last-child {
@@ -790,16 +800,21 @@ margin-bottom: 40px;
 
 <div class="section-num">01 / Для кого это место</div>
 
-<h2 class="section-title" style="margin-bottom:32px;">
-  Это место для вас <em>если</em>
-</h2>
+<div style="display:flex; gap:80px; align-items:flex-start;">
 
-<ul class="items-list">
-  <li>Устали быть «функциональным»</li>
-  <li>Не хочется ничего достигать</li>
-  <li>Хочется тишины и отсутствия ожиданий</li>
-  <li>Всё вроде нормально, но сил нет</li>
-</ul>
+  <h2 class="section-title" style="margin-bottom:0; flex:0 0 auto; max-width:320px;">
+    Это место для вас <em>если</em>
+  </h2>
+
+  <ul class="items-list" style="flex:1;">
+    <li>Всё вроде нормально, но сил нет</li>
+    <li>Не хочется ничего достигать</li>
+    <li>Устали быть «функциональным»</li>
+    <li>Хочется тишины и отсутствия ожиданий</li>
+    <li>Формально всё хорошо, но внутри пусто</li>
+  </ul>
+
+</div>
 
   </div>
 </div>
