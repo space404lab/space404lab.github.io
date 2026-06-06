@@ -352,7 +352,7 @@ width: 100%;
 
 
   .lab-section {
-    padding: 24px 48px 50px;
+    padding: 24px 48px 24px;
     font-family: 'Inter', sans-serif;
     color: #f1f5f9;
   }
@@ -412,15 +412,25 @@ width: 100%;
   }
 
   .items-list li {
-    font-size: 14px;
-    color: #64748b;
+    font-size: 15px;
+    color: #94a3b8;
     line-height: 1.65;
     list-style: none;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 14px;
-    padding: 16px 0;
-    border-bottom: 0.5px solid rgba(255,255,255,0.04);
+    padding: 14px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .items-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #22d3ee;
+    box-shadow: 0 0 6px #22d3ee, 0 0 12px rgba(34,211,238,0.4);
+    flex-shrink: 0;
   }
 
   .items-list li:last-child {
@@ -788,74 +798,23 @@ margin-bottom: 40px;
   </p>
 </div>
 
-<div class="layout-2col">
-
 <div class="section-num">01 / Для кого это место</div>
 
-<div class="left-col">
+<div style="display:flex; gap:80px; align-items:flex-start;">
 
-        <h2 class="section-title">
-          Это место для вас <em>если</em>
-        </h2>
+  <h2 class="section-title" style="margin-bottom:0; flex:0 0 auto; max-width:320px;">
+    Это место для вас <em>если</em>
+  </h2>
 
-        <ul class="items-list">
-          <li>Всё вроде нормально, но сил нет</li>
-          <li>Не хочется ничего достигать</li>
-          <li>Устали быть «функциональным»</li>
-          <li>Хочется тишины и отсутствия ожиданий</li>
-          <li>Формально всё хорошо, но внутри пусто</li>
-        </ul>
-      </div>
+  <ul class="items-list" style="flex:1;">
+    <li>Устали быть «функциональным»</li>
+    <li>Не хочется ничего достигать</li>
+    <li>Хочется тишины и отсутствия ожиданий</li>
+    <li>Всё вроде нормально, но сил нет</li>
+  </ul>
 
-      <div class="right-col">
-        <div class="right-label">Здесь по-другому</div>
+</div>
 
-        <div class="principle-list">
-
-          <div class="principle-item">
-            <div class="p-num">01</div>
-            <div>
-              <div class="p-title">Без вопросов про цели</div>
-              <div class="p-desc">
-                Никто не спрашивает, зачем вы приехали и что планируете делать дальше.
-              </div>
-            </div>
-          </div>
-
-          <div class="principle-item">
-            <div class="p-num">02</div>
-            <div>
-              <div class="p-title">Можно просто быть</div>
-              <div class="p-desc">
-                Не нужно соответствовать, активничать, общаться или показывать результат.
-              </div>
-            </div>
-          </div>
-
-          <div class="principle-item">
-            <div class="p-num">03</div>
-            <div>
-              <div class="p-title">Никакой продуктивности</div>
-              <div class="p-desc">
-                Мы не трансформируем и не прокачиваем. 
-              </div>
-            </div>
-          </div>
-
-          <div class="principle-item">
-            <div class="p-num">04</div>
-            <div>
-              <div class="p-title">Безусловное принятие</div>
-              <div class="p-desc">
-                Не оцениваем, правильно ли вы отдыхаете. Просто присутствуем рядом.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
   </div>
 </div>
 
