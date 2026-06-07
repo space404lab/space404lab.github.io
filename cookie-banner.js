@@ -8,7 +8,8 @@
   'use strict';
 
   /* ─── Конфигурация ─────────────────────────────────────────── */
-  var YM_ID = '109700660'; 
+  var YM_ID = '109700660';
+  var FB_PIXEL_ID = '1542488367626641';
   var COOKIE_NAME = 'lab404_cookie_consent';
   var COOKIE_DAYS = 365;
 
@@ -52,6 +53,24 @@
       accurateTrackBounce: true,
       webvisor: true
     });
+  }
+
+  /* ─── Meta Pixel ───────────────────────────────────────────── */
+  function loadMetaPixel() {
+    if (window._fbLoaded) return;
+    window._fbLoaded = true;
+
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', FB_PIXEL_ID);
+    fbq('track', 'PageView');
   }
 
   /* ─── Стили баннера ────────────────────────────────────────── */
@@ -172,7 +191,7 @@
     banner.setAttribute('aria-label', 'Согласие на использование cookie');
     banner.innerHTML = [
       '<p class="cb-text">',
-      '  Мы используем файлы cookie для аналитики (Яндекс Метрика) и корректной работы сайта. ',
+      '  Мы используем файлы cookie для аналитики (Яндекс Метрика, Meta Pixel) и корректной работы сайта. ',
       '  Нажимая «Принять», вы соглашаетесь с их использованием. ',
       '  <a href="/cookie-policy.html">Политика cookie</a>.',
       '</p>',
@@ -188,6 +207,7 @@
       setCookie(COOKIE_NAME, 'accepted', COOKIE_DAYS);
       hideBanner();
       loadYandexMetrika();
+      loadMetaPixel();
     });
 
     document.getElementById('lab404-cookie-decline').addEventListener('click', function () {
@@ -211,6 +231,7 @@
 
     if (consent === 'accepted') {
       loadYandexMetrika();
+      loadMetaPixel();
       return;
     }
 
