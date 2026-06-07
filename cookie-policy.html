@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
- 
+
 <!-- cookie-policy.html -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" href="/fonts/inter-300.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/fonts/inter-400.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/fonts/inter-600.woff2" type="font/woff2" crossorigin>
 
   <title>Политика cookie — Лаборатория 404</title>
   <meta name="description" content="Политика использования файлов cookie на сайте Лаборатория 404.">
@@ -15,13 +16,13 @@
   <link rel="canonical" href="https://labnotfound.ru/cookie-policy.html">
   <meta name="robots" content="noindex, follow">
 
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
 
   <style>
+  @font-face { font-family:'Inter'; src:url('/fonts/inter-300.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Inter'; src:url('/fonts/inter-400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Inter'; src:url('/fonts/inter-600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
     body {
       font-family: 'Inter', sans-serif;
       background: #020617;
@@ -280,6 +281,20 @@
           <td>30 минут</td>
           <td>Служебный cookie Вебвизора Яндекс Метрики</td>
         </tr>
+        <tr>
+          <td><code>_fbp</code></td>
+          <td>Аналитические</td>
+          <td>facebook.com</td>
+          <td>90 дней</td>
+          <td>Идентификатор браузера для Meta Pixel. Загружается только при вашем согласии</td>
+        </tr>
+        <tr>
+          <td><code>_fbc</code></td>
+          <td>Аналитические</td>
+          <td>facebook.com</td>
+          <td>90 дней</td>
+          <td>Хранит параметр fbclid из URL при переходе по рекламной ссылке Meta</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -302,7 +317,19 @@
   </p>
 
   <!-- 4 -->
-  <h2>4. Управление cookie</h2>
+  <h2>4. Аналитика: Meta Pixel</h2>
+  <p>
+    Мы используем Meta Pixel (Facebook Pixel) — инструмент аналитики от Meta Platforms —
+    для измерения эффективности и понимания действий пользователей на сайте.
+    Meta Pixel устанавливается <strong>только после вашего явного согласия</strong>.
+  </p>
+  <p>
+    Ознакомиться с политикой конфиденциальности Meta можно на
+    <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">facebook.com/privacy/policy</a>.
+  </p>
+
+  <!-- 5 -->
+  <h2>5. Управление cookie</h2>
   <p>
     Вы можете изменить своё решение в любой момент:
   </p>
@@ -331,15 +358,15 @@
     <li><a href="https://support.microsoft.com/ru-ru/microsoft-edge/файлы-cookie-в-microsoft-edge-1fe8d525-0c8a-0f0a-f2c5-b34f33e02dde" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
   </ul>
 
-  <!-- 5 -->
-  <h2>5. Контакты</h2>
+  <!-- 6 -->
+  <h2>6. Контакты</h2>
   <p>
     Если у вас есть вопросы об использовании cookie на нашем сайте,
     напишите нам: <a href="mailto:hello.labnotfound@gmail.com">hello.labnotfound@gmail.com</a>.
   </p>
 
-  <!-- 6 -->
-  <h2>6. Изменения политики</h2>
+  <!-- 7 -->
+  <h2>7. Изменения политики</h2>
   <p>
     Мы можем обновлять эту политику. Актуальная версия всегда доступна по адресу
     <a href="/cookie-policy.html">labnotfound.ru/cookie-policy.html</a>.
