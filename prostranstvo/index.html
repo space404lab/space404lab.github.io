@@ -85,10 +85,8 @@
     .reveal.visible { opacity:1; transform:translateY(0); }
     .feel-section { padding: 100px 48px; border-top: 0.5px solid var(--border); }
     .feel-header { max-width: 960px; margin: 0 auto; }
-    .feel-track { display: flex; gap: 16px; padding: 0 48px 24px; overflow-x: auto; scrollbar-width: none; cursor: grab; }
-    .feel-track::-webkit-scrollbar { display: none; }
-    .feel-track.grabbing { cursor: grabbing; }
-    .feel-card { flex: 0 0 300px; min-width: 300px; max-width: 300px; background: rgba(255,255,255,0.02); border: 0.5px solid rgba(255,255,255,0.07); border-radius: 18px; padding: 32px 28px; transition: border-color 0.25s, background 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+    .feel-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 0 48px; }
+    .feel-card { background: rgba(255,255,255,0.02); border: 0.5px solid rgba(255,255,255,0.07); border-radius: 18px; padding: 32px 28px; transition: border-color 0.25s, background 0.25s, transform 0.25s; position: relative; overflow: hidden; }
     .feel-card::before { content:""; position:absolute; inset:0; background: radial-gradient(circle at 30% 30%, rgba(34,211,238,0.03), transparent 60%); pointer-events:none; }
     .feel-card:hover { border-color: rgba(34,211,238,0.25); background: rgba(34,211,238,0.02); transform: translateY(-4px); }
     .feel-icon { font-size: 28px; margin-bottom: 20px; display: block; }
@@ -138,9 +136,7 @@
     font-size: 16px;
   }
       .feel-header { padding: 0; }
-      .feel-track { flex-direction: column; overflow-x: visible; padding: 24px 0 0; cursor: default; gap: 12px; }
-      .feel-track.grabbing { cursor: default; }
-      .feel-card { flex: 0 0 auto; width: 100%; min-width: 0; max-width: none; }
+      .feel-track { grid-template-columns: 1fr; padding: 24px 0 0; gap: 12px; }
     }
   </style>
   <script type="application/ld+json">
@@ -338,23 +334,6 @@
   </section>
 
   <script>
-    const track = document.getElementById('feelTrack');
-    let isDown = false, startX, scrollLeft;
-    track.addEventListener('mousedown', e => {
-      if (window.innerWidth <= 900) return;
-      isDown = true; track.classList.add('grabbing');
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-    });
-    track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
-    track.addEventListener('mouseup',    () => { isDown = false; track.classList.remove('grabbing'); });
-    track.addEventListener('mousemove', e => {
-      if (!isDown || window.innerWidth <= 900) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      track.scrollLeft = scrollLeft - (x - startX) * 1.2;
-    });
-
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
